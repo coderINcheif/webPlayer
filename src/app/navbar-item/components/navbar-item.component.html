@@ -1,0 +1,12 @@
+<a [routerLink]="link" [class.subitem]="isSubitem">
+  <i class="material-icons">{{ icon }}</i>
+  {{ title }}
+</a>
+<div *ngIf="subitems" class="subitems">
+  <app-navbar-item
+    *ngFor="let item of subitems"
+    [isSubitem]="true"
+    [title]="item.title"
+    [link]="item.link"
+  ></app-navbar-item>
+</div>

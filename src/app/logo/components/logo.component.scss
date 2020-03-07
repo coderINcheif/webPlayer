@@ -1,0 +1,17 @@
+div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  i {
+    color: white;
+    margin-left: -15px;
+    font-size: 40px;
+  }
+  h1 {
+    color: white;
+    font-family: "roboto", sans-serif;
+    font-weight: 700;
+    font-size: 27px;
+  }
+}

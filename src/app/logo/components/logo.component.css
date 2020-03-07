@@ -1,0 +1,29 @@
+div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+div i {
+  color: white;
+  margin-left: -15px;
+  font-size: 40px;
+}
+
+div h1 {
+  color: white;
+  font-family: "roboto", sans-serif;
+  font-weight: 700;
+  font-size: 27px;
+}
+/*# sourceMappingURL=logo.component.css.map */

@@ -1,0 +1,40 @@
+a {
+  width: 90%;
+  color: white;
+  font-family: 'roboto', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  flex-flow: row;
+  justify-content: left;
+  align-items: center;
+  padding: 10px 8px 10px 8px;
+  margin: 5px 0 5px 0;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  border-radius: 5px;
+  i {
+    font-size: 27px;
+    padding: 0 18px 0 0;
+    // margin-top: -5px;
+  }
+  &:hover {
+    background-color: rgb(40, 40, 40);
+  }
+  &.subitem {
+    width: auto;
+    font-weight: 400;
+    color: grey;
+    margin: 0 0 0 50px;
+    &:hover {
+      background-color: transparent;
+    }
+    i {
+      display: none;
+    }
+  }
+}
+.subitems {
+  margin-top: 10px;
+}

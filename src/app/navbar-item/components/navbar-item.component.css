@@ -1,0 +1,56 @@
+a {
+  width: 90%;
+  color: white;
+  font-family: 'roboto', sans-serif;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px 8px 10px 8px;
+  margin: 5px 0 5px 0;
+  cursor: pointer;
+  -webkit-transition: all 200ms ease-in-out;
+  transition: all 200ms ease-in-out;
+  border-radius: 5px;
+}
+
+a i {
+  font-size: 27px;
+  padding: 0 18px 0 0;
+}
+
+a:hover {
+  background-color: #282828;
+}
+
+a.subitem {
+  width: auto;
+  font-weight: 400;
+  color: grey;
+  margin: 0 0 0 50px;
+}
+
+a.subitem:hover {
+  background-color: transparent;
+}
+
+a.subitem i {
+  display: none;
+}
+
+.subitems {
+  margin-top: 10px;
+}
+/*# sourceMappingURL=navbar-item.component.css.map */

@@ -1,13 +1,12 @@
-.body {
+div {
+  display: grid;
+  grid-template-areas: 'navbar content';
+  grid-template-columns: 230px 1fr;
+  grid-template-rows: 1fr;
   height: 100vh;
-  width: 100vw;
-  // background-color: black;
-  display: flex;
-  flex-flow: column;
-  app-navbar {
-    width: 17%;
-  }
+  width: 100%;
+  // overflow: hidden;
   .content {
-    width: 70%;
+    grid-area: content;
   }
 }
