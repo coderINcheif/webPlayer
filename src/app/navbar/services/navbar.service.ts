@@ -1,4 +1,5 @@
-import { NavbarItem } from 'src/app/shared/interfaces/navbar-item';
+import { NavbarItem } from './../shared/interfaces/navbar-item';
+
 import { Injectable } from '@angular/core';
 
 @Injectable({

@@ -1,7 +1,7 @@
 import { NavbarService } from './services/navbar.service';
-import { NavbarComponent } from './component/navbar.component';
-import { NavbarItemComponent } from './navbar-item/component/navbar-item.component';
-import { LogoComponent } from './logo/component/logo.component';
+import { NavbarComponent } from './components/navbar.component';
+import { NavbarItemComponent } from './navbar-item/components/navbar-item.component';
+import { LogoComponent } from './logo/components/logo.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 

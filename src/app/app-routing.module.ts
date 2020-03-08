@@ -1,4 +1,4 @@
-import { AppComponent } from './component/app.component';
+import { AppComponent } from './components/app.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
