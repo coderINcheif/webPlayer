@@ -22,7 +22,7 @@ export class NavbarService {
       {
         title: 'Favorites',
         icon: 'favorite',
-        link: '#',
+        link: '/favorites',
         subitems: [
           { title: 'Songs', link: '/favorites/songs' },
           { title: 'Albums', link: '/favorites/albumn' },

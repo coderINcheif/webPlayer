@@ -8,7 +8,7 @@ import { ContentModule } from './content/content.module';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [BrowserModule, AppRoutingModule, NavbarModule, ContentModule],
+  imports: [BrowserModule, ContentModule, NavbarModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent]
 })

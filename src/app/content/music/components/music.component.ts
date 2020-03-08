@@ -1,15 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-music',
+  selector: 'app-content-music',
   templateUrl: './music.component.html',
   styleUrls: ['./music.component.scss']
 })
 export class MusicComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 }

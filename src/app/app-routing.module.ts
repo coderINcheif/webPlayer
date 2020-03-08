@@ -1,15 +1,11 @@
-import { AppComponent } from './components/app.component';
+import { ContentComponent } from './content/components/content.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: '',
-    component: AppComponent
-  },
-  {
-    path: 'music',
-    component: AppComponent
+    component: ContentComponent
   }
 ];
 
