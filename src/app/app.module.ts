@@ -1,4 +1,3 @@
-import { NavbarService } from './navbar/service/navbar.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -9,7 +8,7 @@ import { NavbarModule } from './navbar/navbar.module';
 @NgModule({
   declarations: [AppComponent],
   imports: [BrowserModule, AppRoutingModule, NavbarModule],
-  providers: [NavbarService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
