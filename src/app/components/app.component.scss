@@ -5,4 +5,10 @@ div {
   grid-template-rows: 1fr;
   height: 100vh;
   width: 100%;
+  &.navbar {
+    grid-area: navbar;
+  }
+  &.content {
+    grid-area: content;
+  }
 }
