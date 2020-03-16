@@ -1,4 +1,4 @@
-import { NavbarService } from './services/navbar.service';
+import { NavbarService } from './navbar-item/services/navbar.service';
 import { NavbarComponent } from './components/navbar.component';
 import { NavbarItemComponent } from './navbar-item/components/navbar-item.component';
 import { LogoComponent } from './logo/components/logo.component';

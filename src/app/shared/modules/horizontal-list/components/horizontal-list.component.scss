@@ -1,0 +1,19 @@
+.horizontal-list {
+  display: flex;
+  flex-flow: column;
+  font-family: 'roboto', sans-serif;
+  margin: 20px 0 20px 0;
+  h1 {
+    color: white;
+    font-size: 25px;
+  }
+  ul {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    column-gap: 16px;
+    row-gap: 16px;
+    margin: 0;
+    padding: 0;
+  }
+}

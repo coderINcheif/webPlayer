@@ -1,3 +1,4 @@
+import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./music.component.scss']
 })
 export class MusicComponent implements OnInit {
-  constructor() {}
+  listHeader: string;
+  constructor() {
+    this.listHeader = 'Trending';
+  }
 
   ngOnInit() {}
 }

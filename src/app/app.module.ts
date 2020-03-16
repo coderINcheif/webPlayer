@@ -1,3 +1,4 @@
+import { ViewControllerModule } from './view-controller/view-controller.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,6 +17,7 @@ import { FavoritesModule } from './favorites/favorites.module';
     MusicModule,
     ExploreModule,
     FavoritesModule,
+    ViewControllerModule,
     AppRoutingModule
   ],
   providers: [],

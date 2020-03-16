@@ -1,0 +1,8 @@
+<div class="horizontal-list">
+  <h1>{{ header }}</h1>
+  <ul>
+    <li *ngFor="let item of items">
+      <app-card [music]="item"></app-card>
+    </li>
+  </ul>
+</div>

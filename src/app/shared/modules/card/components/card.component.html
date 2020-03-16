@@ -1,0 +1,11 @@
+<div class="music-card">
+  <div
+    class="card-cover"
+    [ngStyle]="{ 'background-image': 'url(' + music.cover + ')' }"
+  ></div>
+  <div class="card-detail">
+    <h1>{{ music.title }}</h1>
+    <p>{{ music.artist.name }}</p>
+    <p>Released {{ music.releaseDate }}</p>
+  </div>
+</div>

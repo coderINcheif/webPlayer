@@ -1,5 +1,5 @@
 import { NavbarItem } from '../shared/interfaces/navbar-item';
-import { NavbarService } from '../services/navbar.service';
+import { NavbarService } from '../navbar-item/services/navbar.service';
 import { Component, OnInit } from '@angular/core';
 import { ThrowStmt } from '@angular/compiler';
 

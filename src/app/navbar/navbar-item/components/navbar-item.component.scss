@@ -17,9 +17,11 @@ a {
   i {
     font-size: 27px;
     padding: 0 18px 0 0;
-    // margin-top: -5px;
   }
   &:hover {
+    background-color: rgb(40, 40, 40);
+  }
+  &.active {
     background-color: rgb(40, 40, 40);
   }
   &.subitem {
