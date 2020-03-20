@@ -2,6 +2,12 @@ div {
   height: 80px;
   width: 100%;
   position: fixed;
-  display: initial;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: flex-start;
   background-color: rgba($color: rgb(8, 8, 8), $alpha: 0.7);
+  app-view-controller-search-bar {
+    width: 100%;
+  }
 }

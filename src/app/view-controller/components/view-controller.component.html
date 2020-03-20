@@ -1,3 +1,6 @@
 <div>
   <app-view-controller-navigation-buttons></app-view-controller-navigation-buttons>
+  <app-view-controller-search-bar
+    *ngIf="routeIncludes('/explore')"
+  ></app-view-controller-search-bar>
 </div>
