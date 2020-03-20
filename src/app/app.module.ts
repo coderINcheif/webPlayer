@@ -8,6 +8,7 @@ import { NavbarModule } from './navbar/navbar.module';
 import { MusicModule } from './music/music.module';
 import { ExploreModule } from './explore/explore.module';
 import { FavoritesModule } from './favorites/favorites.module';
+import { PlaylistDetailModule } from './playlist-detail/playlist-detail.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { FavoritesModule } from './favorites/favorites.module';
     ExploreModule,
     FavoritesModule,
     ViewControllerModule,
+    PlaylistDetailModule,
     AppRoutingModule
   ],
   providers: [],

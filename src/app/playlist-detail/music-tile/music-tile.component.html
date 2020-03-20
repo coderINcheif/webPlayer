@@ -1,0 +1,14 @@
+<div>
+  <div class="header">
+    <p>{{ music.title }}</p>
+    <span>{{ music.length }}</span>
+  </div>
+  <div class="artists">
+    <p *ngFor="let artist of music.artists; last as isLast">
+      {{ artist.name }}
+      <span *ngIf="!isLast">
+        <div></div>
+      </span>
+    </p>
+  </div>
+</div>

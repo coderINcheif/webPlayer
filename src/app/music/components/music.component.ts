@@ -1,3 +1,4 @@
+import { CategoriesService } from './../services/categories.service';
 import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./music.component.scss']
 })
 export class MusicComponent implements OnInit {
-  listHeader: string;
-  constructor() {
-    this.listHeader = 'Trending';
+  categories: Array<string>;
+  constructor(categoriesService: CategoriesService) {
+    this.categories = categoriesService.categories;
   }
 
   ngOnInit() {}

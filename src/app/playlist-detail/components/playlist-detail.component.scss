@@ -1,0 +1,16 @@
+div {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-areas: 'banner track-list';
+  grid-template-columns: 40% 1fr;
+  grid-template-rows: 1fr;
+  .banner {
+    grid-area: banner;
+    display: initial;
+  }
+  .track-list {
+    grid-area: track-list;
+    display: initial;
+  }
+}

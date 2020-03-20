@@ -9,14 +9,29 @@ div {
   }
   &.content {
     grid-area: content;
-    display: initial;
-    padding: 30px;
-    margin: 0 30px 0 30px;
-    height: calc(100% - calc(2 * 30px));
-    overflow-y: scroll;
+    display: grid;
+    grid-template-areas:
+      'view-controller'
+      'router-outlet';
+    grid-template-rows:
+      80px
+      1fr;
+    grid-template-columns: 1fr;
+    overflow: scroll;
+    height: 100vh;
     &::-webkit-scrollbar {
       display: none;
     }
     scrollbar-width: none;
+    .router-outlet {
+      display: initial;
+      grid-area: router-outlet;
+      padding: 0 30px 0 30px;
+      margin: 0 30px 0 30px;
+    }
+    .app-view-controller {
+      grid-area: view-controller;
+      display: initial;
+    }
   }
 }

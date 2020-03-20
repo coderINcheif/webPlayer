@@ -1,11 +1,14 @@
-<div class="music-card">
+<a [routerLink]="['/playlist', playlist.id]" class="playlist-card">
   <div
     class="card-cover"
-    [ngStyle]="{ 'background-image': 'url(' + music.cover + ')' }"
+    [ngStyle]="{ 'background-image': 'url(' + playlist.cover + ')' }"
   ></div>
   <div class="card-detail">
-    <h1>{{ music.title }}</h1>
-    <p>{{ music.artist.name }}</p>
-    <p>Released {{ music.releaseDate }}</p>
+    <h1>{{ playlist.title }}</h1>
+    <p>
+      <span *ngFor="let artist of playlist.artists; last as isLast"
+        >{{ artist.name }}<span *ngIf="!isLast">,</span></span
+      >
+    </p>
   </div>
-</div>
+</a>

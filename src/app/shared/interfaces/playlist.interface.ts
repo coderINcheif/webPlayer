@@ -1,9 +1,9 @@
 import { ArtistInterface } from './artist.interface';
 
-export interface MusicInterface {
+export interface PlaylistInterface {
   title: string;
   artists: Array<ArtistInterface>;
-  releaseDate: string;
   cover: string;
-  length: string;
+  created_by: string;
+  id: string;
 }

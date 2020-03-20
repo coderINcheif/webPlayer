@@ -1,4 +1,4 @@
-import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
+import { PlaylistInterface } from './../../../interfaces/playlist.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  @Input() music: MusicInterface;
+  @Input() playlist: PlaylistInterface;
 
   constructor() {}
 

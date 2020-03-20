@@ -1,8 +1,6 @@
 <div class="app-music">
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
-  <app-horizontal-list [header]="listHeader"></app-horizontal-list>
+  <app-horizontal-list
+    *ngFor="let category of categories"
+    [header]="category"
+  ></app-horizontal-list>
 </div>
