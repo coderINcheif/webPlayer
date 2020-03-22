@@ -24,10 +24,10 @@ div {
     }
     scrollbar-width: none;
     .router-outlet {
-      display: initial;
       grid-area: router-outlet;
       padding: 0 30px 0 30px;
       margin: 0 30px 0 30px;
+      display: initial;
     }
     .app-view-controller {
       width: 100%;

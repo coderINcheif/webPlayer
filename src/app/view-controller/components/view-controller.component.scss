@@ -2,6 +2,7 @@ div {
   height: 80px;
   width: 100%;
   position: fixed;
+  z-index: 2;
   display: flex;
   flex-flow: row;
   align-items: center;
