@@ -8,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GeneresComponent implements OnInit {
   generes: Array<string>;
-  constructor(genereService: GeneresService) {
-    this.generes = genereService.generes;
-  }
+  constructor(private genereService: GeneresService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.generes = this.genereService.generes;
+  }
 }

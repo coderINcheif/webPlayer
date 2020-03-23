@@ -11,9 +11,9 @@ export class HorizontalListComponent implements OnInit {
   items: Array<PlaylistInterface>;
   @Input() header: string;
 
-  constructor(listItems: HorizontalListService) {
-    this.items = listItems.items;
-  }
+  constructor(private listItems: HorizontalListService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.items = this.listItems.items;
+  }
 }

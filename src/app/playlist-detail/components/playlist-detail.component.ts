@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistDetailComponent implements OnInit {
   playlist: PlaylistDetailInterface;
-  constructor(playlistDetail: PlaylistDetailService) {
-    this.playlist = playlistDetail.playlist;
-  }
+  constructor(private playlistDetail: PlaylistDetailService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.playlist = this.playlistDetail.playlist;
+  }
 }

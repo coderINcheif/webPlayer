@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MusicComponent implements OnInit {
   categories: Array<string>;
-  constructor(categoriesService: CategoriesService) {
-    this.categories = categoriesService.categories;
-  }
+  constructor(private categoriesService: CategoriesService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.categories = this.categoriesService.categories;
+  }
 }
