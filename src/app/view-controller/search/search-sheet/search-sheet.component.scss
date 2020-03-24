@@ -1,0 +1,10 @@
+div {
+  width: 50%;
+  position: relative;
+  margin-left: calc(25% - 163px);
+  app-view-controller-result-panel {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+}

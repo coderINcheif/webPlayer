@@ -8,6 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class GenereCardComponent implements OnInit {
   @Input('genere') genere: string;
   colors: Array<string>;
+  fontColor: string;
   constructor() {
     this.colors = [
       '#95E1D3',
@@ -26,5 +27,7 @@ export class GenereCardComponent implements OnInit {
     return this.colors[Math.floor(Math.random() * this.colors.length)];
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.fontColor = this.getFontColor();
+  }
 }

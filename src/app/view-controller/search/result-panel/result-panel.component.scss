@@ -1,0 +1,36 @@
+@keyframes fade-in {
+  from {
+    transform: translateY(25px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+div {
+  background-color: rgba($color: rgb(15, 15, 15), $alpha: 0.8);
+  box-shadow: 0 5px 12px 6px rgba($color: black, $alpha: 0.9);
+  min-height: 100px;
+  width: 100%;
+  position: absolute;
+  border-radius: 5px;
+  margin-top: 20px;
+  animation: fade-in 250ms;
+  animation-direction: reverse;
+  &.visible {
+    animation: fade-in 250ms;
+    animation-direction: normal;
+  }
+  &::after {
+    position: absolute;
+    background-color: rgba($color: rgb(20, 20, 20), $alpha: 0.7);
+    content: '';
+    filter: blur(3px);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}

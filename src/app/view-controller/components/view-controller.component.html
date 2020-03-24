@@ -1,6 +1,11 @@
 <div>
   <app-view-controller-navigation-buttons></app-view-controller-navigation-buttons>
-  <app-view-controller-search-bar
+  <app-view-controller-search-sheet
     *ngIf="routeIncludes('/explore')"
-  ></app-view-controller-search-bar>
+  ></app-view-controller-search-sheet>
 </div>
+<div
+  class="overlay"
+  [class.visible]="overlay && routeIncludes('/explore')"
+  (mousedown)="updateSearchingStatus(false)"
+></div>

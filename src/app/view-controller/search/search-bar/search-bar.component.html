@@ -1,0 +1,18 @@
+<div>
+  <input
+    type="text"
+    #input
+    placeholder="Artist, songs or playlists"
+    (focus)="updateSearchingStatus(true)"
+    (keydown.escape)="clearSearch()"
+    (keydown.escape)="input.blur()"
+    (input)="updateQuery(input.value)"
+    [class.activated]="isSearching"
+  />
+  <i
+    *ngIf="isSearching"
+    class="cancel-search material-icons"
+    (click)="clearSearch()"
+    >cancel</i
+  >
+</div>
