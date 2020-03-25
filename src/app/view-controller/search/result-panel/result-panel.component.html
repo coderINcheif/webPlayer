@@ -1,6 +1,50 @@
 <div [class.visible]="visible">
-  <app-search-result-tile
-    *ngFor="let result of results"
-    [result]="result"
-  ></app-search-result-tile>
+  <div class="background"></div>
+  <div *ngIf="recents === false; then resultsTemp; else recentsTemp"></div>
+  <ng-template #resultsTemp>
+    <div
+      *ngIf="results.length === 0; then noResultTemp; else showResultTemp"
+    ></div>
+  </ng-template>
+  <ng-template #recentsTemp>
+    <div
+      *ngIf="
+        recentSearches.length === 0;
+        then noRecentsTemp;
+        else showRecentsTemp
+      "
+    ></div>
+  </ng-template>
+
+  <ng-template #showRecentsTemp>
+    <div class="results recents">
+      <p>Recent searches</p>
+      <app-search-result-tile
+        *ngFor="let result of recentSearches"
+        [result]="result"
+      ></app-search-result-tile>
+    </div>
+  </ng-template>
+  <ng-template #showResultTemp>
+    <div class="results">
+      <app-search-result-tile
+        *ngFor="let result of results"
+        [result]="result"
+      ></app-search-result-tile>
+    </div>
+  </ng-template>
+  <ng-template #noRecentsTemp>
+    <div class="results icon">
+      <i class="material-icons">search</i>
+      <h2>Search WebPlayer</h2>
+      <p>Find your favorite music and playlist</p>
+    </div>
+  </ng-template>
+  <ng-template #noResultTemp>
+    <div class="results icon">
+      <i class="material-icons">error_outline</i>
+      <h2>No results found</h2>
+      <p>Please check you have right spelling or try different keyword</p>
+    </div>
+  </ng-template>
 </div>

@@ -10,21 +10,28 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ResultPanelComponent implements OnInit {
   @Input('visible') visible: boolean;
+
   results: Array<SearchResultInterface>;
+  recents: boolean;
+  public recentSearches: Array<SearchResultInterface> = [];
 
   constructor(
     private syncService: SyncService,
     private searchService: SearchService
   ) {
     this.results = [];
+    this.recents = true;
   }
 
   ngOnInit() {
     this.syncService.searchQuery$.subscribe(query => {
       if (query !== '') {
+        this.recents = false;
         this.results = this.searchService.getResults(query);
       } else {
         this.results = [];
+        this.recents = true;
+        this.recentSearches = this.searchService.getRecentSearches();
       }
     });
   }
