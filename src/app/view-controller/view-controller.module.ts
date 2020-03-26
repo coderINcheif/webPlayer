@@ -1,3 +1,4 @@
+import { OverlayService } from './../shared/services/overlay-service/overlay.service';
 import { SyncService } from './search/shared/services/sync.service';
 import { SearchModule } from './search/search.module';
 import { RouterModule } from '@angular/router';
@@ -9,7 +10,7 @@ import { NavigationButtonsComponent } from './navigation-buttons/navigation-butt
 @NgModule({
   declarations: [ViewControllerComponent, NavigationButtonsComponent],
   imports: [CommonModule, SearchModule, RouterModule],
-  providers: [SyncService],
+  providers: [SyncService, OverlayService],
   exports: [ViewControllerComponent]
 })
 export class ViewControllerModule {}

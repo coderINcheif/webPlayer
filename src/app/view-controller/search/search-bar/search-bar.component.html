@@ -5,7 +5,6 @@
     placeholder="Artist, songs or playlists"
     (focus)="updateSearchingStatus(true)"
     (keydown.escape)="clearSearch()"
-    (keydown.escape)="input.blur()"
     (input)="updateQuery(input.value)"
     [class.activated]="isSearching"
   />

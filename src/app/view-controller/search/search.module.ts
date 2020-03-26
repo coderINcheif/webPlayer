@@ -1,3 +1,4 @@
+import { OverlayService } from './../../shared/services/overlay-service/overlay.service';
 import { SearchService } from './shared/services/search.service';
 import { SyncService } from './shared/services/sync.service';
 import { ResultPanelComponent } from './result-panel/result-panel.component';

@@ -1,5 +1,12 @@
+import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
 import { SyncService } from '../shared/services/sync.service';
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  ElementRef,
+  OnDestroy,
+  ViewChild
+} from '@angular/core';
 
 @Component({
   selector: 'app-view-controller-search-bar',
@@ -7,12 +14,17 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
   styleUrls: ['./search-bar.component.scss']
 })
 export class SearchBarComponent implements OnInit, OnDestroy {
+  @ViewChild('input', { static: true }) input: ElementRef;
+
   isSearching = false;
   constructor(private syncService: SyncService) {}
 
   ngOnInit() {
     this.syncService.isSearching$.subscribe(status => {
       this.isSearching = status;
+      if (!this.isSearching) {
+        this.clearSearch(false);
+      }
     });
   }
 
@@ -20,10 +32,14 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.clearSearch();
   }
 
-  clearSearch() {
+  clearSearch(broadcastStatus = true) {
     this.isSearching = false;
-    this.syncService.updateSearchingStatus(false);
     this.syncService.updateSearchQuery('');
+    this.input.nativeElement.value = '';
+    this.input.nativeElement.blur();
+    if (broadcastStatus) {
+      this.syncService.updateSearchingStatus(false);
+    }
   }
 
   updateSearchingStatus(status: boolean) {

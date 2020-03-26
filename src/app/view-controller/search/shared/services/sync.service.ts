@@ -1,3 +1,4 @@
+import { OverlayService } from './../../../../shared/services/overlay-service/overlay.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -11,9 +12,10 @@ export class SyncService {
   public isSearching$ = this.isSearching.asObservable();
   public searchQuery$ = this.searchQuery.asObservable();
 
-  constructor() {}
+  constructor(private overlayService: OverlayService) {}
 
   updateSearchingStatus(status: boolean) {
+    this.overlayService.updateOverlayStatus(status);
     this.isSearching.next(status);
   }
 
