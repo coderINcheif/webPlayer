@@ -12,7 +12,6 @@ export class ViewControllerComponent implements OnInit {
   overlay = false;
   constructor(
     private overlayService: OverlayService,
-    private syncService: SyncService,
     private _router: Router
   ) {}
 
@@ -26,7 +25,7 @@ export class ViewControllerComponent implements OnInit {
     });
   }
 
-  updateSearchingStatus(status: boolean) {
-    this.syncService.updateSearchingStatus(status);
+  updateOverlayStatus(status: boolean) {
+    this.overlayService.updateOverlayStatus(status);
   }
 }

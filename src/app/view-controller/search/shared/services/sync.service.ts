@@ -12,14 +12,29 @@ export class SyncService {
   public isSearching$ = this.isSearching.asObservable();
   public searchQuery$ = this.searchQuery.asObservable();
 
-  constructor(private overlayService: OverlayService) {}
+  constructor(private overlayService: OverlayService) {
+    this.listenOverlayService();
+  }
 
-  updateSearchingStatus(status: boolean) {
-    this.overlayService.updateOverlayStatus(status);
+  updateSearchingStatus(
+    status: boolean,
+    broadcastOverlayStatus: boolean = true
+  ) {
     this.isSearching.next(status);
+    if (broadcastOverlayStatus) {
+      this.overlayService.updateOverlayStatus(status);
+    }
   }
 
   updateSearchQuery(query: string) {
     this.searchQuery.next(query);
+  }
+
+  private listenOverlayService() {
+    this.overlayService.overlayStatus$.subscribe(status => {
+      if (status === false) {
+        this.updateSearchingStatus(false, false);
+      }
+    });
   }
 }

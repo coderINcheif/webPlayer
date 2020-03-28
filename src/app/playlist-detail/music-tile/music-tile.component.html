@@ -1,7 +1,7 @@
 <div>
   <div class="header">
     <p>{{ music.title }}</p>
-    <span>{{ music.length }}</span>
+    <i (click)="toggleActions(true)" class="material-icons">more_vert</i>
   </div>
   <div class="artists">
     <p *ngFor="let artist of music.artists; last as isLast">
@@ -11,4 +11,7 @@
       </span>
     </p>
   </div>
+</div>
+<div class="actions" *ngIf="selected" (mousedown)="toggleActions(false)">
+  <app-actions [actions]="actions"></app-actions>
 </div>
