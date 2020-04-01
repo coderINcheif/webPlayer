@@ -1,3 +1,4 @@
+import { ImageModule } from './../../shared/modules/image/image.module';
 import { OverlayService } from './../../shared/services/overlay-service/overlay.service';
 import { SearchService } from './shared/services/search.service';
 import { SyncService } from './shared/services/sync.service';
@@ -15,7 +16,7 @@ import { ResultTileComponent } from './result-tile/result-tile.component';
     ResultPanelComponent,
     ResultTileComponent
   ],
-  imports: [CommonModule],
+  imports: [CommonModule, ImageModule],
   exports: [SearchSheetComponent],
   providers: [SyncService, SearchService]
 })

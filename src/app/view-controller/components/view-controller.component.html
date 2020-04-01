@@ -1,13 +1,16 @@
-<div>
-  <div class="view background" [class.blur]="overlay"></div>
-  <app-view-controller-navigation-buttons></app-view-controller-navigation-buttons>
+<div (mousedown)="updateOverlayStatus(false)">
+  <div @blurTrigger class="view background" *ngIf="overlay"></div>
+  <app-view-controller-navigation-buttons
+    (mousedown)="$event.stopPropagation()"
+  ></app-view-controller-navigation-buttons>
   <app-view-controller-search-sheet
     *ngIf="routeIncludes('/explore')"
   ></app-view-controller-search-sheet>
 </div>
 <div
+  @fadeTrigger
   class="overlay"
-  [class.visible]="overlay"
+  *ngIf="overlay"
   (mousedown)="updateOverlayStatus(false)"
 >
   <div class="overlay background"></div>

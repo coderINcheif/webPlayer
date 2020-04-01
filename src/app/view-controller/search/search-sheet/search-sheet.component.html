@@ -1,7 +1,6 @@
-<div class="search-sheet">
+<div (mousedown)="$event.stopPropagation()" class="search-sheet">
   <app-view-controller-search-bar></app-view-controller-search-bar>
   <app-view-controller-result-panel
-    *ngIf="isSearching"
     [visible]="isSearching"
   ></app-view-controller-result-panel>
 </div>

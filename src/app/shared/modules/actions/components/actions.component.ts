@@ -1,3 +1,4 @@
+import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
 import { ActionInterface } from './../../../interfaces/action.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -8,6 +9,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ActionsComponent implements OnInit {
   @Input('actions') actions: Array<ActionInterface>;
+  @Input('music') music: MusicInterface;
+
   constructor() {}
 
   ngOnInit() {}

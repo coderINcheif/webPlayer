@@ -1,8 +1,5 @@
 <a [routerLink]="['/playlist', playlist.id]" class="playlist-card">
-  <div
-    class="card-cover"
-    [ngStyle]="{ 'background-image': 'url(' + playlist.cover + ')' }"
-  ></div>
+  <app-image [url]="playlist.cover"></app-image>
   <div class="card-detail">
     <h1>{{ playlist.title }}</h1>
     <p>

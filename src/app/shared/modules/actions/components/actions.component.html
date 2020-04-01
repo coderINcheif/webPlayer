@@ -1,5 +1,8 @@
-<ul>
+<ul (mousedown)="$event.stopPropagation()">
+  <app-image [url]="music.cover"></app-image>
+  <h1>{{ music.title }}</h1>
+
   <li *ngFor="let action of actions">
-    <app-action-tile [action]="action"></app-action-tile>
+    <app-action-tile [music]="music" [action]="action"></app-action-tile>
   </li>
 </ul>

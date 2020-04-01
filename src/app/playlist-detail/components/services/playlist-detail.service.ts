@@ -41,7 +41,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -55,7 +56,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -69,7 +71,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -83,7 +86,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -97,7 +101,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -111,7 +116,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -125,7 +131,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         },
         {
           title: 'Test Music',
@@ -139,7 +146,8 @@ export class PlaylistDetailService {
             }
           ],
           releaseDate: '30th Feb 2020',
-          cover: 'string'
+          cover:
+            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
         }
       ]
     };

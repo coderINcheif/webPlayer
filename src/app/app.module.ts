@@ -9,6 +9,7 @@ import { MusicModule } from './music/music.module';
 import { ExploreModule } from './explore/explore.module';
 import { FavoritesModule } from './favorites/favorites.module';
 import { PlaylistDetailModule } from './playlist-detail/playlist-detail.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { PlaylistDetailModule } from './playlist-detail/playlist-detail.module';
     FavoritesModule,
     ViewControllerModule,
     PlaylistDetailModule,
+    BrowserAnimationsModule,
     AppRoutingModule
   ],
   providers: [],

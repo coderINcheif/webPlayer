@@ -10,13 +10,8 @@
   border-radius: 10px;
   transition: all 250ms ease-in-out;
   cursor: pointer;
-  .card-cover {
+  app-image {
     width: 100%;
-    padding-top: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    box-shadow: 0 5px 12px rgb(10, 10, 10);
   }
   .card-detail {
     display: flex;

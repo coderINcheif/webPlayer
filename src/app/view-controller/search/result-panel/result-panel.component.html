@@ -1,4 +1,4 @@
-<div [class.visible]="visible">
+<div @floatInTrigger @floatOutTrigger *ngIf="visible">
   <div class="background"></div>
   <div *ngIf="recents === false; then resultsTemp; else recentsTemp"></div>
   <ng-template #resultsTemp>
@@ -17,7 +17,7 @@
   </ng-template>
 
   <ng-template #showRecentsTemp>
-    <div class="results recents">
+    <div @floatInTrigger class="results recents">
       <p>Recent searches</p>
       <app-search-result-tile
         *ngFor="let result of recentSearches"
@@ -26,7 +26,7 @@
     </div>
   </ng-template>
   <ng-template #showResultTemp>
-    <div class="results">
+    <div @floatInTrigger class="results">
       <app-search-result-tile
         *ngFor="let result of results"
         [result]="result"
@@ -34,14 +34,14 @@
     </div>
   </ng-template>
   <ng-template #noRecentsTemp>
-    <div class="results icon">
+    <div @floatInTrigger class="results icon">
       <i class="material-icons">search</i>
       <h2>Search WebPlayer</h2>
       <p>Find your favorite music and playlist</p>
     </div>
   </ng-template>
   <ng-template #noResultTemp>
-    <div class="results icon">
+    <div @floatInTrigger class="results icon">
       <i class="material-icons">error_outline</i>
       <h2>No results found</h2>
       <p>Please check you have right spelling or try different keyword</p>

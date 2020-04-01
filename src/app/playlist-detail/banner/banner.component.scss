@@ -7,23 +7,14 @@ div {
   user-select: none;
   color: grey;
   width: 100%;
-  position: sticky;
-  top: 12%;
+
   &::-webkit-scrollbar {
     display: none;
   }
   scrollbar-width: none;
-  .playlist-detail-cover {
+  app-image {
+    margin-top: 25%;
     width: 250px;
-    box-shadow: 0 5px 15px rgba($color: #000000, $alpha: 0.8);
-    .img {
-      height: min-content;
-      width: 100%;
-      padding-top: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
   }
   h1 {
     height: min-content;
@@ -38,7 +29,7 @@ div {
     font-weight: 500;
   }
   .details {
-    margin-top: 20%;
+    margin-top: 20px;
     margin-bottom: 30px;
     height: min-content;
     font-family: 'roboto', sans-serif;
@@ -77,5 +68,20 @@ div {
         }
       }
     }
+  }
+  .play-pause {
+    margin: 30px 0 10px 0;
+    width: 70%;
+    height: 50px;
+    border: none;
+    border-radius: 25px;
+    outline: none;
+    box-shadow: 0 5px 12px black;
+    font-family: 'roboto', sans-serif;
+    font-weight: bold;
+    font-size: 15px;
+    cursor: pointer;
+    background-color: #95e1d3;
+    color: black;
   }
 }

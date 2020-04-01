@@ -1,16 +1,15 @@
 import { ActionInterface } from './../../shared/interfaces/action.interface';
-import {
-  ActionsService,
-  MusicType
-} from './../../shared/services/actions-service/actions.service';
+import { ActionsService } from './../../shared/services/actions-service/actions.service';
 import { OverlayService } from './../../shared/services/overlay-service/overlay.service';
 import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { floatInTrigger, floatOutTrigger } from './music-tile.animation';
 
 @Component({
   selector: 'app-music-tile',
   templateUrl: './music-tile.component.html',
-  styleUrls: ['./music-tile.component.scss']
+  styleUrls: ['./music-tile.component.scss'],
+  animations: [floatInTrigger, floatOutTrigger]
 })
 export class MusicTileComponent implements OnInit, OnDestroy {
   @Input('music') music: MusicInterface;
@@ -30,7 +29,6 @@ export class MusicTileComponent implements OnInit, OnDestroy {
         this.selected = false;
       }
     });
-    this.actions = this.actionsService.getActions(MusicType.OtherMusic);
   }
 
   ngOnDestroy() {
@@ -40,5 +38,6 @@ export class MusicTileComponent implements OnInit, OnDestroy {
   toggleActions(toggle: boolean) {
     this.selected = toggle;
     this.overlayService.updateOverlayStatus(toggle);
+    this.actions = this.actionsService.getActions(this.music);
   }
 }

@@ -6,4 +6,5 @@ export interface MusicInterface {
   releaseDate: string;
   cover: string;
   length: string;
+  liked?: boolean;
 }

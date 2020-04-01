@@ -4,7 +4,7 @@ div {
   cursor: pointer;
   justify-content: flex-start;
   align-items: center;
-  margin: 5px 0 5px 0;
+  margin: 12px 0 12px 0;
   //   height: calc(100vh - 80px - 80px);
   user-select: none;
   &::-webkit-scrollbar {
@@ -12,18 +12,9 @@ div {
   }
   scrollbar-width: none;
 
-  .cover-container {
+  app-image {
     min-height: 60px;
     min-width: 60px;
-    .img {
-      height: min-content;
-      box-shadow: 0 5px 10px rgba($color: black, $alpha: 0.7);
-      width: 100%;
-      padding-top: 100%;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-size: contain;
-    }
   }
 
   .details {

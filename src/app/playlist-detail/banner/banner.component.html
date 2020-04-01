@@ -1,10 +1,5 @@
 <div>
-  <div class="playlist-detail-cover">
-    <div
-      class="img"
-      [ngStyle]="{ 'background-image': 'url(' + details.cover + ')' }"
-    ></div>
-  </div>
+  <app-image [url]="details.cover"></app-image>
   <div class="details">
     <h1 class="title">{{ details.title }}</h1>
     <p class="creater"><span>By</span> {{ details.created_by }}</p>
@@ -16,6 +11,7 @@
         </span>
       </p>
     </div>
+    <input class="play-pause" type="submit" value="Play" />
     <p class="songs-count">{{ details.songs }} SONGS</p>
   </div>
 </div>

@@ -1,10 +1,5 @@
 <div>
-  <div class="cover-container">
-    <div
-      class="img"
-      [ngStyle]="{ 'background-image': 'url(' + result.cover + ')' }"
-    ></div>
-  </div>
+  <app-image [url]="result.cover"></app-image>
 
   <div class="details">
     <h1 class="title">{{ result.title }}</h1>

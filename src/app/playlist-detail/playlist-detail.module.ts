@@ -1,3 +1,4 @@
+import { ImageModule } from './../shared/modules/image/image.module';
 import { ActionsService } from './../shared/services/actions-service/actions.service';
 import { ActionsModule } from './../shared/modules/actions/actions.module';
 import { OverlayService } from './../shared/services/overlay-service/overlay.service';
@@ -18,7 +19,12 @@ import { MusicTileComponent } from './music-tile/music-tile.component';
     BannerComponent,
     MusicTileComponent
   ],
-  imports: [CommonModule, ActionsModule, PlaylistDetailRoutingModule],
+  imports: [
+    CommonModule,
+    ImageModule,
+    ActionsModule,
+    PlaylistDetailRoutingModule
+  ],
   providers: [PlaylistDetailService, ActionsService, OverlayService]
 })
 export class PlaylistDetailModule {}

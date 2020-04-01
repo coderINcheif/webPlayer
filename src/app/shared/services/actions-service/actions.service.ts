@@ -1,33 +1,28 @@
-import { ExploreRoutingModule } from './../../../explore/explore-routing.module';
+import { MusicInterface } from 'src/app/shared/interfaces/music.interface';
 import { ActionInterface } from './../../interfaces/action.interface';
 import { Injectable } from '@angular/core';
-import { mapToMapExpression } from '@angular/compiler/src/render3/util';
-
-export enum MusicType {
-  MyPlaylist = 0,
-  OtherMusic = 1,
-  LibraryMusic = 2
-}
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActionsService {
-  musicActions: Array<ActionInterface>;
+  commonMusicActions: Array<ActionInterface>;
   myPlaylistMusicActions: Array<ActionInterface>;
   otherMusicActions: Array<ActionInterface>;
+  libraryMusicActions: Array<ActionInterface>;
+  musicType: object;
 
   constructor() {
-    this.musicActions = [
-      {
-        title: 'Like',
-        url: '',
-        icon: 'favorite_border'
-      },
+    this.commonMusicActions = [
       {
         title: 'Add to Queue',
         url: '',
         icon: 'queue_music'
+      },
+      {
+        title: 'Add to Playlist',
+        url: '',
+        icon: 'playlist_add'
       },
       {
         title: 'View Album',
@@ -62,37 +57,33 @@ export class ActionsService {
         icon: 'playlist_add'
       }
     ];
-    this.otherMusicActions = [
-      {
-        title: 'Add to Playlist',
-        url: '',
-        icon: 'playlist_add'
-      }
-    ];
   }
 
-  getActions(musicType: MusicType) {
+  getActions(music: MusicInterface) {
     const array = [];
-    this.musicActions.forEach((item, index) => {
-      array.push(item);
-    });
-    switch (musicType) {
-      case 0:
-        this.myPlaylistMusicActions.forEach((item, index) => {
-          array.splice(1 + index, 0, item);
-        });
-        break;
-      case 1:
-        this.otherMusicActions.forEach((item, index) => {
-          array.splice(1 + index, 0, item);
-        });
-        break;
-      case 2:
-        this.otherMusicActions.forEach((item, index) => {
-          array.splice(1 + index, 0, item);
-        });
-        break;
-    }
+    array.push(this.getLikeAction(music));
+    this.commonMusicActions.map(item => array.push(item));
     return array;
+  }
+
+  getLikeAction(music: MusicInterface) {
+    const action: ActionInterface = {
+      title: 'Like',
+      url: '',
+      icon: 'favorite_border'
+    };
+    if (music.liked) {
+      action.title = 'Unlike';
+      action.icon = 'favorite';
+    }
+    return action;
+  }
+
+  performAction() {}
+
+  like(action: ActionInterface, music: MusicInterface) {
+    this.performAction();
+    music.liked = !music.liked;
+    return this.getLikeAction(music);
   }
 }

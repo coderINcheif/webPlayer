@@ -1,14 +1,3 @@
-@keyframes fadeIN {
-  from {
-    transform: translateY(25px);
-    opacity: 0;
-  }
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-}
-
 div {
   color: white;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
@@ -77,7 +66,7 @@ div {
   bottom: 0;
   z-index: 10;
   cursor: initial;
-  animation: fadeIN 250ms;
+  // animation: fadeIN 250ms;
   overflow: scroll;
   height: 100%;
   scrollbar-width: none;
@@ -86,6 +75,5 @@ div {
   }
   app-actions {
     margin-top: 20%;
-    // width: 100%;
   }
 }
