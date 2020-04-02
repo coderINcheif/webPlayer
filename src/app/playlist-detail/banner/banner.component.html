@@ -11,7 +11,14 @@
         </span>
       </p>
     </div>
-    <input class="play-pause" type="submit" value="Play" />
+    <input
+      (mousedown)="mouseEvent($event)"
+      (mouseup)="mouseEvent($event)"
+      [@mousedownTrigger]="isMousedown ? 'mousedown' : '*'"
+      class="play-pause"
+      type="submit"
+      value="Play"
+    />
     <p class="songs-count">{{ details.songs }} SONGS</p>
   </div>
 </div>

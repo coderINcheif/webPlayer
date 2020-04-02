@@ -1,4 +1,9 @@
-<div (mousedown)="performAction($event)">
-  <i class="material-icons">{{ action.icon }}</i>
+<div (mousedown)="mouseEvent($event)" (mouseup)="mouseEvent($event)">
+  <i
+    [@mousedownTrigger]="isMousedown ? 'mousedown' : '*'"
+    class="material-icons"
+    >{{ action.icon }}</i
+  >
   <p>{{ action.title }}</p>
+  {{ clicked }}
 </div>

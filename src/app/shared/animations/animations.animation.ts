@@ -1,4 +1,4 @@
-import { style, animate, animation } from '@angular/animations';
+import { style, animate, animation, keyframes } from '@angular/animations';
 
 export let floatInAnimation = animation(
   [
@@ -45,6 +45,38 @@ export let fadeOutAnimation = animation(
     params: {
       duration: '150ms',
       timing: 'ease-in'
+    }
+  }
+);
+
+export let buttonHoldAnimation = animation(
+  animate(
+    '{{ duration }} ease',
+    style({ transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})' })
+  ),
+  {
+    params: {
+      duration: `${0.75 * 0.2}s`,
+      scale: '0.9'
+    }
+  }
+);
+
+export let buttonReleaseAnimation = animation(
+  animate(
+    '{{ duration }} ease',
+    keyframes([
+      style({
+        offset: 0.35,
+        transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})'
+      }),
+      style({ offset: 0.7, transform: 'scale3d(1,1,1)' })
+    ])
+  ),
+  {
+    params: {
+      duration: `${0.75 * 0.8}s`,
+      scale: '1.1'
     }
   }
 );
