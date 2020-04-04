@@ -1,3 +1,4 @@
+import { OverlayService } from './shared/services/overlay-service/overlay.service';
 import { ViewControllerModule } from './view-controller/view-controller.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -22,9 +23,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ViewControllerModule,
     PlaylistDetailModule,
     BrowserAnimationsModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [OverlayService],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

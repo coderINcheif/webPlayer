@@ -2,7 +2,7 @@ import { SearchResultInterface } from './../interfaces/search-result.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SearchService {
   results: Array<SearchResultInterface>;
@@ -12,7 +12,7 @@ export class SearchService {
     type: 'Playlist',
     id: 'some-random-id',
     cover:
-      'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
+      'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png',
   };
   sample2 = {
     title: 'Test Playlist',
@@ -22,18 +22,18 @@ export class SearchService {
       'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png',
     artists: [
       {
-        name: 'Himanshu Pandey'
+        name: 'Himanshu Pandey',
       },
       {
-        name: 'Random Person'
+        name: 'Random Person',
       },
       {
-        name: 'John Doe'
+        name: 'John Doe',
       },
       {
-        name: 'Pandey Himanshu'
-      }
-    ]
+        name: 'Pandey Himanshu',
+      },
+    ],
   };
 
   constructor() {}
@@ -48,7 +48,7 @@ export class SearchService {
         this.sample2,
         this.sample2,
         this.sample2,
-        this.sample2
+        this.sample2,
       ];
     } else if (query.length === 2) {
       this.results = [
@@ -56,7 +56,7 @@ export class SearchService {
         this.sample2,
         this.sample,
         this.sample2,
-        this.sample2
+        this.sample2,
       ];
     } else if (query.length === 3) {
       this.results = [this.sample, this.sample2, this.sample2];

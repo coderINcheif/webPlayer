@@ -9,7 +9,7 @@ import { floatInTrigger, floatOutTrigger } from './music-tile.animation';
   selector: 'app-music-tile',
   templateUrl: './music-tile.component.html',
   styleUrls: ['./music-tile.component.scss'],
-  animations: [floatInTrigger, floatOutTrigger]
+  animations: [floatInTrigger, floatOutTrigger],
 })
 export class MusicTileComponent implements OnInit, OnDestroy {
   @Input('music') music: MusicInterface;
@@ -24,7 +24,7 @@ export class MusicTileComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.overlayService.overlayStatus$.subscribe(status => {
+    this.overlayService.overlayStatus$.subscribe((status) => {
       if (status === false && this.selected) {
         this.selected = false;
       }

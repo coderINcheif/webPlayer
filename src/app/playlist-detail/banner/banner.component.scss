@@ -83,5 +83,9 @@ div {
     cursor: pointer;
     background-color: #95e1d3;
     color: black;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
   }
 }

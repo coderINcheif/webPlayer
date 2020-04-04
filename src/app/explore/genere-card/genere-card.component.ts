@@ -1,3 +1,4 @@
+import { GenereInterface } from './../../shared/interfaces/genere.interface';
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
@@ -6,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./genere-card.component.scss']
 })
 export class GenereCardComponent implements OnInit {
-  @Input('genere') genere: string;
+  @Input('genere') genere: GenereInterface;
+
   colors: Array<string>;
   fontColor: string;
   constructor() {

@@ -17,14 +17,14 @@ import { MusicTileComponent } from './music-tile/music-tile.component';
     PlaylistDetailComponent,
     TrackListComponent,
     BannerComponent,
-    MusicTileComponent
+    MusicTileComponent,
   ],
   imports: [
     CommonModule,
     ImageModule,
     ActionsModule,
-    PlaylistDetailRoutingModule
+    PlaylistDetailRoutingModule,
   ],
-  providers: [PlaylistDetailService, ActionsService, OverlayService]
+  providers: [PlaylistDetailService, ActionsService],
 })
 export class PlaylistDetailModule {}

@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-view-controller',
   templateUrl: './view-controller.component.html',
   styleUrls: ['./view-controller.component.scss'],
-  animations: [fadeTrigger, blurTrigger]
+  animations: [fadeTrigger, blurTrigger],
 })
 export class ViewControllerComponent implements OnInit {
   overlay = false;
@@ -21,8 +21,9 @@ export class ViewControllerComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.overlayService.overlayStatus$.subscribe(status => {
+    this.overlayService.overlayStatus$.subscribe((status) => {
       this.overlay = status;
+      console.log(this.overlay);
     });
   }
 

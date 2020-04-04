@@ -2,7 +2,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class OverlayService {
   overlayStatus = new BehaviorSubject<boolean>(false);

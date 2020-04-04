@@ -1,3 +1,4 @@
+import { GenereInterface } from './../../shared/interfaces/genere.interface';
 import { GeneresService } from './services/generes.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./generes.component.scss']
 })
 export class GeneresComponent implements OnInit {
-  generes: Array<string>;
+  generes: Array<GenereInterface>;
   constructor(private genereService: GeneresService) {}
 
   ngOnInit() {

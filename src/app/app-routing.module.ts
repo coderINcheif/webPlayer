@@ -1,36 +1,39 @@
-import { PlaylistDetailComponent } from './playlist-detail/components/playlist-detail.component';
 import { FavoritesComponent } from './favorites/components/favorites.component';
-import { ExploreComponent } from './explore/components/explore.component';
-import { MusicComponent } from './music/components/music.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
     path: 'music',
-    component: MusicComponent
+    loadChildren: () =>
+      import('./music/music.module').then((m) => m.MusicModule),
   },
   {
     path: 'explore',
-    component: ExploreComponent
+    loadChildren: () =>
+      import('./explore/explore.module').then((m) => m.ExploreModule),
   },
   {
     path: 'favorites',
-    component: FavoritesComponent
+    loadChildren: () =>
+      import('./favorites/favorites.module').then((m) => m.FavoritesModule),
   },
   {
-    path: 'playlist/:playlist_id',
-    component: PlaylistDetailComponent
+    path: 'playlist',
+    loadChildren: () =>
+      import('./playlist-detail/playlist-detail.module').then(
+        (m) => m.PlaylistDetailModule
+      ),
   },
   {
     path: '',
     redirectTo: 'music',
-    pathMatch: 'full'
-  }
+    pathMatch: 'full',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

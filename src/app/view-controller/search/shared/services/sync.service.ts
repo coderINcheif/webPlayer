@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SyncService {
   private isSearching = new BehaviorSubject<boolean>(false);
@@ -31,7 +31,7 @@ export class SyncService {
   }
 
   private listenOverlayService() {
-    this.overlayService.overlayStatus$.subscribe(status => {
+    this.overlayService.overlayStatus$.subscribe((status) => {
       if (status === false) {
         this.updateSearchingStatus(false, false);
       }

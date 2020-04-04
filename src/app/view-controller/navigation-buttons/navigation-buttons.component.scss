@@ -9,11 +9,15 @@ div {
     cursor: pointer;
     -webkit-user-select: none;
     -moz-user-select: none;
-    color: rgb(146, 146, 146);
+    color: rgb(155, 155, 155);
     font-size: 35px;
     padding: 5px;
     margin: 0 5px 0 5px;
     border-radius: 50%;
     background-color: rgba($color: black, $alpha: 0.8);
+    transition: all 200ms ease-in-out;
+    &:hover {
+      filter: brightness(2);
+    }
   }
 }
