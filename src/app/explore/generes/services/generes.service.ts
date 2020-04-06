@@ -24,7 +24,7 @@ export class GeneresService {
       { title: 'Tamil', url: 'tamil' },
       { title: 'Mood', url: 'mood' },
       { title: 'Metal', url: 'metal' },
-      { title: 'Folk & Acoustic', url: 'folk' },
+      { title: 'Folk & Acoustic', url: 'folk-&-acoustic' },
       { title: 'Country', url: 'country' },
       { title: 'Travel', url: 'travel' },
     ];

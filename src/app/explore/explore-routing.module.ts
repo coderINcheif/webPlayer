@@ -14,7 +14,7 @@ const routes: Routes = [
         component: GeneresComponent,
       },
       {
-        path: ':genere?',
+        path: ':genere',
         component: GenereMusicComponent,
       },
     ],

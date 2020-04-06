@@ -1,3 +1,5 @@
+import { ColorService } from './shared/services/color.service';
+import { ParameterService } from './shared/services/parameter.service';
 import { HorizontalListModule } from './../shared/modules/horizontal-list/horizontal-list.module';
 import { GeneresService } from './generes/services/generes.service';
 import { ExploreComponent } from './components/explore.component';
@@ -17,6 +19,6 @@ import { GenereMusicComponent } from './genere-music/genere-music.component';
     GenereMusicComponent,
   ],
   imports: [CommonModule, HorizontalListModule, ExploreRoutingModule],
-  providers: [GeneresService],
+  providers: [GeneresService, ParameterService, ColorService],
 })
 export class ExploreModule {}

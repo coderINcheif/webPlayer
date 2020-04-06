@@ -1,10 +1,10 @@
 div {
   height: calc(100vh - 80px);
-  width: 100%;
+  // width: 100%;
   display: grid;
   grid-template-areas: 'banner track-list';
   grid-template-columns: 35% 1fr;
-  // grid-template-rows: 1fr;
+  padding: 0 60px 0 60px;
   .banner {
     grid-area: banner;
     display: initial;

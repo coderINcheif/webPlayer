@@ -1,6 +1,20 @@
-<app-horizontal-list [header]="'New releases'"></app-horizontal-list>
-<div style="height: 20px;"></div>
-<app-horizontal-list
-  [numberOfItems]="3"
-  [header]="'Popular playlist'"
-></app-horizontal-list>
+<div
+  [ngStyle]="{
+    background:
+      'radial-gradient(
+        800% 150% at 0% 0%,
+        rgba(' +
+      color +
+      ', 0.3) 20px,
+        rgba(17,17,17) 800px
+        )'
+  }"
+>
+  <h1 [ngStyle]="{ color: 'rgb(' + color + ')' }">{{ title }}</h1>
+  <app-horizontal-list [header]="'New releases'"></app-horizontal-list>
+  <div style="background: none; height: 20px;"></div>
+  <app-horizontal-list
+    [numberOfItems]="3"
+    [header]="'Popular playlist'"
+  ></app-horizontal-list>
+</div>

@@ -1,5 +1,5 @@
-<a [routerLink]="[genere.url]" class="genere-card">
-  <div [ngStyle]="{ color: fontColor }">
+<a (click)="navigate()" class="genere-card">
+  <div [ngStyle]="{ color: 'rgb(' + fontColor + ')' }">
     <i class="material-icons">album</i>
     <h1>{{ genere.title }}</h1>
   </div>

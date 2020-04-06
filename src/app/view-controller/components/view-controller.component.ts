@@ -23,7 +23,6 @@ export class ViewControllerComponent implements OnInit {
   ngOnInit() {
     this.overlayService.overlayStatus$.subscribe((status) => {
       this.overlay = status;
-      console.log(this.overlay);
     });
   }
 

@@ -19,14 +19,13 @@ div {
     grid-template-columns: 1fr;
     overflow: scroll;
     height: 100vh;
+
     &::-webkit-scrollbar {
       display: none;
     }
     scrollbar-width: none;
     .router-outlet {
       grid-area: router-outlet;
-      padding: 0 30px 0 30px;
-      margin: 0 30px 0 30px;
       display: initial;
     }
     .app-view-controller {
