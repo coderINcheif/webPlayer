@@ -10,7 +10,7 @@
         )'
   }"
 >
-  <h1 [ngStyle]="{ color: 'rgb(' + color + ')' }">{{ title }}</h1>
+  <h1 #heading [ngStyle]="{ color: 'rgb(' + color + ')' }">{{ title }}</h1>
   <app-horizontal-list [header]="'New releases'"></app-horizontal-list>
   <div style="background: none; height: 20px;"></div>
   <app-horizontal-list
