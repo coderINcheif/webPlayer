@@ -22,8 +22,8 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
 
   title: string;
   color: string;
-  gradientOpacity = 0.2;
-  gradientExtent = 400;
+  gradientOpacity = 0.08;
+  gradientExtent = 800;
   constructor(
     private paramsService: ParameterService,
     private genereMusicService: GenereMusicService,
@@ -54,9 +54,9 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
   applyStyle(value: number) {
     value = -1 * value;
     const scrollPosition = `translateY(${value - value / 2}px)`;
-    const opacity = 1 - value / 160;
-    this.gradientOpacity = 0.2 - value / 1000;
-    this.gradientExtent = 400 + (value + value * 0.2);
+    const opacity = 1 - value / 600;
+    this.gradientOpacity = 0.08 - value / 5000;
+    this.gradientExtent = 800 + (value + value * 1.5);
 
     this.heading.nativeElement.style.transform = scrollPosition;
     this.heading.nativeElement.style.opacity = opacity;
