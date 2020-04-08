@@ -53,7 +53,7 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
 
   applyStyle(value: number) {
     value = -1 * value;
-    const scrollPosition = `translateY(${value - value / 2}px)`;
+    const scrollPosition = `translateY(${value - value / 3}px)`;
     const opacity = 1 - value / 600;
     this.gradientOpacity = 0.08 - value / 5000;
     this.gradientExtent = 800 + (value + value * 1.5);
