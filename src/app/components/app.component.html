@@ -2,11 +2,11 @@
   <div class="navbar">
     <app-navbar></app-navbar>
   </div>
-  <div #content (scroll)="updateScroll(content)" class="content">
+  <div (scroll)="updateScroll(outlet)" class="content">
     <div class="app-view-controller">
       <app-view-controller></app-view-controller>
     </div>
-    <div class="router-outlet">
+    <div #outlet class="router-outlet">
       <router-outlet style="display: none;"></router-outlet>
     </div>
   </div>

@@ -1,3 +1,4 @@
+import { ScrollService } from './shared/services/scroll-service/scroll.service';
 import { OverlayService } from './shared/services/overlay-service/overlay.service';
 import { ViewControllerModule } from './view-controller/view-controller.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -25,7 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
   ],
-  providers: [OverlayService],
+  providers: [OverlayService, ScrollService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

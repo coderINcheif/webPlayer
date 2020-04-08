@@ -1,3 +1,4 @@
+import { ScrollService } from './../shared/services/scroll-service/scroll.service';
 import { Component, ElementRef } from '@angular/core';
 
 @Component({
@@ -8,7 +9,10 @@ import { Component, ElementRef } from '@angular/core';
 export class AppComponent {
   title = 'webPlayer';
 
+  constructor(private scrollService: ScrollService) {}
+
   updateScroll(element: HTMLElement) {
-    // console.log(element.scrollTop);
+    const position = element.getBoundingClientRect().top - element.offsetTop;
+    this.scrollService.updateScrollPosition(position);
   }
 }
