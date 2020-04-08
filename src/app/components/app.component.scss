@@ -9,14 +9,16 @@ div {
   }
   &.content {
     grid-area: content;
-    display: grid;
-    grid-template-areas:
-      'view-controller'
-      'router-outlet';
-    grid-template-rows:
-      80px
-      1fr;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-flow: column;
+    // display: grid;
+    // grid-template-areas:
+    //   'view-controller'
+    //   'router-outlet';
+    // grid-template-rows:
+    //   80px
+    //   1fr;
+    // grid-template-columns: 1fr;
     overflow: scroll;
     height: 100vh;
 
