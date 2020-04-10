@@ -18,6 +18,9 @@ a {
     font-size: 27px;
     padding: 0 18px 0 0;
   }
+  &:focus {
+    background-color: rgba(40, 40, 40, 0.4);
+  }
   &:hover {
     background-color: rgb(40, 40, 40);
   }

@@ -4,12 +4,16 @@
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  // padding: 10px;
   user-select: none;
   -webkit-user-select: none;
   border-radius: 10px;
   transition: all 250ms ease-in-out;
+  transition: transform 50ms ease-in;
   cursor: pointer;
+  &:focus {
+    transform: scale3d(0.98, 0.98, 0.98);
+  }
+
   app-image {
     width: 100%;
   }

@@ -5,10 +5,12 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-playlist-detail',
   templateUrl: './playlist-detail.component.html',
-  styleUrls: ['./playlist-detail.component.scss']
+  styleUrls: ['./playlist-detail.component.scss'],
 })
 export class PlaylistDetailComponent implements OnInit {
   playlist: PlaylistDetailInterface;
+  gradientOpacity = 0.1;
+  gradientExtent = 800;
   constructor(private playlistDetail: PlaylistDetailService) {}
 
   ngOnInit() {

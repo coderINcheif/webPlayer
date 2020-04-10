@@ -11,15 +11,13 @@ export class SearchService {
     title: 'Test Playlist',
     type: 'Playlist',
     id: 'some-random-id',
-    cover:
-      'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png',
+    cover: 'assets/images/7_rings.png',
   };
   sample2 = {
     title: 'Test Playlist',
     type: 'Song',
     id: 'some-random-id',
-    cover:
-      'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png',
+    cover: 'assets/images/7_rings.png',
     artists: [
       {
         name: 'Himanshu Pandey',

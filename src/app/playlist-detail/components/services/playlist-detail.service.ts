@@ -1,155 +1,27 @@
+import { TestDataService } from './../../../shared/services/test-data.service';
 import { PlaylistDetailInterface } from './../../interfaces/playlist-detail.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class PlaylistDetailService {
   playlist: PlaylistDetailInterface;
-  constructor() {
-    this.playlist = {
-      title: 'Test Playlist',
-      created_by: 'Himanshu Pandey',
-      id: 'some-random-id',
-      artists: [
-        {
-          name: 'Himanshu Pandey'
-        },
-        {
-          name: 'Random Person'
-        },
-        {
-          name: 'John Doe'
-        },
-        {
-          name: 'Pandey Himanshu'
-        }
-      ],
-      cover:
-        'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png',
-      songs: 7,
-      tracks: [
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        },
-        {
-          title: 'Test Music',
-          length: '3:45',
-          artists: [
-            {
-              name: 'Himanshu Pandey'
-            },
-            {
-              name: 'Pandey Himanshu'
-            }
-          ],
-          releaseDate: '30th Feb 2020',
-          cover:
-            'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-        }
-      ]
-    };
+  constructor(private testDataService: TestDataService) {
+    const playlist = testDataService.playlist as any;
+    const songs = 'songs';
+    const tracks = 'tracks';
+    const primaryColor = 'primaryColor';
+    playlist[songs] = 7;
+    playlist[tracks] = this.getTracks(playlist.songs);
+    playlist[primaryColor] = '160, 126, 138';
+    this.playlist = playlist;
+  }
+  getTracks(songs: number) {
+    const tracks = [];
+    for (let i = 0; i < songs; i++) {
+      tracks.push(this.testDataService.track);
+    }
+    return tracks;
   }
 }

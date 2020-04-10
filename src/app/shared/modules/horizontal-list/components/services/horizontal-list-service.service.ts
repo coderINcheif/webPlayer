@@ -2,7 +2,7 @@ import { PlaylistInterface } from './../../../../interfaces/playlist.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class HorizontalListService {
   items: Array<PlaylistInterface>;
@@ -14,20 +14,19 @@ export class HorizontalListService {
         id: 'some-random-id',
         artists: [
           {
-            name: 'Himanshu Pandey'
+            name: 'Himanshu Pandey',
           },
           {
-            name: 'Random Person'
+            name: 'Random Person',
           },
           {
-            name: 'John Doe'
+            name: 'John Doe',
           },
           {
-            name: 'Pandey Himanshu'
-          }
+            name: 'Pandey Himanshu',
+          },
         ],
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
+        cover: 'assets/images/7_rings.png',
       },
       {
         title: 'Test Playlist',
@@ -35,20 +34,19 @@ export class HorizontalListService {
         id: 'some-random-id',
         artists: [
           {
-            name: 'Himanshu Pandey'
+            name: 'Himanshu Pandey',
           },
           {
-            name: 'Random Person'
+            name: 'Random Person',
           },
           {
-            name: 'John Doe'
+            name: 'John Doe',
           },
           {
-            name: 'Pandey Himanshu'
-          }
+            name: 'Pandey Himanshu',
+          },
         ],
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
+        cover: 'assets/images/7_rings.png',
       },
       {
         title: 'Test Playlist',
@@ -56,20 +54,19 @@ export class HorizontalListService {
         id: 'some-random-id',
         artists: [
           {
-            name: 'Himanshu Pandey'
+            name: 'Himanshu Pandey',
           },
           {
-            name: 'Random Person'
+            name: 'Random Person',
           },
           {
-            name: 'John Doe'
+            name: 'John Doe',
           },
           {
-            name: 'Pandey Himanshu'
-          }
+            name: 'Pandey Himanshu',
+          },
         ],
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
+        cover: 'assets/images/7_rings.png',
       },
       {
         title: 'Test Playlist',
@@ -77,20 +74,19 @@ export class HorizontalListService {
         id: 'some-random-id',
         artists: [
           {
-            name: 'Himanshu Pandey'
+            name: 'Himanshu Pandey',
           },
           {
-            name: 'Random Person'
+            name: 'Random Person',
           },
           {
-            name: 'John Doe'
+            name: 'John Doe',
           },
           {
-            name: 'Pandey Himanshu'
-          }
+            name: 'Pandey Himanshu',
+          },
         ],
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
+        cover: 'assets/images/7_rings.png',
       },
       {
         title: 'Test Playlist',
@@ -98,21 +94,20 @@ export class HorizontalListService {
         id: 'some-random-id',
         artists: [
           {
-            name: 'Himanshu Pandey'
+            name: 'Himanshu Pandey',
           },
           {
-            name: 'Random Person'
+            name: 'Random Person',
           },
           {
-            name: 'John Doe'
+            name: 'John Doe',
           },
           {
-            name: 'Pandey Himanshu'
-          }
+            name: 'Pandey Himanshu',
+          },
         ],
-        cover:
-          'https://upload.wikimedia.org/wikipedia/en/b/b7/Ariana_Grande_-_7_rings.png'
-      }
+        cover: 'assets/images/7_rings.png',
+      },
     ];
   }
 }

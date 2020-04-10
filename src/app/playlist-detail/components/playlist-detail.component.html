@@ -1,4 +1,15 @@
-<div>
+<div
+  [ngStyle]="{
+    background:
+      'linear-gradient(180deg, rgba(' +
+      playlist.primaryColor +
+      ', ' +
+      gradientOpacity +
+      ') 30px, #111111 ' +
+      gradientExtent +
+      'px)'
+  }"
+>
   <app-playlist-detail-banner
     [details]="playlist"
     class="banner"
