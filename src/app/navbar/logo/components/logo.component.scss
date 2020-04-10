@@ -1,4 +1,5 @@
 div {
+  user-select: none;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -10,7 +11,7 @@ div {
   }
   h1 {
     color: white;
-    font-family: "roboto", sans-serif;
+    font-family: 'roboto', sans-serif;
     font-weight: 700;
     font-size: 27px;
   }

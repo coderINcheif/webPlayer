@@ -3,13 +3,24 @@ div {
   display: grid;
   grid-template-areas: 'banner track-list';
   grid-template-columns: 35% 1fr;
-  padding: 80px 60px 0 60px;
+  padding: 0px 60px 0 60px;
+  overflow: hidden;
   .banner {
     grid-area: banner;
     display: initial;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
   .track-list {
     grid-area: track-list;
     display: initial;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 }

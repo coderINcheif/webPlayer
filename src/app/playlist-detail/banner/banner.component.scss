@@ -7,7 +7,9 @@ div {
   user-select: none;
   color: grey;
   width: 100%;
-
+  &.container {
+    margin-top: 80px;
+  }
   &::-webkit-scrollbar {
     display: none;
   }

@@ -9,8 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistDetailComponent implements OnInit {
   playlist: PlaylistDetailInterface;
-  gradientOpacity = 0.1;
-  gradientExtent = 800;
+  gradientOpacity = 0.09;
   constructor(private playlistDetail: PlaylistDetailService) {}
 
   ngOnInit() {
