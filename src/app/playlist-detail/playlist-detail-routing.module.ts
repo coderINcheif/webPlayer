@@ -1,4 +1,4 @@
-import { PlaylistDetailComponent } from './components/playlist-detail.component';
+import { PlaylistDetailComponent } from './playlist-detail.component/playlist-detail.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

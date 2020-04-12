@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'library',
     loadChildren: () =>
-      import('./favorites/library.module').then((m) => m.LibraryModule),
+      import('./library/library.module').then((m) => m.LibraryModule),
   },
   {
     path: 'playlist',

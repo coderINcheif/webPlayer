@@ -1,4 +1,4 @@
-import { MusicComponent } from './components/music.component';
+import { MusicComponent } from './music.component/music.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 

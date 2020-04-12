@@ -1,0 +1,14 @@
+a {
+  text-decoration: none;
+  h1 {
+    font-family: 'roboto', sans-serif;
+    color: grey;
+    font-weight: 500;
+    font-size: 28px;
+  }
+  &.active h1 {
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+  }
+}
