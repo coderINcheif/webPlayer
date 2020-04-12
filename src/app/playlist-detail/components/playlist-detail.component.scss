@@ -1,5 +1,5 @@
 div {
-  height: calc(100vh);
+  height: 100vh;
   display: grid;
   grid-template-areas: 'banner track-list';
   grid-template-columns: 35% 1fr;
@@ -7,11 +7,17 @@ div {
   overflow: hidden;
   .banner {
     grid-area: banner;
-    display: initial;
-    overflow-y: scroll;
+    overflow: scroll;
     scrollbar-width: none;
+    display: flex;
+    flex-flow: column;
+    // justify-content: center;
+    // align-items: center;
     &::-webkit-scrollbar {
       display: none;
+    }
+    app-playlist-detail-banner {
+      margin: auto;
     }
   }
   .track-list {
@@ -19,6 +25,7 @@ div {
     display: initial;
     overflow-y: scroll;
     scrollbar-width: none;
+    padding: 0;
     &::-webkit-scrollbar {
       display: none;
     }
