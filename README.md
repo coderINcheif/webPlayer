@@ -4,11 +4,11 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/home.png)
 
-![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/search.gif)
-
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/generes.png)
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/search.png)
+
+![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/search.gif)
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/genere_music.png)
 
