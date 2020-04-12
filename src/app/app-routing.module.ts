@@ -1,4 +1,3 @@
-import { FavoritesComponent } from './favorites/components/favorites.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -14,9 +13,9 @@ const routes: Routes = [
       import('./explore/explore.module').then((m) => m.ExploreModule),
   },
   {
-    path: 'favorites',
+    path: 'library',
     loadChildren: () =>
-      import('./favorites/favorites.module').then((m) => m.FavoritesModule),
+      import('./favorites/library.module').then((m) => m.LibraryModule),
   },
   {
     path: 'playlist',

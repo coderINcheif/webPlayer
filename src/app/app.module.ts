@@ -9,7 +9,7 @@ import { AppComponent } from './components/app.component';
 import { NavbarModule } from './navbar/navbar.module';
 import { MusicModule } from './music/music.module';
 import { ExploreModule } from './explore/explore.module';
-import { FavoritesModule } from './favorites/favorites.module';
+import { LibraryModule } from './favorites/library.module';
 import { PlaylistDetailModule } from './playlist-detail/playlist-detail.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -20,7 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarModule,
     MusicModule,
     ExploreModule,
-    FavoritesModule,
+    LibraryModule,
     ViewControllerModule,
     PlaylistDetailModule,
     BrowserAnimationsModule,

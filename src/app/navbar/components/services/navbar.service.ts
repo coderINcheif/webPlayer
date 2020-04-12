@@ -3,7 +3,7 @@ import { NavbarItem } from '../../shared/interfaces/navbar-item';
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class NavbarService {
   items: Array<NavbarItem>;
@@ -12,24 +12,23 @@ export class NavbarService {
       {
         title: 'Music',
         icon: 'music_video',
-        link: '/music'
+        link: '/music',
       },
       {
         title: 'Explore',
         icon: 'explore',
-        link: '/explore'
+        link: '/explore',
       },
       {
-        title: 'Favorites',
+        title: 'Library',
         icon: 'favorite',
-        link: '/favorites',
+        link: '/library',
         subitems: [
-          { title: 'Songs', link: '/favorites/songs' },
-          { title: 'Albums', link: '/favorites/albumn' },
-          { title: 'Artist', link: '/favorites/artist' },
-          { title: 'Playlists', link: '/favorites/playlists' }
-        ]
-      }
+          { title: 'Albums', link: '/library/album' },
+          { title: 'Artist', link: '/library/artist' },
+          { title: 'Playlists', link: '/library/playlist' },
+        ],
+      },
     ];
   }
 }
