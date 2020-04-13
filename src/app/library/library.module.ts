@@ -1,3 +1,4 @@
+import { HorizontalListModule } from './../shared/modules/horizontal-list/horizontal-list.module';
 import { LibraryNavigationModule } from './library-navigation/library-navigation.module';
 import { LibraryComponent } from './library.component/library.component';
 import { NgModule } from '@angular/core';
@@ -15,6 +16,11 @@ import { AlbumComponent } from './album/album.component';
     ArtistComponent,
     AlbumComponent,
   ],
-  imports: [CommonModule, LibraryNavigationModule, LibraryRoutingModule],
+  imports: [
+    CommonModule,
+    LibraryNavigationModule,
+    HorizontalListModule,
+    LibraryRoutingModule,
+  ],
 })
 export class LibraryModule {}
