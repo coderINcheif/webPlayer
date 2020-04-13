@@ -19,4 +19,3 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/actions.png)
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/playlist.gif)
-
