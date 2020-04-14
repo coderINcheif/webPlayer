@@ -11,6 +11,6 @@ a {
   }
   &.active h1 {
     color: white;
-    // transform: scale3d(1.2, 1.2, 1) translate3d(0, 0, 0) perspective(1px);
+    border-radius: 25px;
   }
 }

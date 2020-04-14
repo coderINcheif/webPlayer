@@ -2,7 +2,7 @@
   <app-image [url]="playlist.cover"></app-image>
   <div class="card-detail">
     <h1>{{ playlist.title }}</h1>
-    <p>
+    <p *ngIf="playlist.artists">
       <span *ngFor="let artist of playlist.artists; last as isLast"
         >{{ artist.name }}<span *ngIf="!isLast">,</span></span
       >
