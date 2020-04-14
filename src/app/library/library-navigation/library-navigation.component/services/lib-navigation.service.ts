@@ -11,15 +11,15 @@ export class LibNavigationService {
     this.items = [
       {
         title: 'Playlist',
-        url: 'playlist',
+        url: 'library/playlist',
       },
       {
         title: 'Artists',
-        url: 'artist',
+        url: 'library/artist',
       },
       {
         title: 'Album',
-        url: 'album',
+        url: 'library/album',
       },
     ];
   }

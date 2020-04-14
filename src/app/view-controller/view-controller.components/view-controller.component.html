@@ -4,8 +4,13 @@
     (mousedown)="$event.stopPropagation()"
   ></app-view-controller-navigation-buttons>
   <app-view-controller-search-sheet
+    class="module-controller"
     *ngIf="routeIncludes('/explore')"
   ></app-view-controller-search-sheet>
+  <app-library-navigation
+    class="module-controller"
+    *ngIf="routeIncludes('/library')"
+  ></app-library-navigation>
 </div>
 <div
   @fadeTrigger

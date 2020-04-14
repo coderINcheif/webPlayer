@@ -5,13 +5,12 @@ a {
     font-family: 'roboto', sans-serif;
     color: grey;
     // font-weight: 500;
-    font-size: 35px;
+    font-size: 25px;
     transition: all 150ms ease;
+    padding: 0 15px 0 15px;
   }
   &.active h1 {
     color: white;
-    // font-size: 40px;
-    // font-weight: 700;
-    transform: scale3d(1.2, 1.2, 1) translateX(10px);
+    // transform: scale3d(1.2, 1.2, 1) translate3d(0, 0, 0) perspective(1px);
   }
 }

@@ -4,7 +4,7 @@
   height: 100vh;
   grid-template-areas: 'navigation view';
   grid-template-rows: 1fr;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 3.5fr;
   .navigation {
     grid-area: navigation;
     width: 100%;
@@ -23,6 +23,7 @@
     grid-area: view;
     padding: 40px 60px;
     overflow: scroll;
+    scrollbar-width: none;
     &::-webkit-scrollbar {
       display: none;
     }

@@ -1,6 +1,6 @@
 div {
   height: 80px;
-  width: 100%;
+  width: calc(100% - 230px);
   position: fixed;
   z-index: 10;
   display: flex;
@@ -11,10 +11,11 @@ div {
   app-view-controller-navigation-buttons {
     position: relative;
   }
-  app-view-controller-search-sheet {
+  .module-controller {
     position: relative;
-    width: 100%;
+    width: calc(100% - 163px);
   }
+
   .view.background {
     position: absolute;
     height: 110%;
