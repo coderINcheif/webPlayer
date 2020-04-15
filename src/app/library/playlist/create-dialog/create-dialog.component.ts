@@ -1,6 +1,8 @@
+import { ShowDialogService } from './../shared/services/show-dialog.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { timingSafeEqual } from 'crypto';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -10,18 +12,27 @@ import { Component, OnInit, OnDestroy, Input } from '@angular/core';
   animations: [dialogTrigger],
 })
 export class CreateDialogComponent implements OnInit, OnDestroy {
-  // tslint:disable-next-line: no-input-rename
-  @Input('status') dialogStatus = false;
+  dialogStatus = false;
+  constructor(
+    private overlayService: OverlayService,
+    private showDialogService: ShowDialogService
+  ) {}
 
-  constructor(private overlayService: OverlayService) {}
-
-  ngOnInit() {}
+  ngOnInit() {
+    this.showDialogService.showDialog$.subscribe((status) => {
+      this.dialogStatus = status;
+      this.overlayService.updateOverlayStatus(status);
+    });
+    this.overlayService.overlayStatus$.subscribe((status) => {
+      this.dialogStatus = status;
+    });
+  }
 
   ngOnDestroy() {
-    this.overlayService.updateOverlayStatus(false);
+    this.showDialogService.updateStatus(false);
   }
 
   cancel() {
-    this.overlayService.updateOverlayStatus(false);
+    this.showDialogService.updateStatus(false);
   }
 }

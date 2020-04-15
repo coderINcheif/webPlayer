@@ -38,7 +38,7 @@ export const dialogTrigger = trigger('dialogTrigger', [
     ':leave',
     group([
       useAnimation(fadeOutAnimation, { params: { duration: '150ms' } }),
-      animate('150ms ease-in', style({ opacity: 0 })),
+      animate('150ms ease-in', style({ transform: 'scale3d(.9,.9,1)' })),
     ])
   ),
 ]);

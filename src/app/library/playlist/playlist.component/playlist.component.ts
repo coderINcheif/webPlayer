@@ -1,4 +1,4 @@
-import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
+import { ShowDialogService } from './../shared/services/show-dialog.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,20 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./playlist.component.scss'],
 })
 export class PlaylistComponent implements OnInit {
-  createOverlay = false;
-  constructor(private overlayService: OverlayService) {}
+  showCreateDialog = false;
+  constructor(private showDialogService: ShowDialogService) {}
 
-  ngOnInit() {
-    this.overlayService.overlayStatus$.subscribe((status) => {
-      if (status === false) {
-        this.createOverlay = status;
-      }
-    });
-  }
+  ngOnInit() {}
 
   createPlaylist(event: Event) {
     event.stopPropagation();
-    this.overlayService.updateOverlayStatus(true);
-    this.createOverlay = true;
+    this.showDialogService.updateStatus(true);
   }
 }
