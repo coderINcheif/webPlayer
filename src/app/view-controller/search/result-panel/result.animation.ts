@@ -1,6 +1,6 @@
 import {
   floatInAnimation,
-  floatOutAnimation
+  floatOutAnimation,
 } from './../../../shared/animations/animations.animation';
 import {
   trigger,
@@ -10,7 +10,7 @@ import {
   transition,
   useAnimation,
   group,
-  query
+  query,
 } from '@angular/animations';
 
 export let floatOutTrigger = trigger('floatOutTrigger', [
@@ -19,11 +19,11 @@ export let floatOutTrigger = trigger('floatOutTrigger', [
     group([
       style({ opacity: 1 }),
       query('.results', [useAnimation(floatOutAnimation)]),
-      useAnimation(floatOutAnimation)
+      useAnimation(floatOutAnimation),
     ])
-  )
+  ),
 ]);
 
 export let floatInTrigger = trigger('floatInTrigger', [
-  transition(':enter', useAnimation(floatInAnimation))
+  transition(':enter', useAnimation(floatInAnimation)),
 ]);

@@ -1,6 +1,6 @@
 import { ArtistComponent } from './artist/artist.component';
 import { AlbumComponent } from './album/album.component';
-import { PlaylistComponent } from './playlist/playlist.component';
+import { PlaylistComponent } from './playlist/playlist.component/playlist.component';
 import { LibraryComponent } from './library.component/library.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
