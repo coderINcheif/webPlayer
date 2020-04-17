@@ -3,13 +3,13 @@ import { style, animate, animation, keyframes } from '@angular/animations';
 export let floatInAnimation = animation(
   [
     style({ transform: 'translateY(25px)', opacity: 0 }),
-    animate('{{ duration }} {{ timing }}')
+    animate('{{ duration }} {{ timing }}'),
   ],
   {
     params: {
       duration: '200ms',
-      timing: 'ease-out'
-    }
+      timing: 'ease-out',
+    },
   }
 );
 
@@ -18,14 +18,14 @@ export let floatOutAnimation = animation(
     '{{ duration }} {{ timing }}',
     style({
       opacity: 0,
-      transform: 'translateY(25px)'
+      transform: 'translateY(25px)',
     })
   ),
   {
     params: {
       duration: '150ms',
-      timing: 'ease-in'
-    }
+      timing: 'ease-in',
+    },
   }
 );
 
@@ -34,8 +34,8 @@ export let fadeInAnimation = animation(
   {
     params: {
       duration: '200ms',
-      timing: 'ease-out'
-    }
+      timing: 'ease-out',
+    },
   }
 );
 
@@ -44,8 +44,8 @@ export let fadeOutAnimation = animation(
   {
     params: {
       duration: '150ms',
-      timing: 'ease-in'
-    }
+      timing: 'ease-in',
+    },
   }
 );
 
@@ -57,8 +57,8 @@ export let buttonHoldAnimation = animation(
   {
     params: {
       duration: `${0.75 * 0.2}s`,
-      scale: '0.9'
-    }
+      scale: '0.9',
+    },
   }
 );
 
@@ -68,15 +68,15 @@ export let buttonReleaseAnimation = animation(
     keyframes([
       style({
         offset: 0.35,
-        transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})'
+        transform: 'scale3d({{ scale }}, {{ scale }}, {{ scale }})',
       }),
-      style({ offset: 0.7, transform: 'scale3d(1,1,1)' })
+      style({ offset: 0.7, transform: 'scale3d(1,1,1)' }),
     ])
   ),
   {
     params: {
       duration: `${0.75 * 0.8}s`,
-      scale: '1.1'
-    }
+      scale: '1.1',
+    },
   }
 );
