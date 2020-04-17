@@ -2,7 +2,16 @@
   <h1>{{ header }}</h1>
   <ul>
     <li *ngFor="let item of items">
-      <app-card [playlist]="item"></app-card>
+      <app-card
+        *ngIf="inputCardType === cardType.Playlist"
+        [cardType]="inputCardType"
+        [playlist]="item"
+      ></app-card>
+      <app-card
+        *ngIf="inputCardType === cardType.Artist"
+        [cardType]="inputCardType"
+        [artist]="item"
+      ></app-card>
     </li>
   </ul>
 </div>

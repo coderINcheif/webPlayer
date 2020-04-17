@@ -15,6 +15,7 @@ import { AlbumComponent } from './album/album.component';
     CommonModule,
     LibraryNavigationModule,
     PlaylistModule,
+    HorizontalListModule,
     LibraryRoutingModule,
   ],
 })

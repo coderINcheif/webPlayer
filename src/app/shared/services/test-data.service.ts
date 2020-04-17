@@ -1,3 +1,4 @@
+import { SearchResultInterface } from './../../view-controller/search/shared/interfaces/search-result.interface';
 import { PlaylistDetailInterface } from './../../playlist-detail/interfaces/playlist-detail.interface';
 import { ArtistInterface } from './../interfaces/artist.interface';
 import { MusicInterface } from './../interfaces/music.interface';
@@ -13,10 +14,14 @@ export class TestDataService {
   artist: ArtistInterface;
   libraryPlaylist: PlaylistInterface;
   playlistDetail: PlaylistDetailInterface;
+  searchSample: SearchResultInterface;
+  searchSample2: SearchResultInterface;
   itemMap: { [key: string]: any };
   constructor() {
     this.artist = {
       name: 'Random Person',
+      cover: 'assets/images/aritst.jpeg',
+      id: 'random-id',
     };
     this.playlist = {
       title: 'Test Playlist',
@@ -28,14 +33,7 @@ export class TestDataService {
     this.track = {
       title: 'Test Music',
       length: '3:45',
-      artists: [
-        {
-          name: 'Himanshu Pandey',
-        },
-        {
-          name: 'Pandey Himanshu',
-        },
-      ],
+      artists: [this.artist, this.artist],
       releaseDate: '30th Feb 2020',
       cover: 'assets/images/7_rings.png',
     };
@@ -55,6 +53,19 @@ export class TestDataService {
       songs: 7,
       tracks: this.getTracks(7),
       primaryColor: '160, 126, 138',
+    };
+    this.searchSample = {
+      title: 'Test Playlist',
+      type: 'Playlist',
+      id: 'some-random-id',
+      cover: 'assets/images/7_rings.png',
+    };
+    this.searchSample2 = {
+      title: 'Test Playlist',
+      type: 'Song',
+      id: 'some-random-id',
+      cover: 'assets/images/7_rings.png',
+      artists: [this.artist, this.artist, this.artist, this.artist],
     };
     this.itemMap = {
       playlist: this.playlist,

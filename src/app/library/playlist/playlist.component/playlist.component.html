@@ -2,11 +2,16 @@
   <div class="create">
     <ul>
       <div (click)="createPlaylist($event)">
-        <i class="material-icons">add</i>
-        <p>Create playlist</p>
+        <div>
+          <i class="material-icons">add</i>
+          <p>Create playlist</p>
+        </div>
       </div>
     </ul>
   </div>
-  <app-horizontal-list [serviceURL]="'my-playlist'"></app-horizontal-list>
+  <app-horizontal-list
+    [count]="9"
+    [serviceURL]="'my-playlist'"
+  ></app-horizontal-list>
   <playlist-create-dialog></playlist-create-dialog>
 </div>

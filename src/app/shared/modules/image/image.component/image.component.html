@@ -1,6 +1,7 @@
-<div class="image-container">
+<div class="image-container" [class.circle]="circle">
   <div
     class="image"
+    [class.circle]="circle"
     [ngStyle]="{ 'background-image': 'url(' + url + ')' }"
   ></div>
 </div>

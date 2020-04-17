@@ -1,4 +1,8 @@
-<a [routerLink]="['/playlist', playlist.id]" class="playlist-card">
+<a
+  *ngIf="inputCardType === cardType.Playlist"
+  [routerLink]="['/playlist', playlist.id]"
+  class="playlist card"
+>
   <app-image [url]="playlist.cover"></app-image>
   <div class="card-detail">
     <h1>{{ playlist.title }}</h1>
@@ -7,5 +11,16 @@
         >{{ artist.name }}<span *ngIf="!isLast">,</span></span
       >
     </p>
+  </div>
+</a>
+
+<a
+  *ngIf="inputCardType === cardType.Artist"
+  [routerLink]="['/artist', artist.id]"
+  class="card artist"
+>
+  <app-image [circle]="true" [url]="artist.cover"></app-image>
+  <div class="artist card-detail">
+    <h1>{{ artist.name }}</h1>
   </div>
 </a>

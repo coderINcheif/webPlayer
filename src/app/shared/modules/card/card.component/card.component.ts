@@ -1,5 +1,12 @@
+import { ArtistInterface } from './../../../interfaces/artist.interface';
 import { PlaylistInterface } from '../../../interfaces/playlist.interface';
 import { Component, OnInit, Input } from '@angular/core';
+
+export enum CardType {
+  Playlist,
+  Artist,
+  Music,
+}
 
 @Component({
   selector: 'app-card',
@@ -7,8 +14,13 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements OnInit {
-  @Input() playlist: PlaylistInterface;
-
+  // tslint:disable-next-line: no-input-rename
+  @Input('playlist') playlist: PlaylistInterface;
+  // tslint:disable-next-line: no-input-rename
+  @Input('artist') artist: ArtistInterface;
+  // tslint:disable-next-line: no-input-rename
+  @Input('cardType') inputCardType: CardType;
+  public cardType = CardType;
   constructor() {}
 
   ngOnInit() {}

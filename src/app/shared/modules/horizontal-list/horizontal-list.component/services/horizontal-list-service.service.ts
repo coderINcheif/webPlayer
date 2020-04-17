@@ -1,3 +1,4 @@
+import { CardType } from './../../../card/card.component/card.component';
 import { TestDataService } from './../../../../services/test-data.service';
 import { PlaylistInterface } from './../../../../interfaces/playlist.interface';
 import { Injectable } from '@angular/core';
@@ -14,110 +15,13 @@ export enum ListType {
 })
 export class HorizontalListService {
   items: Array<PlaylistInterface>;
-  constructor(private testData: TestDataService) {
-    this.items = [
-      {
-        title: 'Test Playlist',
-        created_by: 'Himanshu Pandey',
-        id: 'some-random-id',
-        artists: [
-          {
-            name: 'Himanshu Pandey',
-          },
-          {
-            name: 'Random Person',
-          },
-          {
-            name: 'John Doe',
-          },
-          {
-            name: 'Pandey Himanshu',
-          },
-        ],
-        cover: 'assets/images/7_rings.png',
-      },
-      {
-        title: 'Test Playlist',
-        created_by: 'Himanshu Pandey',
-        id: 'some-random-id',
-        artists: [
-          {
-            name: 'Himanshu Pandey',
-          },
-          {
-            name: 'Random Person',
-          },
-          {
-            name: 'John Doe',
-          },
-          {
-            name: 'Pandey Himanshu',
-          },
-        ],
-        cover: 'assets/images/7_rings.png',
-      },
-      {
-        title: 'Test Playlist',
-        created_by: 'Himanshu Pandey',
-        id: 'some-random-id',
-        artists: [
-          {
-            name: 'Himanshu Pandey',
-          },
-          {
-            name: 'Random Person',
-          },
-          {
-            name: 'John Doe',
-          },
-          {
-            name: 'Pandey Himanshu',
-          },
-        ],
-        cover: 'assets/images/7_rings.png',
-      },
-      {
-        title: 'Test Playlist',
-        created_by: 'Himanshu Pandey',
-        id: 'some-random-id',
-        artists: [
-          {
-            name: 'Himanshu Pandey',
-          },
-          {
-            name: 'Random Person',
-          },
-          {
-            name: 'John Doe',
-          },
-          {
-            name: 'Pandey Himanshu',
-          },
-        ],
-        cover: 'assets/images/7_rings.png',
-      },
-      {
-        title: 'Test Playlist',
-        created_by: 'Himanshu Pandey',
-        id: 'some-random-id',
-        artists: [
-          {
-            name: 'Himanshu Pandey',
-          },
-          {
-            name: 'Random Person',
-          },
-          {
-            name: 'John Doe',
-          },
-          {
-            name: 'Pandey Himanshu',
-          },
-        ],
-        cover: 'assets/images/7_rings.png',
-      },
-    ];
-  }
+  cardType = {
+    playlist: CardType.Playlist,
+    music: CardType.Music,
+    artist: CardType.Artist,
+    'my-playlist': CardType.Playlist,
+  };
+  constructor(private testData: TestDataService) {}
 
   getItems(url: string, count: number) {
     const items = [];
@@ -125,5 +29,9 @@ export class HorizontalListService {
       items.push(this.testData.getData(url));
     }
     return items;
+  }
+
+  getCardType(url: string) {
+    return this.cardType[url];
   }
 }

@@ -8,10 +8,12 @@ import { Component, OnInit, Input } from '@angular/core';
   selector: 'app-action-tile',
   templateUrl: './action-tile.component.html',
   styleUrls: ['./action-tile.component.scss'],
-  animations: [mousedownTrigger]
+  animations: [mousedownTrigger],
 })
 export class ActionTileComponent implements OnInit {
+  // tslint:disable-next-line: no-input-rename
   @Input('action') action: ActionInterface;
+  // tslint:disable-next-line: no-input-rename
   @Input('music') music: MusicInterface;
 
   isMousedown = false;

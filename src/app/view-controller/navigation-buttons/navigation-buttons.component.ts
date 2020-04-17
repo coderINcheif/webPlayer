@@ -12,12 +12,12 @@ enum History {
   styleUrls: ['./navigation-buttons.component.scss'],
 })
 export class NavigationButtonsComponent implements OnInit {
-  private History = History;
+  public History = History;
   constructor(private locationService: Location) {}
 
   ngOnInit() {}
 
-  private navigate(location: History) {
+  public navigate(location: History) {
     if (location === History.Back) {
       this.locationService.back();
     } else if (location === History.Forward) {
