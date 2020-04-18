@@ -9,11 +9,15 @@ div {
   justify-content: flex-start;
   background-color: rgba($color: rgb(8, 8, 8), $alpha: 0.7);
   app-view-controller-navigation-buttons {
-    position: relative;
+    position: absolute;
+    z-index: 10;
+    // display: none;
   }
   .module-controller {
+    z-index: 10;
     position: relative;
-    width: calc(100% - 163px);
+    margin: auto;
+    width: 50%;
   }
 
   .view.background {

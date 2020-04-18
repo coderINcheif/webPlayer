@@ -11,14 +11,6 @@ div {
     grid-area: content;
     display: flex;
     flex-flow: column;
-    // display: grid;
-    // grid-template-areas:
-    //   'view-controller'
-    //   'router-outlet';
-    // grid-template-rows:
-    //   80px
-    //   1fr;
-    // grid-template-columns: 1fr;
     overflow: scroll;
     height: 100vh;
 
@@ -31,8 +23,9 @@ div {
       display: initial;
     }
     .app-view-controller {
-      grid-area: view-controller;
       display: initial;
+      width: 100%;
+      height: auto;
     }
   }
 }

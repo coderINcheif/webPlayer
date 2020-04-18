@@ -20,17 +20,6 @@ export let mousedownTrigger = trigger('mousedownTrigger', [
     })
   ),
   transition('* => mousedown', useAnimation(buttonHoldAnimation)),
-  // transition('mousedown => *', useAnimation(buttonReleaseAnimation)),
-  // transition(
-  //   '* => mousedown',
-
-  //   useAnimation(buttonHoldAnimation, {
-  //     params: {
-  //       scale: '.9',
-  //       duration: `${0.75 * 0.18}s`,
-  //     },
-  //   })
-  // ),
   transition(
     'mousedown => *',
     animate(
@@ -40,11 +29,5 @@ export let mousedownTrigger = trigger('mousedownTrigger', [
         style({ offset: 0.9, transform: 'scale3d(1,1,1)' }),
       ])
     )
-    // useAnimation(buttonReleaseAnimation, {
-    //   params: {
-    //     scale: '1.14',
-    //     duration: `${0.75 * 0.55}s`,
-    //   },
-    // })
   ),
 ]);
