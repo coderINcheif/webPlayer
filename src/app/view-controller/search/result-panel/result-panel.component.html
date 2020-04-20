@@ -2,7 +2,7 @@
   <div class="background"></div>
   <div *ngIf="resultsAvailable; then showResultTemp; else noResultTemp"></div>
   <ng-template #showResultTemp>
-    <div @floatInTrigger class="results recents" [class.recents]="showRecents">
+    <div @floatInTrigger class="results">
       <p *ngIf="showRecents">Recent searches</p>
       <app-search-result-tile
         *ngFor="let result of results"
