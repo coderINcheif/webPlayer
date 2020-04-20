@@ -3,7 +3,7 @@ import { LibNavigationService } from './services/lib-navigation.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-library-navigation',
+  selector: 'library-navigation',
   templateUrl: './library-navigation.component.html',
   styleUrls: ['./library-navigation.component.scss'],
 })

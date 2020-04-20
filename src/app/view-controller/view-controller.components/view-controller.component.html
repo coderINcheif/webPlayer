@@ -7,16 +7,14 @@
     class="module-controller"
     *ngIf="routeIncludes('/explore')"
   ></app-view-controller-search-sheet>
-  <app-library-navigation
+  <library-navigation
     class="module-controller"
     *ngIf="routeIncludes('/library')"
-  ></app-library-navigation>
+  ></library-navigation>
 </div>
-<div
+<view-controller-overlay
   @fadeTrigger
-  class="overlay"
   *ngIf="overlay"
   (mousedown)="updateOverlayStatus(false)"
 >
-  <div class="overlay background"></div>
-</div>
+</view-controller-overlay>
