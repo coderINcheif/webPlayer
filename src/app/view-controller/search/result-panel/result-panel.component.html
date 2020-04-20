@@ -1,50 +1,20 @@
-<div @floatInTrigger @floatOutTrigger *ngIf="visible">
+<div class="container" @floatInTrigger @floatOutTrigger *ngIf="visible">
   <div class="background"></div>
-  <div *ngIf="recents === false; then resultsTemp; else recentsTemp"></div>
-  <ng-template #resultsTemp>
-    <div
-      *ngIf="results.length === 0; then noResultTemp; else showResultTemp"
-    ></div>
-  </ng-template>
-  <ng-template #recentsTemp>
-    <div
-      *ngIf="
-        recentSearches.length === 0;
-        then noRecentsTemp;
-        else showRecentsTemp
-      "
-    ></div>
-  </ng-template>
-
-  <ng-template #showRecentsTemp>
-    <div @floatInTrigger class="results recents">
-      <p>Recent searches</p>
-      <app-search-result-tile
-        *ngFor="let result of recentSearches"
-        [result]="result"
-      ></app-search-result-tile>
-    </div>
-  </ng-template>
+  <div *ngIf="resultsAvailable; then showResultTemp; else noResultTemp"></div>
   <ng-template #showResultTemp>
-    <div @floatInTrigger class="results">
+    <div @floatInTrigger class="results recents" [class.recents]="showRecents">
+      <p *ngIf="showRecents">Recent searches</p>
       <app-search-result-tile
         *ngFor="let result of results"
         [result]="result"
       ></app-search-result-tile>
     </div>
   </ng-template>
-  <ng-template #noRecentsTemp>
-    <div @floatInTrigger class="results icon">
-      <i class="material-icons">search</i>
-      <h2>Search WebPlayer</h2>
-      <p>Find your favorite music and playlist</p>
-    </div>
-  </ng-template>
   <ng-template #noResultTemp>
-    <div @floatInTrigger class="results icon">
-      <i class="material-icons">error_outline</i>
-      <h2>No results found</h2>
-      <p>Please check you have right spelling or try different keyword</p>
+    <div @floatInTrigger class="results no-results">
+      <i class="material-icons">{{ noResultTemplate.icon }}</i>
+      <h2>{{ noResultTemplate.heading }}</h2>
+      <p>{{ noResultTemplate.text }}</p>
     </div>
   </ng-template>
 </div>
