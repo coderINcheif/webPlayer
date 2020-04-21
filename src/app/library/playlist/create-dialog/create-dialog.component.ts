@@ -2,7 +2,6 @@ import { ShowDialogService } from './../shared/services/show-dialog.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { timingSafeEqual } from 'crypto';
 
 @Component({
   // tslint:disable-next-line: component-selector

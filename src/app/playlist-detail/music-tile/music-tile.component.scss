@@ -13,7 +13,6 @@ div {
     display: flex;
     flex-flow: row;
     width: 100%;
-    align-items: stretch;
     justify-content: space-between;
     margin-bottom: 0;
     p {
@@ -22,7 +21,6 @@ div {
     }
     i {
       font-size: 25px;
-      margin: 0;
       padding: 5px;
       color: grey;
       border-radius: 50%;
@@ -42,36 +40,25 @@ div {
       color: grey;
       font-size: 16px;
       margin: 0;
-      display: flex;
-      flex-flow: row;
+      display: inherit;
       align-items: center;
       justify-content: center;
-      span div {
-        margin: 0 5px 0 5px;
-        height: 5px;
-        width: 5px;
-        border-radius: 50%;
-        background-color: grey;
-      }
     }
   }
 }
-.actions {
-  position: absolute;
-  height: 100vh;
-  width: 100%;
-  background-color: transparent;
-  top: 0;
-  bottom: 0;
+
+app-actions {
+  position: fixed;
   z-index: 10;
-  cursor: initial;
-  overflow: visible scroll;
-  height: 100%;
-  scrollbar-width: none;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  app-actions {
-    margin-top: 20%;
-  }
+  height: 100vh;
+  top: 0;
+  width: 100%;
+}
+
+.seperator {
+  margin: 0 5px 0 5px;
+  height: 5px;
+  width: 5px;
+  border-radius: 50%;
+  background-color: grey;
 }

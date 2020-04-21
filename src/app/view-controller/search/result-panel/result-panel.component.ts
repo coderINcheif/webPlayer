@@ -56,10 +56,8 @@ export class ResultPanelComponent implements OnInit {
   }
 
   checkResults() {
-    if (this.results.length === 0) {
-      this.resultsAvailable = false;
-    } else {
-      this.resultsAvailable = true;
-    }
+    this.results.length === 0
+      ? (this.resultsAvailable = false)
+      : (this.resultsAvailable = true);
   }
 }

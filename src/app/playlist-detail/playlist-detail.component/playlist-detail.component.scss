@@ -1,21 +1,22 @@
-div {
+.container {
   height: 100vh;
   display: grid;
   grid-template-areas: 'banner track-list';
   grid-template-columns: 35% 1fr;
-  padding: 0px 60px 0 60px;
+  padding: 0 60px;
   overflow: hidden;
-  .banner {
-    grid-area: banner;
+  .scroll {
     overflow: scroll;
     scrollbar-width: none;
-    display: flex;
-    flex-flow: column;
-    // justify-content: center;
-    // align-items: center;
     &::-webkit-scrollbar {
       display: none;
     }
+  }
+  .banner {
+    grid-area: banner;
+    display: flex;
+    flex-flow: column;
+    padding: 0 60px;
     app-playlist-detail-banner {
       margin: auto;
     }
@@ -23,11 +24,9 @@ div {
   .track-list {
     grid-area: track-list;
     display: initial;
-    overflow-y: scroll;
-    scrollbar-width: none;
     padding: 0;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+    // app-playlist-detail-track {
+    //   margin: auto;
+    // }
   }
 }

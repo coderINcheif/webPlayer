@@ -1,5 +1,5 @@
 <div class="container" (mousedown)="updateOverlayStatus(false)">
-  <div @blurTrigger class="container-background" *ngIf="overlay"></div>
+  <div @blurTrigger class="background" *ngIf="overlay"></div>
   <app-view-controller-navigation-buttons
     (mousedown)="$event.stopPropagation()"
   ></app-view-controller-navigation-buttons>

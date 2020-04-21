@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <div class="header">
     <p>{{ music.title }}</p>
     <i (mousedown)="toggleActions(true)" class="material-icons">more_vert</i>
@@ -7,17 +7,17 @@
     <p *ngFor="let artist of music.artists; last as isLast">
       {{ artist.name }}
       <span *ngIf="!isLast">
-        <div></div>
+        <div class="seperator"></div>
       </span>
     </p>
   </div>
 </div>
-<div
-  @floatInTrigger
-  @floatOutTrigger
+
+<app-actions
   class="actions"
   *ngIf="selected"
-  (mousedown)="toggleActions(false)"
->
-  <app-actions [actions]="actions" [music]="music"></app-actions>
-</div>
+  @floatInTrigger
+  @floatOutTrigger
+  [actions]="actions"
+  [music]="music"
+></app-actions>

@@ -1,4 +1,5 @@
 <div
+  class="container"
   [ngStyle]="{
     background:
       'linear-gradient(180deg, rgba(' +
@@ -9,6 +10,7 @@
   }"
 >
   <div
+    class="banner scroll"
     #banner
     (scroll)="
       linkedScrolling({
@@ -18,7 +20,6 @@
         linkedClass: 'track-list'
       })
     "
-    class="banner"
   >
     <app-playlist-detail-banner
       [details]="playlist"
@@ -26,7 +27,7 @@
   </div>
 
   <div
-    class="track-list"
+    class="track-list scroll"
     #track
     (scroll)="
       linkedScrolling({

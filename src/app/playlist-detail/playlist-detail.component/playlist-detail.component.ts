@@ -1,7 +1,6 @@
 import { PlaylistDetailInterface } from '../interfaces/playlist-detail.interface';
 import { PlaylistDetailService } from './services/playlist-detail.service';
 import { Component, OnInit } from '@angular/core';
-import { ElementArrayFinder } from 'protractor';
 
 interface LinkedScrolling {
   element: HTMLElement;

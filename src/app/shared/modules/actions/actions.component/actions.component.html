@@ -1,8 +1,11 @@
-<ul (mousedown)="$event.stopPropagation()">
-  <app-image [url]="music.cover"></app-image>
-  <h1>{{ music.title }}</h1>
-
-  <li *ngFor="let action of actions">
-    <app-action-tile [music]="music" [action]="action"></app-action-tile>
-  </li>
-</ul>
+<div class="container" (mousedown)="updateOverlay($event)">
+  <ul>
+    <div class="app-image">
+      <app-image [url]="music.cover"></app-image>
+    </div>
+    <h1>{{ music.title }}</h1>
+    <li *ngFor="let action of actions">
+      <app-action-tile [music]="music" [action]="action"></app-action-tile>
+    </li>
+  </ul>
+</div>
