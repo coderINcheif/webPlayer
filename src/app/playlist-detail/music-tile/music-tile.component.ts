@@ -12,6 +12,7 @@ import { floatInTrigger, floatOutTrigger } from './music-tile.animation';
   animations: [floatInTrigger, floatOutTrigger],
 })
 export class MusicTileComponent implements OnInit, OnDestroy {
+  // tslint:disable-next-line: no-input-rename
   @Input('music') music: MusicInterface;
 
   actions: Array<ActionInterface>;
