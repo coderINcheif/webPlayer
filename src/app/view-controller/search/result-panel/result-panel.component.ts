@@ -1,10 +1,14 @@
-import { NoResultTemplate } from './../shared/interfaces/no-result-template.interface';
 import { floatInTrigger, floatOutTrigger } from './result.animation';
-
 import { SyncService } from './../shared/services/sync.service';
 import { SearchResultInterface } from './../shared/interfaces/search-result.interface';
-import { SearchService, ResultType } from './../shared/services/search.service';
+import { SearchService } from './../shared/services/search.service';
 import { Component, OnInit, Input } from '@angular/core';
+
+export interface NoResultTemplateData {
+  icon: string;
+  heading: string;
+  text: string;
+}
 
 @Component({
   selector: 'app-view-controller-result-panel',
@@ -19,8 +23,18 @@ export class ResultPanelComponent implements OnInit {
   results: Array<SearchResultInterface> = [];
   showRecents = true;
   resultsAvailable = false;
-  noResultTemplate: NoResultTemplate;
-  public recentSearches: Array<SearchResultInterface> = [];
+  recentSearches: Array<SearchResultInterface> = [];
+
+  noRecent: NoResultTemplateData = {
+    icon: 'search',
+    heading: 'Search WebPlayer',
+    text: 'Find your favorite music and playlist',
+  };
+  noSearch: NoResultTemplateData = {
+    icon: 'error_outline',
+    heading: 'No results found',
+    text: 'Please check you have right spelling or try different keyword',
+  };
 
   constructor(
     private syncService: SyncService,
@@ -44,9 +58,6 @@ export class ResultPanelComponent implements OnInit {
   checkResults() {
     if (this.results.length === 0) {
       this.resultsAvailable = false;
-      this.noResultTemplate = this.searchService.noResultTemplateData(
-        this.showRecents ? ResultType.Recents : ResultType.Search
-      );
     } else {
       this.resultsAvailable = true;
     }

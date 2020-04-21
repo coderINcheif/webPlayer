@@ -12,9 +12,11 @@
   </ng-template>
   <ng-template #noResultTemp>
     <div @floatInTrigger class="results no-results">
-      <i class="material-icons">{{ noResultTemplate.icon }}</i>
-      <h2>{{ noResultTemplate.heading }}</h2>
-      <p>{{ noResultTemplate.text }}</p>
+      <i class="material-icons">{{
+        showRecents ? noRecent.icon : noSearch.icon
+      }}</i>
+      <h2>{{ showRecents ? noRecent.heading : noSearch.heading }}</h2>
+      <p>{{ showRecents ? noRecent.text : noSearch.text }}</p>
     </div>
   </ng-template>
 </div>
