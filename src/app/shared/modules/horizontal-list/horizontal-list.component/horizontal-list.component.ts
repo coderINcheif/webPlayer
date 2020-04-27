@@ -1,4 +1,3 @@
-import { HorizontalListService } from './services/horizontal-list-service.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { CardType } from 'src/app/shared/enums/card.enum';
 
@@ -20,7 +19,7 @@ export class HorizontalListComponent implements OnInit {
   @Input('cardType') cardType;
 
   cardTypes = CardType;
-  constructor(private listItems: HorizontalListService) {}
+  constructor() {}
 
   ngOnInit() {}
 }
