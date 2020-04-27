@@ -1,7 +1,6 @@
-import { CardType } from './../../card/card.component/card.component';
-import { PlaylistInterface } from '../../../interfaces/playlist.interface';
 import { HorizontalListService } from './services/horizontal-list-service.service';
 import { Component, OnInit, Input } from '@angular/core';
+import { CardType } from 'src/app/shared/enums/card.enum';
 
 @Component({
   selector: 'app-horizontal-list',
@@ -23,8 +22,5 @@ export class HorizontalListComponent implements OnInit {
   cardTypes = CardType;
   constructor(private listItems: HorizontalListService) {}
 
-  ngOnInit() {
-    // this.items = this.listItems.getItems(this.url, this.count);
-    // this.inputCardType = this.listItems.getCardType(this.url);
-  }
+  ngOnInit() {}
 }

@@ -1,7 +1,7 @@
-import { CardType } from './../../../card/card.component/card.component';
 import { TestDataService } from './../../../../services/test-data.service';
 import { PlaylistInterface } from './../../../../interfaces/playlist.interface';
 import { Injectable } from '@angular/core';
+import { CardType } from 'src/app/shared/enums/card.enum';
 
 export enum ListType {
   Playlist = 'playlist',

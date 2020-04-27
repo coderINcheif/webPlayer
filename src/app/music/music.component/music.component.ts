@@ -1,7 +1,7 @@
 import { CategoriesService } from './services/categories.service';
 import { Component, OnInit } from '@angular/core';
 import { CategoryInterface } from './interfaces/category.interface';
-import { CardType } from 'src/app/shared/modules/card/card.component/card.component';
+import { CardType } from 'src/app/shared/enums/card.enum';
 
 @Component({
   selector: 'app-music',

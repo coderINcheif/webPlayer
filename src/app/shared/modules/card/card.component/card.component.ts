@@ -1,12 +1,7 @@
 import { ArtistInterface } from './../../../interfaces/artist.interface';
 import { PlaylistInterface } from '../../../interfaces/playlist.interface';
 import { Component, OnInit, Input } from '@angular/core';
-
-export enum CardType {
-  Playlist,
-  Artist,
-  Music,
-}
+import { CardType } from 'src/app/shared/enums/card.enum';
 
 @Component({
   selector: 'app-card',
