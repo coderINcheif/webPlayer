@@ -1,11 +1,25 @@
 <div @dialogTrigger *ngIf="dialogStatus" class="container">
   <div class="background"></div>
-  <div class="dialog">
+  <form #form="ngForm" (ngSubmit)="createPlaylist(form)" class="dialog">
     <p>Give your playlist a name</p>
-    <input autofocus type="text" />
+    <input
+      ngModel
+      #playlistName="ngModel"
+      name="name"
+      autofocus
+      required
+      type="text"
+    />
     <div class="action">
-      <input type="submit" class="primary" value="Create" />
-      <input type="submit" (click)="cancel()" value="Cancel" />
+      <input
+        type="submit"
+        ngModel="Create"
+        name="submit"
+        class="primary"
+        [class.disabled]="form.invalid"
+        [disabled]="form.invalid"
+      />
+      <input type="button" ngModel="Cancel" name="cancel" (click)="cancel()" />
     </div>
-  </div>
+  </form>
 </div>

@@ -16,7 +16,8 @@ export class TestDataService {
   playlistDetail: PlaylistDetailInterface;
   searchSample: SearchResultInterface;
   searchSample2: SearchResultInterface;
-  itemMap: { [key: string]: any };
+  // tslint:disable-next-line: ban-types
+  itemMap: { [key: string]: Function };
   constructor() {
     this.artist = {
       name: 'Random Person',
@@ -68,16 +69,17 @@ export class TestDataService {
       artists: [this.artist, this.artist, this.artist, this.artist],
     };
     this.itemMap = {
-      playlist: this.playlist,
-      'my-playlist': this.libraryPlaylist,
-      artist: this.artist,
-      track: this.track,
-      'playlist-detail': this.playlistDetail,
+      playlist: this.getTracks,
+      'my-playlist': this.getTracks,
+      artist: this.getTracks,
+      track: this.getTracks,
+      'playlist-detail': this.getTracks,
+      category: this.getCategoriesData,
     };
   }
 
-  getData(url: string) {
-    return this.itemMap[url];
+  getData(url: string): any {
+    return this.itemMap[url].call(this);
   }
 
   getTracks(songs: number) {
@@ -87,4 +89,26 @@ export class TestDataService {
     }
     return tracks;
   }
+
+  updatePlaylist(playlistData: any) {
+    this.libraryPlaylist.title = playlistData.name;
+  }
+
+  getSearchData() {}
+
+  getPlaylistDetailData() {}
+
+  getCategoriesData(): Array<PlaylistInterface> {
+    const items = [];
+    for (let i = 0; i < 5; i++) {
+      items.push(this.playlist);
+    }
+    return items;
+  }
+
+  getLibraryPlaylists() {}
+
+  getGeneresData() {}
+
+  getGenereMusicData() {}
 }

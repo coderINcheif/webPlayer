@@ -1,4 +1,5 @@
-import { ShowDialogService } from './shared/services/show-dialog.service';
+import { FormsModule } from '@angular/forms';
+import { CreatePlaylistService } from './shared/services/create-playlist.service';
 import { HorizontalListModule } from './../../shared/modules/horizontal-list/horizontal-list.module';
 import { PlaylistComponent } from './playlist.component/playlist.component';
 import { NgModule } from '@angular/core';
@@ -7,8 +8,8 @@ import { CreateDialogComponent } from './create-dialog/create-dialog.component';
 
 @NgModule({
   declarations: [PlaylistComponent, CreateDialogComponent],
-  imports: [CommonModule, HorizontalListModule],
+  imports: [CommonModule, FormsModule, HorizontalListModule],
   exports: [PlaylistComponent],
-  providers: [ShowDialogService],
+  providers: [CreatePlaylistService],
 })
 export class PlaylistModule {}

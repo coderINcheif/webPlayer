@@ -9,20 +9,22 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./horizontal-list.component.scss'],
 })
 export class HorizontalListComponent implements OnInit {
-  items: Array<PlaylistInterface>;
   // tslint:disable-next-line: no-input-rename
   @Input('count') count = 5;
   // tslint:disable-next-line: no-input-rename
   @Input('header') header?: string;
   // tslint:disable-next-line: no-input-rename
+  @Input('items') items: Array<any>;
+  // tslint:disable-next-line: no-input-rename
   @Input('serviceURL') url = 'playlist';
+  // tslint:disable-next-line: no-input-rename
+  @Input('cardType') cardType;
 
-  inputCardType: CardType;
-  cardType = CardType;
+  cardTypes = CardType;
   constructor(private listItems: HorizontalListService) {}
 
   ngOnInit() {
-    this.items = this.listItems.getItems(this.url, this.count);
-    this.inputCardType = this.listItems.getCardType(this.url);
+    // this.items = this.listItems.getItems(this.url, this.count);
+    // this.inputCardType = this.listItems.getCardType(this.url);
   }
 }

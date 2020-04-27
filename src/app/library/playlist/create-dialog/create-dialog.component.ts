@@ -1,7 +1,9 @@
-import { ShowDialogService } from './../shared/services/show-dialog.service';
+import { TestDataService } from './../../../shared/services/test-data.service';
+import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -14,11 +16,12 @@ export class CreateDialogComponent implements OnInit, OnDestroy {
   dialogStatus = false;
   constructor(
     private overlayService: OverlayService,
-    private showDialogService: ShowDialogService
+    private createPlaylistService: CreatePlaylistService,
+    private testDataService: TestDataService
   ) {}
 
   ngOnInit() {
-    this.showDialogService.showDialog$.subscribe((status) => {
+    this.createPlaylistService.showDialog$.subscribe((status) => {
       this.dialogStatus = status;
       this.overlayService.updateOverlayStatus(status);
     });
@@ -28,10 +31,16 @@ export class CreateDialogComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.showDialogService.updateStatus(false);
+    this.createPlaylistService.updateDialogStatus(false);
   }
 
   cancel() {
-    this.showDialogService.updateStatus(false);
+    this.createPlaylistService.updateDialogStatus(false);
+  }
+
+  createPlaylist(form: NgForm) {
+    this.createPlaylistService.refreshPlaylist(true);
+    this.createPlaylistService.updateDialogStatus(false);
+    this.testDataService.updatePlaylist(form.value);
   }
 }

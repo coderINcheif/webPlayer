@@ -1,4 +1,5 @@
-import { ShowDialogService } from './../shared/services/show-dialog.service';
+import { Router } from '@angular/router';
+import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -8,12 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistComponent implements OnInit {
   showCreateDialog = false;
-  constructor(private showDialogService: ShowDialogService) {}
+  constructor(
+    private createPlaylistService: CreatePlaylistService,
+    private router: Router
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.createPlaylistService.refresh$.subscribe((status) => {
+      this.refresh();
+    });
+  }
 
   createPlaylist(event: Event) {
     event.stopPropagation();
-    this.showDialogService.updateStatus(true);
+    this.createPlaylistService.updateDialogStatus(true);
+  }
+
+  refresh() {
+    const currentURL = this.router.url;
+    this.router.onSameUrlNavigation = 'reload';
+    this.router.navigateByUrl(currentURL);
+    // this.router.navigate([currentURL], { onSameUrlNavigation: 'reload' });x
+    // this.router
+    //   .navigateByUrl('/RefreshComponent', { skipLocationChange: true })
+    //   .then(() => {
+    //   });
   }
 }

@@ -3,13 +3,13 @@
   <ul>
     <li *ngFor="let item of items">
       <app-card
-        *ngIf="inputCardType === cardType.Playlist"
-        [cardType]="inputCardType"
+        *ngIf="cardType === cardTypes.Playlist"
+        [cardType]="cardType"
         [playlist]="item"
       ></app-card>
       <app-card
-        *ngIf="inputCardType === cardType.Artist"
-        [cardType]="inputCardType"
+        *ngIf="cardType === cardTypes.Artist"
+        [cardType]="cardType"
         [artist]="item"
       ></app-card>
     </li>

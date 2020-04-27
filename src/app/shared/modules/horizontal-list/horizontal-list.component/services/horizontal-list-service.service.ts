@@ -25,6 +25,7 @@ export class HorizontalListService {
 
   getItems(url: string, count: number) {
     const items = [];
+    console.log('service called');
     for (let i = 0; i < count; i++) {
       items.push(this.testData.getData(url));
     }

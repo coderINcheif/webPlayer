@@ -1,6 +1,8 @@
 <div class="container">
   <app-horizontal-list
     *ngFor="let category of categories"
-    [header]="category"
+    [header]="category.title"
+    [items]="category.items"
+    [cardType]="cardType"
   ></app-horizontal-list>
 </div>
