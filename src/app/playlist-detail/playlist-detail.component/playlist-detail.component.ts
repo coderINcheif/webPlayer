@@ -19,10 +19,10 @@ export class PlaylistDetailComponent implements OnInit {
   gradientOpacity = 0.09;
   prevScrollPos = { banner: 0, 'track-list': 0 };
 
-  constructor(private playlistDetail: PlaylistDetailService) {}
+  constructor(private PlaylistDetailService: PlaylistDetailService) {}
 
   ngOnInit() {
-    this.playlist = this.playlistDetail.playlist;
+    this.playlist = this.PlaylistDetailService.getDetail();
   }
 
   linkedScrolling({

@@ -7,7 +7,9 @@ import { Injectable } from '@angular/core';
 })
 export class PlaylistDetailService {
   playlist: PlaylistDetailInterface;
-  constructor(private testDataService: TestDataService) {
-    this.playlist = this.testDataService.getData('playlist-detail');
+  constructor(private testDataService: TestDataService) {}
+
+  getDetail(): PlaylistDetailInterface {
+    return this.testDataService.getData('playlist-detail');
   }
 }

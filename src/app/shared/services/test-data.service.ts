@@ -73,7 +73,7 @@ export class TestDataService {
       'my-playlist': this.getTracks,
       artist: this.getTracks,
       track: this.getTracks,
-      'playlist-detail': this.getTracks,
+      'playlist-detail': this.getPlaylistDetailData,
       category: this.getCategoriesData,
     };
   }
@@ -96,7 +96,9 @@ export class TestDataService {
 
   getSearchData() {}
 
-  getPlaylistDetailData() {}
+  getPlaylistDetailData() {
+    return this.playlistDetail;
+  }
 
   getCategoriesData(): Array<PlaylistInterface> {
     const items = [];
