@@ -1,3 +1,4 @@
+import { CategoryInterface } from '../../../shared/interfaces/category.interface';
 import { CardType } from 'src/app/shared/enums/card.enum';
 import { TestDataService } from './../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
@@ -6,16 +7,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class GenereMusicService {
-  categories: Array<{ [key: string]: any }>;
+  categories: Array<CategoryInterface>;
   constructor(private testDataService: TestDataService) {
     this.categories = [
       {
         title: 'New releases',
         apiURL: 'category',
+        items: [],
       },
       {
         title: 'Popular playlist',
         apiURL: 'genere-music',
+        items: [],
       },
     ];
   }
@@ -26,11 +29,10 @@ export class GenereMusicService {
     return title;
   }
 
-  getItems() {
-    const results: Array<{ [key: string]: any }> = [];
+  getItems(): Array<CategoryInterface> {
+    const results: Array<CategoryInterface> = [];
     this.categories.forEach((category) => {
-      // tslint:disable-next-line: no-string-literal
-      category['items'] = this.testDataService.getData(category.apiURL);
+      category.items = this.testDataService.getData(category.apiURL);
       results.push(category);
     });
     return results;

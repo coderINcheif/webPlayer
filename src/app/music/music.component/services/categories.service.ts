@@ -1,7 +1,7 @@
 import { PlaylistInterface } from '../../../shared/interfaces/playlist.interface';
 import { TestDataService } from '../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
-import { CategoryInterface } from '../interfaces/category.interface';
+import { CategoryInterface } from '../../../shared/interfaces/category.interface';
 import { CardType } from 'src/app/shared/enums/card.enum';
 
 @Injectable({

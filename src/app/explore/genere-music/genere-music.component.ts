@@ -1,4 +1,5 @@
-import { CardType } from 'src/app/shared/modules/card/card.component/card.component';
+import { CategoryInterface } from '../../shared/interfaces/category.interface';
+import { CardType } from 'src/app/shared/enums/card.enum';
 import { ScrollService } from './../../shared/services/scroll-service/scroll.service';
 import { ColorService } from './../shared/services/color.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -22,7 +23,7 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
 
   title: string;
   color: string;
-  categories: any;
+  categories: Array<CategoryInterface>;
   cardType: CardType;
   gradientOpacity = 0.08;
   gradientExtent = 800;
