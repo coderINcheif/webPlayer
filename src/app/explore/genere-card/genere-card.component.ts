@@ -10,6 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./genere-card.component.scss'],
 })
 export class GenereCardComponent implements OnInit {
+  // tslint:disable-next-line: no-input-rename
   @Input('genere') genere: GenereInterface;
 
   colors: Array<string>;

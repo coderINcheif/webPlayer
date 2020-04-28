@@ -75,14 +75,17 @@ export class TestDataService {
       track: this.getTracks,
       'playlist-detail': this.getPlaylistDetailData,
       category: this.getCategoriesData,
+      'genere-music': this.getGenereMusicData,
     };
   }
+
+  getSearchData() {}
 
   getData(url: string): any {
     return this.itemMap[url].call(this);
   }
 
-  getTracks(songs: number) {
+  getTracks(songs: number): Array<MusicInterface> {
     const tracks = [];
     for (let i = 0; i < songs; i++) {
       tracks.push(this.track);
@@ -90,13 +93,11 @@ export class TestDataService {
     return tracks;
   }
 
-  updatePlaylist(playlistData: any) {
+  updatePlaylist(playlistData: any): void {
     this.libraryPlaylist.title = playlistData.name;
   }
 
-  getSearchData() {}
-
-  getPlaylistDetailData() {
+  getPlaylistDetailData(): PlaylistDetailInterface {
     return this.playlistDetail;
   }
 
@@ -108,9 +109,15 @@ export class TestDataService {
     return items;
   }
 
+  getGenereMusicData(): Array<PlaylistInterface> {
+    const items = [];
+    for (let i = 0; i < 30; i++) {
+      items.push(this.playlist);
+    }
+    return items;
+  }
+
   getLibraryPlaylists() {}
 
   getGeneresData() {}
-
-  getGenereMusicData() {}
 }

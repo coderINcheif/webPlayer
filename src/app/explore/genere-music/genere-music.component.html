@@ -14,11 +14,13 @@
   <h1 #heading [ngStyle]="{ color: 'rgb(' + color + ')', opacity: 1 }">
     {{ title }}
   </h1>
-  <app-horizontal-list [header]="'New releases'"></app-horizontal-list>
-  <br />
-  <br />
-  <app-horizontal-list
-    [count]="30"
-    [header]="'Popular playlist'"
-  ></app-horizontal-list>
+  <div *ngFor="let category of categories">
+    <app-horizontal-list
+      [header]="category.title"
+      [items]="category.items"
+      [cardType]="cardType"
+    ></app-horizontal-list>
+    <br />
+    <br />
+  </div>
 </div>

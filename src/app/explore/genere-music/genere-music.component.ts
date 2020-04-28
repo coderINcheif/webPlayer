@@ -1,4 +1,4 @@
-import { style } from '@angular/animations';
+import { CardType } from 'src/app/shared/modules/card/card.component/card.component';
 import { ScrollService } from './../../shared/services/scroll-service/scroll.service';
 import { ColorService } from './../shared/services/color.service';
 import { ActivatedRoute, ParamMap } from '@angular/router';
@@ -22,6 +22,8 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
 
   title: string;
   color: string;
+  categories: any;
+  cardType: CardType;
   gradientOpacity = 0.08;
   gradientExtent = 800;
   constructor(
@@ -33,14 +35,19 @@ export class GenereMusicComponent implements AfterViewInit, OnInit {
   ) {}
 
   ngOnInit() {
+    // getting gradient color for background
     if (this.paramsService.params) {
       this.color = this.paramsService.params.color;
     } else {
       this.color = this.colorService.getColor();
     }
+
+    // getting data from service
     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
       const genere = params.get('genere');
       this.title = this.genereMusicService.getTitle(genere);
+      this.categories = this.genereMusicService.getItems();
+      this.cardType = this.genereMusicService.getCardType();
     });
   }
 

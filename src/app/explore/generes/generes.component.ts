@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-explore-generes',
   templateUrl: './generes.component.html',
-  styleUrls: ['./generes.component.scss']
+  styleUrls: ['./generes.component.scss'],
 })
 export class GeneresComponent implements OnInit {
   generes: Array<GenereInterface>;
