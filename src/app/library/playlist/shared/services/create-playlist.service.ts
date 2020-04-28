@@ -1,3 +1,4 @@
+import { TestDataService } from './../../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -10,13 +11,19 @@ export class CreatePlaylistService {
   private refresh = new BehaviorSubject<boolean>(false);
   refresh$ = this.refresh.asObservable();
 
-  constructor() {}
+  constructor(private testDataService: TestDataService) {}
 
   updateDialogStatus(status: boolean) {
     this.showDialog.next(status);
   }
 
-  refreshPlaylist(status: boolean) {
+  updateRefreshStatus(status: boolean) {
     this.refresh.next(status);
+  }
+
+  createPlaylist(playlistName: string) {
+    this.testDataService.createLibraryPlaylist(playlistName);
+    this.updateDialogStatus(false);
+    this.updateRefreshStatus(true);
   }
 }

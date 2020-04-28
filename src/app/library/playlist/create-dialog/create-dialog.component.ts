@@ -16,8 +16,7 @@ export class CreateDialogComponent implements OnInit, OnDestroy {
   dialogStatus = false;
   constructor(
     private overlayService: OverlayService,
-    private createPlaylistService: CreatePlaylistService,
-    private testDataService: TestDataService
+    private createPlaylistService: CreatePlaylistService
   ) {}
 
   ngOnInit() {
@@ -39,8 +38,6 @@ export class CreateDialogComponent implements OnInit, OnDestroy {
   }
 
   createPlaylist(form: NgForm) {
-    this.createPlaylistService.refreshPlaylist(true);
-    this.createPlaylistService.updateDialogStatus(false);
-    this.testDataService.updatePlaylist(form.value);
+    this.createPlaylistService.createPlaylist(form.value.name);
   }
 }

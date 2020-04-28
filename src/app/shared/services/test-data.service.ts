@@ -16,6 +16,7 @@ export class TestDataService {
   playlistDetail: PlaylistDetailInterface;
   searchSample: SearchResultInterface;
   searchSample2: SearchResultInterface;
+  createdPlaylist: Array<PlaylistInterface> = [];
   // tslint:disable-next-line: ban-types
   itemMap: { [key: string]: Function };
   constructor() {
@@ -70,7 +71,7 @@ export class TestDataService {
     };
     this.itemMap = {
       playlist: this.getTracks,
-      'my-playlist': this.getTracks,
+      'library-playlist': this.getLibraryPlaylists,
       artist: this.getTracks,
       track: this.getTracks,
       'playlist-detail': this.getPlaylistDetailData,
@@ -117,7 +118,27 @@ export class TestDataService {
     return items;
   }
 
-  getLibraryPlaylists() {}
+  getLibraryPlaylists(): Array<PlaylistInterface> {
+    const items = [];
+    this.createdPlaylist.forEach((playlist) => {
+      items.splice(0, 0, playlist);
+    });
+    for (let i = 0; i < 8; i++) {
+      items.push(this.libraryPlaylist);
+    }
+    return items;
+  }
 
   getGeneresData() {}
+
+  createLibraryPlaylist(playlistName: string): void {
+    const newPlaylist: PlaylistInterface = {
+      title: playlistName,
+      cover: this.libraryPlaylist.cover,
+      id: this.libraryPlaylist.id,
+      created_by: this.libraryPlaylist.created_by,
+      artists: null,
+    };
+    this.createdPlaylist.push(newPlaylist);
+  }
 }
