@@ -1,3 +1,4 @@
+import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
 import { CardType } from 'src/app/shared/enums/card.enum';
 import { LibraryPlaylistService } from './services/library-playlist.service';
 import { PlaylistInterface } from './../../../shared/interfaces/playlist.interface';
@@ -16,7 +17,8 @@ export class PlaylistComponent implements OnInit {
   cardType: CardType;
   constructor(
     private createPlaylistService: CreatePlaylistService,
-    private playlistService: LibraryPlaylistService
+    private playlistService: LibraryPlaylistService,
+    private overlyService: OverlayService
   ) {}
 
   ngOnInit() {
@@ -26,6 +28,14 @@ export class PlaylistComponent implements OnInit {
       if (status === true) {
         this.items = this.playlistService.getItems();
         this.createPlaylistService.updateRefreshStatus(false);
+      }
+    });
+    this.createPlaylistService.showDialog$.subscribe((status) => {
+      this.showCreateDialog = status;
+    });
+    this.overlyService.overlayStatus$.subscribe((status) => {
+      if (status === false) {
+        this.showCreateDialog = status;
       }
     });
   }

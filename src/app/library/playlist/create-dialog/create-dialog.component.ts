@@ -1,8 +1,14 @@
-import { TestDataService } from './../../../shared/services/test-data.service';
 import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  OnDestroy,
+  ViewChild,
+  AfterViewInit,
+  ElementRef,
+} from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -12,7 +18,9 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./create-dialog.component.scss'],
   animations: [dialogTrigger],
 })
-export class CreateDialogComponent implements OnInit, OnDestroy {
+export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
+  @ViewChild('nameInput') nameInput: ElementRef;
+
   dialogStatus = false;
   constructor(
     private overlayService: OverlayService,
@@ -31,6 +39,10 @@ export class CreateDialogComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.createPlaylistService.updateDialogStatus(false);
+  }
+
+  ngAfterViewInit() {
+    this.nameInput.nativeElement.focus();
   }
 
   cancel() {
