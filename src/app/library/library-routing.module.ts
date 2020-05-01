@@ -11,16 +11,37 @@ const routes: Routes = [
     component: LibraryComponent,
     children: [
       {
-        path: 'artist',
-        component: ArtistComponent,
-      },
-      {
         path: 'playlist',
         component: PlaylistComponent,
+        data: {
+          index: 1,
+          animation: {
+            value: 'playlist',
+            params: { indexDiff: 100, rindexDiff: -100 },
+          },
+        },
+      },
+      {
+        path: 'artist',
+        component: ArtistComponent,
+        data: {
+          index: 2,
+          animation: {
+            value: 'artist',
+            params: { indexDiff: 100, rindexDiff: -100 },
+          },
+        },
       },
       {
         path: 'album',
         component: AlbumComponent,
+        data: {
+          index: 3,
+          animation: {
+            value: 'album',
+            params: { indexDiff: 100, rindexDiff: -100 },
+          },
+        },
       },
       {
         path: '',

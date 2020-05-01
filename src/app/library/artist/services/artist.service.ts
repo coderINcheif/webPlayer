@@ -13,7 +13,7 @@ export class ArtistService {
     return this.testDataService.getData('library-artist');
   }
 
-  getCardType() {
+  getCardType(): CardType {
     return CardType.Artist;
   }
 }

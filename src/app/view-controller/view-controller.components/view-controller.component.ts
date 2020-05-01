@@ -13,6 +13,7 @@ export class ViewControllerComponent implements OnInit {
   overlay = false;
   constructor(
     private overlayService: OverlayService,
+    // tslint:disable-next-line: variable-name
     private _router: Router
   ) {}
 

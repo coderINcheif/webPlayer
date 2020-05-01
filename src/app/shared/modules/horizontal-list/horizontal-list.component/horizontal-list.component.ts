@@ -12,7 +12,7 @@ export class HorizontalListComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('items') items: Array<any>;
   // tslint:disable-next-line: no-input-rename
-  @Input('cardType') cardType;
+  @Input('cardType') cardType: CardType;
 
   cardTypes = CardType;
   constructor() {}

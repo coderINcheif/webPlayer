@@ -21,7 +21,7 @@
   }
   .outlet {
     grid-area: view;
-    padding: 40px 60px;
+    box-sizing: border-box;
     overflow: scroll;
     scrollbar-width: none;
     &::-webkit-scrollbar {

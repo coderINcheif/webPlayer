@@ -1,9 +1,6 @@
 .playlist {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-items: center;
-  overflow: hidden;
+  box-sizing: border-box;
+  padding: 40px 60px;
   margin-top: 80px;
   .create {
     display: flex;

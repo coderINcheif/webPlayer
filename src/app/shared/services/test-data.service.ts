@@ -70,18 +70,16 @@ export class TestDataService {
       artists: [this.artist, this.artist, this.artist, this.artist],
     };
     this.itemMap = {
-      playlist: this.getTracks,
       'library-playlist': this.getLibraryPlaylists,
+      'library-artist': this.getLibraryArtist,
+      'playlist-detail': this.getPlaylistDetailData,
+      'genere-music': this.getGenereMusicData,
+      playlist: this.getTracks,
       artist: this.getTracks,
       track: this.getTracks,
-      'playlist-detail': this.getPlaylistDetailData,
       category: this.getCategoriesData,
-      'genere-music': this.getGenereMusicData,
-      'library-artist': this.getLibraryArtist,
     };
   }
-
-  getSearchData() {}
 
   getData(url: string): any {
     return this.itemMap[url].call(this);
