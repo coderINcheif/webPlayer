@@ -77,6 +77,7 @@ export class TestDataService {
       'playlist-detail': this.getPlaylistDetailData,
       category: this.getCategoriesData,
       'genere-music': this.getGenereMusicData,
+      'library-artist': this.getLibraryArtist,
     };
   }
 
@@ -129,7 +130,13 @@ export class TestDataService {
     return items;
   }
 
-  getGeneresData() {}
+  getLibraryArtist(): Array<ArtistInterface> {
+    const items = [];
+    for (let i = 0; i < 6; i++) {
+      items.push(this.artist);
+    }
+    return items;
+  }
 
   createLibraryPlaylist(playlistName: string): void {
     const newPlaylist: PlaylistInterface = {

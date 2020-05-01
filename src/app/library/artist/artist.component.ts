@@ -1,3 +1,6 @@
+import { ArtistInterface } from './../../shared/interfaces/artist.interface';
+import { ArtistService } from './services/artist.service';
+import { CardType } from './../../shared/enums/card.enum';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +9,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./artist.component.scss'],
 })
 export class ArtistComponent implements OnInit {
-  constructor() {}
+  cardType: CardType;
+  items: Array<ArtistInterface>;
+  constructor(private artistService: ArtistService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.cardType = this.artistService.getCardType();
+    this.items = this.artistService.getItems();
+  }
 }

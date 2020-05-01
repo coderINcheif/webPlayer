@@ -2,7 +2,6 @@ import { OverlayService } from './../../../shared/services/overlay-service/overl
 import { CardType } from 'src/app/shared/enums/card.enum';
 import { LibraryPlaylistService } from './services/library-playlist.service';
 import { PlaylistInterface } from './../../../shared/interfaces/playlist.interface';
-import { Router } from '@angular/router';
 import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { Component, OnInit } from '@angular/core';
 
