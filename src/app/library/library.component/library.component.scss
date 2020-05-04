@@ -1,31 +1,9 @@
-.library {
-  display: grid;
+.container {
   width: 100%;
   height: 100vh;
-  grid-template-areas: 'navigation view';
-  grid-template-rows: 1fr;
-  grid-template-columns: 1fr 3.5fr;
-  .navigation {
-    grid-area: navigation;
-    width: 100%;
-    display: flex;
-    flex-flow: column;
-    align-items: center;
-    justify-items: center;
-    margin: 100px 0 20px 0;
-    .navigation-component {
-      margin: auto;
-    }
-
-    border-right: solid 1px rgba(48, 48, 48, 0.5);
-  }
-  .outlet {
-    grid-area: view;
-    box-sizing: border-box;
-    overflow: scroll;
-    scrollbar-width: none;
-    &::-webkit-scrollbar {
-      display: none;
-    }
+  overflow: scroll;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
