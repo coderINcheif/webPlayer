@@ -21,8 +21,6 @@ import { NgForm } from '@angular/forms';
   animations: [dialogTrigger],
 })
 export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
-  // tslint:disable-next-line: no-input-rename
-  @Input('items') items: Array<PlaylistInterface>;
   @ViewChild('nameInput') nameInput: ElementRef;
 
   dialogStatus = false;
@@ -32,7 +30,6 @@ export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    console.log(this.items);
     this.createPlaylistService.showDialog$.subscribe((status) => {
       this.dialogStatus = status;
       this.overlayService.updateOverlayStatus(status);
