@@ -13,5 +13,8 @@
     [items]="items"
     [cardType]="cardType"
   ></app-horizontal-list>
-  <playlist-create-dialog *ngIf="showCreateDialog"></playlist-create-dialog>
+  <playlist-create-dialog
+    [items]="items"
+    *ngIf="showCreateDialog"
+  ></playlist-create-dialog>
 </div>

@@ -1,3 +1,4 @@
+import { PlaylistInterface } from './../../../shared/interfaces/playlist.interface';
 import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from './../../../shared/services/overlay-service/overlay.service';
@@ -8,6 +9,7 @@ import {
   ViewChild,
   AfterViewInit,
   ElementRef,
+  Input,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
@@ -19,6 +21,8 @@ import { NgForm } from '@angular/forms';
   animations: [dialogTrigger],
 })
 export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
+  // tslint:disable-next-line: no-input-rename
+  @Input('items') items: Array<PlaylistInterface>;
   @ViewChild('nameInput') nameInput: ElementRef;
 
   dialogStatus = false;
@@ -28,6 +32,7 @@ export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit() {
+    console.log(this.items);
     this.createPlaylistService.showDialog$.subscribe((status) => {
       this.dialogStatus = status;
       this.overlayService.updateOverlayStatus(status);

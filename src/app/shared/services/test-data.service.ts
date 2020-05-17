@@ -136,7 +136,7 @@ export class TestDataService {
     return items;
   }
 
-  createLibraryPlaylist(playlistName: string): void {
+  createLibraryPlaylist(playlistName: string): PlaylistInterface {
     const newPlaylist: PlaylistInterface = {
       title: playlistName,
       cover: this.libraryPlaylist.cover,
@@ -145,5 +145,6 @@ export class TestDataService {
       artists: null,
     };
     this.createdPlaylist.push(newPlaylist);
+    return newPlaylist;
   }
 }

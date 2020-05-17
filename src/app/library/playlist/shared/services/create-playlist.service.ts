@@ -1,6 +1,7 @@
+import { PlaylistInterface } from './../../../../shared/interfaces/playlist.interface';
 import { TestDataService } from './../../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -8,8 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 export class CreatePlaylistService {
   private showDialog = new BehaviorSubject<boolean>(false);
   showDialog$ = this.showDialog.asObservable();
-  private refresh = new BehaviorSubject<boolean>(false);
-  refresh$ = this.refresh.asObservable();
+  private newPlaylist = new Subject<PlaylistInterface>();
+  newPlaylist$ = this.newPlaylist.asObservable();
 
   constructor(private testDataService: TestDataService) {}
 
@@ -17,13 +18,9 @@ export class CreatePlaylistService {
     this.showDialog.next(status);
   }
 
-  updateRefreshStatus(status: boolean) {
-    this.refresh.next(status);
-  }
-
   createPlaylist(playlistName: string) {
-    this.testDataService.createLibraryPlaylist(playlistName);
+    const newObject = this.testDataService.createLibraryPlaylist(playlistName);
     this.updateDialogStatus(false);
-    this.updateRefreshStatus(true);
+    this.newPlaylist.next(newObject);
   }
 }

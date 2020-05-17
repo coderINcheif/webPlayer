@@ -23,11 +23,8 @@ export class PlaylistComponent implements OnInit {
   ngOnInit() {
     this.items = this.playlistService.getItems();
     this.cardType = this.playlistService.getCardType();
-    this.createPlaylistService.refresh$.subscribe((status) => {
-      if (status === true) {
-        this.items = this.playlistService.getItems();
-        this.createPlaylistService.updateRefreshStatus(false);
-      }
+    this.createPlaylistService.newPlaylist$.subscribe((playlist) => {
+      this.items.splice(0, 0, playlist);
     });
     this.createPlaylistService.showDialog$.subscribe((status) => {
       this.showCreateDialog = status;
