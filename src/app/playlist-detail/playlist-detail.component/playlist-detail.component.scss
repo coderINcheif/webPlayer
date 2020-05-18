@@ -4,6 +4,7 @@
   grid-template-areas: 'banner track-list';
   grid-template-columns: 35% 1fr;
   padding: 0 60px;
+  margin-bottom: 90px;
   overflow: hidden;
   .scroll {
     overflow: scroll;
@@ -25,8 +26,5 @@
     grid-area: track-list;
     display: initial;
     padding: 0;
-    // app-playlist-detail-track {
-    //   margin: auto;
-    // }
   }
 }

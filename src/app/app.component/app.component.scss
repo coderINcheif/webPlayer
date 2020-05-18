@@ -15,4 +15,12 @@
       display: none;
     }
   }
+  app-media-controller {
+    position: absolute;
+    height: 90px;
+    width: 100vw;
+    bottom: 0;
+    z-index: 11;
+    background-color: transparent;
+  }
 }

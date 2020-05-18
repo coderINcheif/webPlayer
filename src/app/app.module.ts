@@ -13,9 +13,10 @@ import { ExploreModule } from './explore/explore.module';
 import { LibraryModule } from './library/library.module';
 import { PlaylistDetailModule } from './playlist-detail/playlist-detail.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MediaControllerComponent } from './media-controller/media-controller.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, MediaControllerComponent],
   imports: [
     BrowserModule,
     NavbarModule,

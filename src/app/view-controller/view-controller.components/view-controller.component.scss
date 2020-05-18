@@ -28,6 +28,8 @@ view-controller-overlay {
   position: absolute;
   height: calc(100% - 80px);
   width: calc(100% - 230px);
+  // left: 0;
+  // width: 100%;
   z-index: 9;
   margin-top: 80px;
 }
