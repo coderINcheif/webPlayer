@@ -5,18 +5,22 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "angular firefox",
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "webRoot": "${workspaceFolder}",
+      "url": "http://localhost:4200",
+      "profile": "default-release-1",
+      "keepProfileChanges": true
+    },
+    {
       "type": "chrome",
       "request": "launch",
-      "name": "angular chromium debugger",
+      "name": "angular chrome",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}",
-      "runtimeExecutable": "/snap/bin/chromium",
-      "runtimeArgs": [
-        "--new-window",
-        "-user-data-dir=\"/${workspaceFolder}/DevProfile\"",
-        "--remote-debugging-port=9222"
-        //     "--disable-background-networking"
-      ]
+      "userDataDir": false
     }
   ]
 }

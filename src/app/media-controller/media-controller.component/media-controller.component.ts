@@ -1,5 +1,5 @@
+import { OverlayService } from './../../shared/services/overlay-service/overlay.service';
 import { mediaTrigger } from './media-controller.animation';
-import { OverlayService } from './../shared/services/overlay-service/overlay.service';
 import { Component, OnInit } from '@angular/core';
 
 enum Visiblity {
