@@ -1,0 +1,4 @@
+.vscode/
+webPlayerENV/
+**/__pycache__/
+db.sqlite3
