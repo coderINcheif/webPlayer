@@ -19,7 +19,12 @@ from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
     path('songs/', include('song.urls')),
     path('api/songs/', include('song.api.urls')),
-    url(r'^api-auth/', include('rest_framework.urls'))
+
+    path('authentication/', include('authentication.urls')),
+    path('api/authentication/', include('authentication.api.urls')),
+
+    path('api-auth/', include('rest_framework.urls'))
 ]
