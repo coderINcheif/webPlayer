@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from authentication import models as auth_models
+from django.contrib.auth.password_validation import validate_password
+from django.core import exceptions
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -10,11 +12,11 @@ class UserSerializer(serializers.ModelSerializer):
     )
 
     def validate_password(self, value, *args, **kwargs):
-        if len(value) < 8:
-            raise serializers.ValidationError(
-                {"password1": ["Password must be atleast 8 characters long"]}
-            )
-        return value
+        try:
+            validate_password(password=value)
+            return value
+        except exceptions.ValidationError as e:
+            raise serializers.ValidationError({"password": e.error_list})
 
     def validate(self, attrs):
         validated_data = super().validate(attrs)
@@ -22,14 +24,19 @@ class UserSerializer(serializers.ModelSerializer):
             raise serializers.ValidationError(
                 {'password2': ["Passwords do not match"]}
             )
+        return validated_data
 
     def create(self, validated_data):
-        email = validated_data['email']
         password = validated_data['password']
+        email = validated_data['email']
+        first_name = validated_data['first_name']
+        last_name = validated_data['last_name']
 
         user = auth_models.CustomUser()
         user.email = email
-        user.set_password = password
+        user.first_name = first_name
+        user.last_name = last_name
+        user.set_password(password)
         user.save()
         return user
 
@@ -43,11 +50,35 @@ class UserSerializer(serializers.ModelSerializer):
 
 class UserUpdateSerializer(serializers.ModelSerializer):
 
-    def update(self, instance, validated_data):
-        email = validated_data.get(email)
-        first_name = validated_data.get(first_name)
-        last_name = validated_data.get(last_name)
-
     class Meta:
         model = auth_models.CustomUser
         fields = ('first_name', 'last_name', 'email')
+
+
+class ResetPasswordSerializer(serializers.ModelSerializer):
+
+    old_password = serializers.CharField(write_only=True)
+    new_password = serializers.CharField(write_only=True)
+
+    def update(self, instance, validated_data):
+        old_password = validated_data.get('old_password')
+        new_password = validated_data.get('new_password')
+
+        if not instance.check_password(old_password):
+            raise serializers.ValidationError(
+                {'old_password': ["Password did not match"]}
+            )
+
+        try:
+            validate_password(password=new_password, user=self.instance)
+            instance.set_password(new_password)
+            instance.save()
+            return instance
+        except exceptions.ValidationError as e:
+            raise serializers.ValidationError(
+                {'new_password': e.error_list}
+            )
+
+    class Meta:
+        model = auth_models.CustomUser
+        fields = ('old_password', 'new_password',)
