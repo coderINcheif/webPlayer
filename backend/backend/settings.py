@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'song',
     # 3rd party
     'rest_framework',
+    'rest_framework.authtoken',
     # django
     'django.contrib.admin',
     'django.contrib.auth',
@@ -118,7 +119,7 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     )
 }
 
