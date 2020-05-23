@@ -22,7 +22,7 @@ class UserViewSet(ModelViewSet):
             return auth_serializers.ResetPasswordSerializer
         return auth_serializers.UserSerializer
 
-    @action(detail=True, methods=['post'], url_path='reset-password')
+    @action(detail=True, methods=['post'], url_path='reset-password', url_name='user-reset-password')
     def reset_password(self, request, pk):
         user = self.get_object()
 
