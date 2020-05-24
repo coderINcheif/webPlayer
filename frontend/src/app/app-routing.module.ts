@@ -3,30 +3,20 @@ import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'music',
+    path: 'authentication',
     loadChildren: () =>
-      import('./music/music.module').then((m) => m.MusicModule),
-  },
-  {
-    path: 'explore',
-    loadChildren: () =>
-      import('./explore/explore.module').then((m) => m.ExploreModule),
-  },
-  {
-    path: 'library',
-    loadChildren: () =>
-      import('./library/library.module').then((m) => m.LibraryModule),
-  },
-  {
-    path: 'playlist',
-    loadChildren: () =>
-      import('./playlist-detail/playlist-detail.module').then(
-        (m) => m.PlaylistDetailModule
+      import('./authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
       ),
   },
   {
+    path: 'stream',
+    loadChildren: () =>
+      import('./stream/stream.module').then((m) => m.StreamModule),
+  },
+  {
     path: '',
-    redirectTo: 'music',
+    redirectTo: 'authentication',
     pathMatch: 'full',
   },
 ];

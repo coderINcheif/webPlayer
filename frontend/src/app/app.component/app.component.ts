@@ -1,4 +1,4 @@
-import { ScrollService } from '../shared/services/scroll-service/scroll.service';
+import { ScrollService } from '../stream/shared/services/scroll-service/scroll.service';
 import { Component, ElementRef } from '@angular/core';
 
 @Component({
@@ -6,13 +6,4 @@ import { Component, ElementRef } from '@angular/core';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'webPlayer';
-
-  constructor(private scrollService: ScrollService) {}
-
-  updateScroll(element: HTMLElement) {
-    const position = element.getBoundingClientRect().top - element.offsetTop;
-    this.scrollService.updateScrollPosition(position);
-  }
-}
+export class AppComponent {}

@@ -59,10 +59,6 @@ class UserRegisterView(CreateAPIView):
     queryset = auth_models.CustomUser.objects.all()
     permission_classes = [permissions.AllowAny]
 
-    def post(self, request, *args, **kwargs):
-        response = super().post(request, *args, **kwargs)
-        return response
-
     def get_serializer_context(self):
         context = super().get_serializer_context()
         context['register_view'] = True
