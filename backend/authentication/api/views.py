@@ -59,6 +59,15 @@ class UserRegisterView(CreateAPIView):
     queryset = auth_models.CustomUser.objects.all()
     permission_classes = [permissions.AllowAny]
 
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        return response
+
+    def get_serializer_context(self):
+        context = super().get_serializer_context()
+        context['register_view'] = True
+        return context
+
 
 @api_view(http_method_names=['POST'])
 @permission_classes((permissions.AllowAny,))
@@ -69,9 +78,8 @@ def login_view(request, *args, **kwargs):
         get_user_model(), email=email)
 
     if user.check_password(password):
-        token: Token = Token.objects.create(user=user)
+        token: Token = Token.objects.get_or_create(user=user)[0]
         return Response({"token": token.key}, status=status.HTTP_302_FOUND)
-
     else:
         return Response({'password': "Invalid password"}, status=status.HTTP_400_BAD_REQUEST)
 

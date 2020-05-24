@@ -1,4 +1,5 @@
 from rest_framework import serializers
+from rest_framework.authtoken.models import Token
 from authentication import models as auth_models
 from django.contrib.auth.password_validation import validate_password
 from django.core import exceptions
@@ -7,9 +8,20 @@ from django.core import exceptions
 class UserSerializer(serializers.ModelSerializer):
 
     confirm_password = serializers.CharField(write_only=True)
+    token = serializers.SerializerMethodField('get_token')
 
     class PasswordConfirmationError(Exception):
         message = "Passwords do not match"
+
+    def get_token(self, user):
+        register_view = self.context.get('register_view')
+        return '' if not register_view else Token.objects.get(user=user).key
+
+    def to_representation(self, instance):
+        rep = super().to_representation(instance)
+        register_view = self.context.get('register_view')
+        rep.pop('token') if not register_view else None
+        return rep
 
     def validate(self, attrs):
         validated_data = super().validate(attrs)
@@ -34,8 +46,10 @@ class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = auth_models.CustomUser
         extra_kwargs = {'password': {'write_only': True}}
-        fields = ('id', 'first_name', 'last_name',
-                  'email', 'password', 'confirm_password')
+        fields = (
+            'id', 'first_name', 'last_name',
+            'email', 'password', 'token', 'confirm_password'
+        )
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
