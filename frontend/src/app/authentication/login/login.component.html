@@ -1,1 +1,29 @@
-<p>login works!</p>
+<form [formGroup]="form" (ngSubmit)="login()">
+  <input
+    placeholder="Email"
+    [class.error]="email.touched && email.errors"
+    formControlName="email"
+    type="text"
+    name="email"
+  />
+  <ul class="errorlist" *ngIf="email.touched && email.errors">
+    <li *ngFor="let error of email.errors | keyvalue">
+      {{ error.value }}
+    </li>
+  </ul>
+  <input
+    placeholder="Password"
+    formControlName="password"
+    type="password"
+    name="password"
+    [class.error]="password.touched && password.errors"
+  />
+  <ul class="errorlist" *ngIf="password.touched && password.errors">
+    <li *ngFor="let error of password.errors | keyvalue">
+      {{ error.value }}
+    </li>
+  </ul>
+  <button type="submit">
+    Login
+  </button>
+</form>

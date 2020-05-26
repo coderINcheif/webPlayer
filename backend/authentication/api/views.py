@@ -68,16 +68,20 @@ class UserRegisterView(CreateAPIView):
 @api_view(http_method_names=['POST'])
 @permission_classes((permissions.AllowAny,))
 def login_view(request, *args, **kwargs):
-    email: str = request.POST.get('email')
-    password: str = request.POST.get('password')
-    user: auth_models.CustomUser = get_object_or_404(
-        get_user_model(), email=email)
-
+    email: str = request.data.get('email')
+    password: str = request.data.get('password')
+    try:
+        user: auth_models.CustomUser = get_user_model().objects.get(email=email)
+    except auth_models.CustomUser.DoesNotExist:
+        return Response(
+            {'email': "User with this Email not found"},
+            status=status.HTTP_422_UNPROCESSABLE_ENTITY
+        )
     if user.check_password(password):
         token: Token = Token.objects.get_or_create(user=user)[0]
         return Response({"token": token.key}, status=status.HTTP_302_FOUND)
     else:
-        return Response({'password': "Invalid password"}, status=status.HTTP_400_BAD_REQUEST)
+        return Response({'password': "Invalid password"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
 
 @api_view(http_method_names=['POST'])

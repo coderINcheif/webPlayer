@@ -24,7 +24,7 @@ urlpatterns = [
     path('api/songs/', include('song.api.urls')),
 
     path('authentication/', include('authentication.urls')),
-    path('api/authentication/', include('authentication.api.urls')),
+    path('api/users/', include('authentication.api.urls')),
 
     path('api-auth/', include('rest_framework.urls'))
 ]
