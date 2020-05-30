@@ -1,25 +1,26 @@
+import { clickTrigger } from './../shared/animations/button-click.animation';
 import { FormErrorHandler } from './../../shared/error-handlers/form-error-handler.service';
 import {
   requiredValidator,
   patternValidator,
 } from './../../shared/validators/common.validator';
 import { AuthService } from './../shared/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { minLengthValidator } from 'src/app/shared/validators/common.validator';
 import { Subscription, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { runInThisContext } from 'vm';
 
 @Component({
   // tslint:disable-next-line: component-selector
   selector: 'auth-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  animations: [clickTrigger],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
   subs: Subscription = new Subscription();
+  mousedown = false;
 
   constructor(
     private auth: AuthService,
@@ -45,8 +46,16 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
+  mouseEvent(event: Event) {
+    event.stopPropagation();
+    this.mousedown = event.type === 'mousedown' ? true : false;
+  }
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
+
   login(): void {
-    this.fromErrHandler.updateValidity(this.form);
     if (this.form.invalid) {
       this.form.setErrors({ ...this.form.errors });
       this.form.markAllAsTouched();
@@ -59,10 +68,7 @@ export class LoginComponent implements OnInit {
           console.log(res);
         },
         (err) => {
-          console.log('asfas');
-          if (err.status === 422) {
-            this.fromErrHandler.handleServerErrors(this.form, err.error);
-          }
+          this.fromErrHandler.handleServerErrors(this.form, err);
         }
       )
     );

@@ -1,10 +1,9 @@
+@import '~src/scss/theme-data';
+
 form {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  justify-content: center;
+  @include flex-center(column);
   font-family: 'roboto', sans-serif;
-  width: 22vw;
+  width: 24vw;
   input {
     transition: all 200ms ease-in-out;
     border: 1px solid transparent;
@@ -15,20 +14,22 @@ form {
     outline: none;
     font-size: 13px;
     font-weight: bold;
+    box-sizing: border-box;
     &:focus {
-      box-shadow: 0 0 2px 2px #4bebd6d0;
+      @include form-control();
     }
     &.error {
-      box-shadow: 0 0 3px 2px #ec5454;
+      @include form-control-error();
     }
   }
   .errorlist {
     width: 100%;
     padding: 5px 0 10px 0;
     margin: 0;
-    color: #ec5454;
+    color: $error-color;
     list-style: none;
     font-size: 13px;
+    box-sizing: border-box;
     li {
       margin-bottom: 2px;
     }
@@ -43,6 +44,8 @@ form {
     margin-top: 20px;
     font-weight: bold;
     cursor: pointer;
-    background-color: #95e1d3;
+    background-color: $primary-color;
+    outline: none;
+    box-sizing: border-box;
   }
 }

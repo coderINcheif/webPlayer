@@ -1,7 +1,7 @@
 import {
   fadeInAnimation,
   fadeOutAnimation,
-} from '../../../shared/animations/animations.animation';
+} from '../../../../shared/animations/animations.animation';
 import {
   transition,
   useAnimation,

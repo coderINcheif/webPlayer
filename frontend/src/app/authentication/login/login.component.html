@@ -23,7 +23,12 @@
       {{ error.value }}
     </li>
   </ul>
-  <button type="submit">
+  <button
+    [@clickTrigger]="mousedown ? 'mousedown' : '*'"
+    type="submit"
+    (mousedown)="mouseEvent($event)"
+    (mouseup)="mouseEvent($event)"
+  >
     Login
   </button>
 </form>

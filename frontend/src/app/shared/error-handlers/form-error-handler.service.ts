@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
@@ -7,10 +8,11 @@ import { FormGroup } from '@angular/forms';
 export class FormErrorHandler {
   constructor() {}
 
-  handleServerErrors(
-    form: FormGroup,
-    formErrors: { [key: string]: Array<string> | string }
-  ): void {
+  handleServerErrors(form: FormGroup, error: HttpErrorResponse): void {
+    if (error.status !== 422 && error.status !== 400) {
+      return;
+    }
+    const formErrors: { [key: string]: Array<string> | string } = error.error;
     Object.keys(formErrors).forEach((control) => {
       const serverErrors = {};
       const controlError = formErrors[control];

@@ -1,4 +1,14 @@
-import { style, animate, animation, keyframes } from '@angular/animations';
+import {
+  style,
+  animate,
+  animation,
+  keyframes,
+  trigger,
+  state,
+  transition,
+  group,
+  useAnimation,
+} from '@angular/animations';
 
 export let floatInAnimation = animation(
   [

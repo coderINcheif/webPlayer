@@ -1,23 +1,22 @@
 import {
-  buttonHoldAnimation,
-  buttonReleaseAnimation,
-} from '../../../../shared/animations/animations.animation';
-
-import {
-  transition,
-  useAnimation,
   trigger,
   state,
   style,
-  group,
+  transition,
   animate,
+  useAnimation,
+  group,
 } from '@angular/animations';
+import {
+  buttonHoldAnimation,
+  buttonReleaseAnimation,
+} from 'src/app/shared/animations/animations.animation';
 
-export let mousedownTrigger = trigger('mousedownTrigger', [
+export let clickTrigger = trigger('clickTrigger', [
   state(
     'mousedown',
     style({
-      transform: 'scale3d(.96,.96,.96)',
+      transform: 'scale3d(.97,.97,.97)',
       boxShadow: '0 5px 10px black',
     })
   ),
@@ -32,7 +31,7 @@ export let mousedownTrigger = trigger('mousedownTrigger', [
       ),
       useAnimation(buttonHoldAnimation, {
         params: {
-          scale: '.96',
+          scale: '.97',
           duration: `${0.75 * 0.18}s`,
         },
       }),
@@ -49,7 +48,7 @@ export let mousedownTrigger = trigger('mousedownTrigger', [
       ),
       useAnimation(buttonReleaseAnimation, {
         params: {
-          scale: '1.05',
+          scale: '1.04',
           duration: `${0.75 * 0.55}s`,
         },
       }),

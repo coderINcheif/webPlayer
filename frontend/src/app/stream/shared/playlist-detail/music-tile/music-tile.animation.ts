@@ -1,7 +1,7 @@
 import {
   floatOutAnimation,
   floatInAnimation,
-} from '../../animations/animations.animation';
+} from '../../../../shared/animations/animations.animation';
 import {
   trigger,
   style,

@@ -1,8 +1,19 @@
-from rest_framework import serializers
-from rest_framework.authtoken.models import Token
+# models
 from authentication import models as auth_models
+
+# rest_framework utils
+from rest_framework import serializers, status
+from rest_framework.exceptions import APIException
+from rest_framework.authtoken.models import Token
+
+# django utils
 from django.contrib.auth.password_validation import validate_password
 from django.core import exceptions
+from django.core.exceptions import ValidationError
+
+
+class ValidationError422(APIException):
+    status_code = status.HTTP_422_UNPROCESSABLE_ENTITY
 
 
 class UserSerializer(serializers.ModelSerializer):

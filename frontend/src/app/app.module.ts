@@ -5,9 +5,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component/app.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoadingIndicatorComponent } from './shared/loading-indicator/loading-indicator.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoadingIndicatorComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
