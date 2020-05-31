@@ -30,11 +30,15 @@ export class AuthService {
     return this.http.post(this.signupURL, data, options);
   }
 
-  saveAuthToken(token: string) {
+  saveAuthToken(token: string): void {
     localStorage.setItem('authToken', token);
   }
 
+  retrieveAuthToken(token: string): string {
+    return localStorage.getItem('authToken');
+  }
+
   isAuthenticated(): boolean {
-    return localStorage.getItem('token') ? true : false;
+    return localStorage.getItem('authToken') ? true : false;
   }
 }

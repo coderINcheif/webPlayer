@@ -10,6 +10,7 @@ import { requiredValidator } from './../../shared/validators/common.validator';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { HttpResponse } from '@angular/common/http';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -26,7 +27,9 @@ export class SignupComponent implements OnInit, OnDestroy {
   constructor(
     fb: FormBuilder,
     private auth: AuthService,
-    private formErrHandler: FormErrorHandler
+    private formErrHandler: FormErrorHandler,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     this.form = fb.group({
       email: [
@@ -80,8 +83,10 @@ export class SignupComponent implements OnInit, OnDestroy {
         .pipe()
         .subscribe(
           (res) => {
+            const next = this.route.snapshot.queryParamMap.get('next');
             // tslint:disable-next-line: no-string-literal
             this.auth.saveAuthToken(res['token']);
+            this.router.navigate([next || '/stream/music']);
           },
           (err) => {
             this.formErrHandler.handleServerErrors(this.form, err);

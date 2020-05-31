@@ -1,3 +1,4 @@
+import { AuthGuard } from './shared/route-guards/auth.guard';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
@@ -11,6 +12,7 @@ const routes: Routes = [
   },
   {
     path: 'stream',
+    canActivate: [AuthGuard],
     loadChildren: () =>
       import('./stream/stream.module').then((m) => m.StreamModule),
   },

@@ -1,3 +1,4 @@
+import { Router, ActivatedRoute } from '@angular/router';
 import { clickTrigger } from './../shared/animations/button-click.animation';
 import { FormErrorHandler } from './../../shared/error-handlers/form-error-handler.service';
 import {
@@ -23,6 +24,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   mousedown = false;
 
   constructor(
+    private router: Router,
+    private route: ActivatedRoute,
     private auth: AuthService,
     private fb: FormBuilder,
     private fromErrHandler: FormErrorHandler
@@ -65,8 +68,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subs.add(
       this.auth.login(JSON.stringify(credentials)).subscribe(
         (res) => {
+          const next = this.route.snapshot.queryParamMap.get('next');
           // tslint:disable-next-line: no-string-literal
           this.auth.saveAuthToken(res['token']);
+          this.router.navigate([next || '/stream/music']);
         },
         (err) => {
           this.fromErrHandler.handleServerErrors(this.form, err);
