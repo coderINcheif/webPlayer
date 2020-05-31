@@ -29,4 +29,12 @@ export class AuthService {
     };
     return this.http.post(this.signupURL, data, options);
   }
+
+  saveAuthToken(token: string) {
+    localStorage.setItem('authToken', token);
+  }
+
+  isAuthenticated(): boolean {
+    return localStorage.getItem('token') ? true : false;
+  }
 }

@@ -36,23 +36,23 @@ export class LoginComponent implements OnInit, OnDestroy {
     });
   }
 
-  get email() {
-    return this.form.get('email');
-  }
-
-  get password() {
-    return this.form.get('password');
-  }
-
   ngOnInit(): void {}
+
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
+  }
 
   mouseEvent(event: Event) {
     event.stopPropagation();
     this.mousedown = event.type === 'mousedown' ? true : false;
   }
 
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
+  get email() {
+    return this.form.get('email');
+  }
+
+  get password() {
+    return this.form.get('password');
   }
 
   login(): void {
@@ -65,7 +65,8 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.subs.add(
       this.auth.login(JSON.stringify(credentials)).subscribe(
         (res) => {
-          console.log(res);
+          // tslint:disable-next-line: no-string-literal
+          this.auth.saveAuthToken(res['token']);
         },
         (err) => {
           this.fromErrHandler.handleServerErrors(this.form, err);

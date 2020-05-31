@@ -9,6 +9,7 @@ import {
 import { requiredValidator } from './../../shared/validators/common.validator';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { HttpResponse } from '@angular/common/http';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -79,7 +80,8 @@ export class SignupComponent implements OnInit, OnDestroy {
         .pipe()
         .subscribe(
           (res) => {
-            console.log(res);
+            // tslint:disable-next-line: no-string-literal
+            this.auth.saveAuthToken(res['token']);
           },
           (err) => {
             this.formErrHandler.handleServerErrors(this.form, err);

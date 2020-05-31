@@ -79,7 +79,7 @@ def login_view(request, *args, **kwargs):
         )
     if user.check_password(password):
         token: Token = Token.objects.get_or_create(user=user)[0]
-        return Response({"token": token.key}, status=status.HTTP_302_FOUND)
+        return Response({"token": token.key}, status=status.HTTP_200_OK)
     else:
         return Response({'password': "Invalid password"}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
 
