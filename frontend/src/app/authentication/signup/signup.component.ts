@@ -71,7 +71,8 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   login() {
-    this.router.navigate(['/authentication/login']);
+    const params = this.route.snapshot.queryParams;
+    this.router.navigate(['/authentication/login'], { queryParams: params });
   }
 
   singup(): void {
