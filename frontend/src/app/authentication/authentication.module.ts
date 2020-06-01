@@ -5,9 +5,10 @@ import { CommonModule } from '@angular/common';
 import { AuthenticationComponent } from './authentication.component/authentication.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [AuthenticationComponent, LoginComponent, SignupComponent],
+  declarations: [AuthenticationComponent, LoginComponent, SignupComponent, NavigationComponent],
   imports: [CommonModule, AuthenticationRoutingModule, ReactiveFormsModule],
 })
 export class AuthenticationModule {}

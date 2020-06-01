@@ -1,75 +1,78 @@
-<form [formGroup]="form" (ngSubmit)="singup()">
-  <div class="form-row">
+<div class="container">
+  <form [formGroup]="form" (ngSubmit)="singup()">
+    <div class="form-row">
+      <input
+        placeholder="First Name"
+        [class.error]="first_name.touched && first_name.errors"
+        formControlName="first_name"
+        type="text"
+        name="first_name"
+      />
+      <ul class="errorlist" *ngIf="first_name.touched && first_name.errors">
+        <li *ngFor="let error of first_name.errors | keyvalue">
+          {{ error.value }}
+        </li>
+      </ul>
+      <input
+        placeholder="Last Name"
+        [class.error]="last_name.touched && last_name.errors"
+        formControlName="last_name"
+        type="text"
+        name="last_name"
+      />
+      <ul class="errorlist" *ngIf="last_name.touched && last_name.errors">
+        <li *ngFor="let error of last_name.errors | keyvalue">
+          {{ error.value }}
+        </li>
+      </ul>
+    </div>
     <input
-      placeholder="First Name"
-      [class.error]="first_name.touched && first_name.errors"
-      formControlName="first_name"
+      placeholder="Email"
+      [class.error]="email.touched && email.errors"
+      formControlName="email"
       type="text"
-      name="first_name"
+      name="{{ email }}"
     />
-    <ul class="errorlist" *ngIf="first_name.touched && first_name.errors">
-      <li *ngFor="let error of first_name.errors | keyvalue">
+    <ul class="errorlist" *ngIf="email.touched && email.errors">
+      <li *ngFor="let error of email.errors | keyvalue">
         {{ error.value }}
       </li>
     </ul>
     <input
-      placeholder="Last Name"
-      [class.error]="last_name.touched && last_name.errors"
-      formControlName="last_name"
+      placeholder="Password"
+      [class.error]="password.touched && password.errors"
+      formControlName="password"
       type="text"
-      name="last_name"
+      name="password"
     />
-    <ul class="errorlist" *ngIf="last_name.touched && last_name.errors">
-      <li *ngFor="let error of last_name.errors | keyvalue">
+    <ul class="errorlist" *ngIf="password.touched && password.errors">
+      <li *ngFor="let error of password.errors | keyvalue">
         {{ error.value }}
       </li>
     </ul>
-  </div>
-  <input
-    placeholder="Email"
-    [class.error]="email.touched && email.errors"
-    formControlName="email"
-    type="text"
-    name="{{ email }}"
-  />
-  <ul class="errorlist" *ngIf="email.touched && email.errors">
-    <li *ngFor="let error of email.errors | keyvalue">
-      {{ error.value }}
-    </li>
-  </ul>
-  <input
-    placeholder="Password"
-    [class.error]="password.touched && password.errors"
-    formControlName="password"
-    type="text"
-    name="password"
-  />
-  <ul class="errorlist" *ngIf="password.touched && password.errors">
-    <li *ngFor="let error of password.errors | keyvalue">
-      {{ error.value }}
-    </li>
-  </ul>
-  <input
-    placeholder="Confirm Password"
-    [class.error]="confirm_password.touched && confirm_password.errors"
-    formControlName="confirm_password"
-    type="text"
-    name="confirm_password"
-  />
-  <ul
-    class="errorlist"
-    *ngIf="confirm_password.touched && confirm_password.errors"
-  >
-    <li *ngFor="let error of confirm_password.errors | keyvalue">
-      {{ error.value }}
-    </li>
-  </ul>
-  <button
-    [@clickTrigger]="mousedown ? 'mousedown' : '*'"
-    type="submit"
-    (mousedown)="mouseEvent($event)"
-    (mouseup)="mouseEvent($event)"
-  >
-    Signup
-  </button>
-</form>
+    <input
+      placeholder="Confirm Password"
+      [class.error]="confirm_password.touched && confirm_password.errors"
+      formControlName="confirm_password"
+      type="text"
+      name="confirm_password"
+    />
+    <ul
+      class="errorlist"
+      *ngIf="confirm_password.touched && confirm_password.errors"
+    >
+      <li *ngFor="let error of confirm_password.errors | keyvalue">
+        {{ error.value }}
+      </li>
+    </ul>
+    <button
+      [@clickTrigger]="mousedown ? 'mousedown' : '*'"
+      type="submit"
+      (mousedown)="mouseEvent($event)"
+      (mouseup)="mouseEvent($event)"
+    >
+      Signup
+    </button>
+  </form>
+  <auth-navigation (click)="login()"></auth-navigation>
+</div>

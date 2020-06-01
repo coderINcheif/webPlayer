@@ -70,6 +70,10 @@ export class SignupComponent implements OnInit, OnDestroy {
     return this.form.get('confirm_password');
   }
 
+  login() {
+    this.router.navigate(['/authentication/login']);
+  }
+
   singup(): void {
     if (this.form.invalid) {
       this.form.setErrors({ ...this.form.errors });

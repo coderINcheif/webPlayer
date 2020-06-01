@@ -12,10 +12,24 @@ const routes: Routes = [
       {
         path: 'login',
         component: LoginComponent,
+        data: {
+          index: 1,
+          animation: {
+            value: 'login',
+            params: { indexDiff: 100, rindexDiff: -100 },
+          },
+        },
       },
       {
         path: 'signup',
         component: SignupComponent,
+        data: {
+          index: 2,
+          animation: {
+            value: 'signup',
+            params: { indexDiff: 100, rindexDiff: -100 },
+          },
+        },
       },
       {
         path: '',
