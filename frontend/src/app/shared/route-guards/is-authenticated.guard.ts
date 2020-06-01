@@ -1,9 +1,14 @@
-import { AuthService } from './../../authentication/shared/services/auth.service';
+import { AuthService } from '../../authentication/shared/services/auth.service';
 import { Injectable } from '@angular/core';
-import { CanActivate, RouterStateSnapshot, Router } from '@angular/router';
+import {
+  CanActivate,
+  RouterStateSnapshot,
+  Router,
+  CanActivateChild,
+} from '@angular/router';
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate {
+export class IsAuthenticatedGuard implements CanActivate, CanActivateChild {
   constructor(private router: Router, private auth: AuthService) {}
 
   canActivate(route, state: RouterStateSnapshot) {
@@ -15,5 +20,9 @@ export class AuthGuard implements CanActivate {
       queryParams: { next: state.url },
     });
     return false;
+  }
+
+  canActivateChild(route, state: RouterStateSnapshot) {
+    return this.canActivate(route, state);
   }
 }
