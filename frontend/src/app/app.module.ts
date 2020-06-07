@@ -1,3 +1,4 @@
+import { LoadingIndicatorModule } from './shared/components/loading-indicator/loading-indicator.module';
 import { NotAuthenticatedGuard } from './shared/route-guards/not-authenticated.guard';
 import { IsAuthenticatedGuard } from './shared/route-guards/is-authenticated.guard';
 import { FormErrorHandler } from './shared/error-handlers/form-error-handler.service';
@@ -7,10 +8,9 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component/app.component';
 import { HttpClientModule } from '@angular/common/http';
-import { LoadingIndicatorComponent } from './shared/components/loading-indicator/loading-indicator.component';
 
 @NgModule({
-  declarations: [AppComponent, LoadingIndicatorComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,

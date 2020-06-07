@@ -19,6 +19,9 @@ from django.shortcuts import redirect, reverse, get_object_or_404
 from django.contrib.auth import get_user_model
 from django.conf import settings
 
+# utils
+from time import sleep
+
 
 class UserViewSet(
     mixins.ListModelMixin,
@@ -59,6 +62,10 @@ class UserRegisterView(CreateAPIView):
     queryset = auth_models.CustomUser.objects.all()
     permission_classes = [permissions.AllowAny]
 
+    def __init__(self):
+        super().__init__()
+        sleep(3)
+
     def get_serializer_context(self):
         context = super().get_serializer_context()
         context['register_view'] = True
@@ -68,6 +75,7 @@ class UserRegisterView(CreateAPIView):
 @api_view(http_method_names=['POST'])
 @permission_classes((permissions.AllowAny,))
 def login_view(request, *args, **kwargs):
+    sleep(3)
     email: str = request.data.get('email')
     password: str = request.data.get('password')
     try:

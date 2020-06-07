@@ -22,6 +22,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class SignupComponent implements OnInit, OnDestroy {
   form: FormGroup;
   mousedown = false;
+  loading = false;
   subs: Subscription = new Subscription();
 
   constructor(
@@ -81,6 +82,7 @@ export class SignupComponent implements OnInit, OnDestroy {
       this.form.markAllAsTouched();
       return;
     }
+    this.loading = true;
     const data = this.form.value;
     this.subs.add(
       this.auth
@@ -88,12 +90,14 @@ export class SignupComponent implements OnInit, OnDestroy {
         .pipe()
         .subscribe(
           (res) => {
+            this.loading = false;
             const next = this.route.snapshot.queryParamMap.get('next');
             // tslint:disable-next-line: no-string-literal
             this.auth.saveAuthToken(res['token']);
             this.router.navigate([next || '/stream/music']);
           },
           (err) => {
+            this.loading = false;
             this.formErrHandler.handleServerErrors(this.form, err);
           }
         )

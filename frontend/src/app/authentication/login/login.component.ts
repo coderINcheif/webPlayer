@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   form: FormGroup;
   subs: Subscription = new Subscription();
   mousedown = false;
+  loading = false;
 
   constructor(
     private router: Router,
@@ -72,15 +73,18 @@ export class LoginComponent implements OnInit, OnDestroy {
       return;
     }
     const credentials = this.form.value;
+    this.loading = true;
     this.subs.add(
       this.auth.login(JSON.stringify(credentials)).subscribe(
         (res) => {
+          this.loading = false;
           const next = this.route.snapshot.queryParamMap.get('next');
           // tslint:disable-next-line: no-string-literal
           this.auth.saveAuthToken(res['token']);
           this.router.navigate([next || '/stream/music']);
         },
         (err) => {
+          this.loading = false;
           this.fromErrHandler.handleServerErrors(this.form, err);
         }
       )

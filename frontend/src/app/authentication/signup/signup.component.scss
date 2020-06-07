@@ -68,6 +68,7 @@
       background-color: $primary-color;
       outline: none;
       box-sizing: border-box;
+      margin-bottom: 20px;
     }
   }
 
@@ -75,5 +76,11 @@
     position: absolute;
     top: 30%;
     left: -100px;
+  }
+
+  app-loading-indicator {
+    position: absolute;
+    top: calc(100%+40px);
+    width: 100%;
   }
 }

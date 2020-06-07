@@ -1,3 +1,4 @@
+import { LoadingIndicatorModule } from './../shared/components/loading-indicator/loading-indicator.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthenticationRoutingModule } from './authentication-routing.module';
 import { NgModule } from '@angular/core';
@@ -8,7 +9,17 @@ import { SignupComponent } from './signup/signup.component';
 import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
-  declarations: [AuthenticationComponent, LoginComponent, SignupComponent, NavigationComponent],
-  imports: [CommonModule, AuthenticationRoutingModule, ReactiveFormsModule],
+  declarations: [
+    AuthenticationComponent,
+    LoginComponent,
+    SignupComponent,
+    NavigationComponent,
+  ],
+  imports: [
+    CommonModule,
+    LoadingIndicatorModule,
+    AuthenticationRoutingModule,
+    ReactiveFormsModule,
+  ],
 })
 export class AuthenticationModule {}
