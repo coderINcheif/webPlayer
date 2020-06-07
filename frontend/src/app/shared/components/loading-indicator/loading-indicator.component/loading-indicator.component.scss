@@ -7,11 +7,11 @@
   }
 
   50% {
-    left: 45%;
+    left: 47%;
   }
 
   60% {
-    left: 47%;
+    left: 48%;
   }
 
   100% {
@@ -30,11 +30,10 @@
     height: 4px;
     width: 4px;
     border-radius: 50%;
-    background-color: $primary-color;
+    background-color: transparentize($color: $primary-color, $amount: 0.1);
     animation: loading 2s ease-in-out infinite;
     position: relative;
     left: -30px;
-    // opacity: 0;
     &.dot-2 {
       animation-delay: 50ms;
     }
