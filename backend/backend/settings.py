@@ -33,7 +33,10 @@ ALLOWED_HOSTS = ['localhost']
 INSTALLED_APPS = [
     # my apps
     'authentication',
+    'artist',
     'song',
+    'album',
+    'playlist',
     # 3rd party
     'rest_framework',
     'rest_framework.authtoken',
