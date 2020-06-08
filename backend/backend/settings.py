@@ -33,7 +33,6 @@ ALLOWED_HOSTS = ['localhost']
 INSTALLED_APPS = [
     # my apps
     'authentication',
-    'artist',
     'song',
     'album',
     'playlist',
