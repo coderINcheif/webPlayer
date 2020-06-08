@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'authentication',
     'song',
     'album',
+    'artist',
     'playlist',
     # 3rd party
     'rest_framework',
