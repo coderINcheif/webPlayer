@@ -68,8 +68,10 @@
     <button
       [@clickTrigger]="mousedown ? 'mousedown' : '*'"
       type="submit"
+      [disabled]="loading"
       (mousedown)="mouseEvent($event)"
       (mouseup)="mouseEvent($event)"
+      [disabled]="loading"
     >
       Signup
     </button>

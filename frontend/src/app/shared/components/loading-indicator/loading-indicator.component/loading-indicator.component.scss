@@ -31,7 +31,7 @@
     width: 4px;
     border-radius: 50%;
     background-color: transparentize($color: $primary-color, $amount: 0.1);
-    animation: loading 2s ease-in-out infinite;
+    animation: loading 1.8s ease-in-out infinite;
     position: relative;
     left: -30px;
     &.dot-2 {
