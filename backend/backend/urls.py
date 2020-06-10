@@ -26,5 +26,8 @@ urlpatterns = [
     path('authentication/', include('authentication.urls')),
     path('api/users/', include('authentication.api.urls')),
 
+    path('playlists/', include('playlist.urls')),
+    path('api/playlists/', include('playlist.api.urls')),
+
     path('api-auth/', include('rest_framework.urls'))
 ]

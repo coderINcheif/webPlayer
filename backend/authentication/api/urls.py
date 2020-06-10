@@ -8,7 +8,7 @@ router.register('', views.UserViewSet, basename='user')
 
 urlpatterns = [
     url('authentication/login/', views.login_view, name='auth-login'),
-    url('authentication/logout/', views.logout_view, name='auth-logout  '),
+    url('authentication/logout/', views.logout_view, name='auth-logout'),
     url(
         'authentication/register/',
         views.UserRegisterView.as_view(),
