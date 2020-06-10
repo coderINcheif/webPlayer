@@ -64,7 +64,7 @@ class UserRegisterView(CreateAPIView):
 
     def __init__(self):
         super().__init__()
-        sleep(3)
+        # sleep(3)
 
     def get_serializer_context(self):
         context = super().get_serializer_context()
@@ -75,7 +75,7 @@ class UserRegisterView(CreateAPIView):
 @api_view(http_method_names=['POST'])
 @permission_classes((permissions.AllowAny,))
 def login_view(request, *args, **kwargs):
-    sleep(3)
+    # sleep(3)
     email: str = request.data.get('email')
     password: str = request.data.get('password')
     try:
