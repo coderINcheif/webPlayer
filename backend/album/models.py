@@ -13,7 +13,13 @@ class Album(models.Model):
     owner = models.ForeignKey(artist_models.Artist, on_delete=models.CASCADE)
     songs = models.ManyToManyField(song_models.Song, through='AlbumSong')
 
+    class Meta:
+        unique_together = (('name', 'owner'),)
+
 
 class AlbumSong(models.Model):
     album = models.ForeignKey(Album, on_delete=models.CASCADE)
     song = models.ForeignKey(song_models.Song, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('album', 'song'),)

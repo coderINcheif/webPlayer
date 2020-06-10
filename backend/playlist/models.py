@@ -17,7 +17,13 @@ class Playlist(models.Model):
     )
     songs = models.ManyToManyField(song_models.Song, through='PlaylistSong')
 
+    class Meta:
+        unique_together = (('name', 'owner'),)
+
 
 class PlaylistSong(models.Model):
     playlist = models.ForeignKey(Playlist, on_delete=models.CASCADE)
     song = models.ForeignKey(song_models.Song, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('playlist', 'song'),)
