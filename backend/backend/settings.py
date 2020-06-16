@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     # my apps
     'authentication',
     'song',
+    'genre',
     'album',
     'artist',
     'playlist',

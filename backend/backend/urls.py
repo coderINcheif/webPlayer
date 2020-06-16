@@ -23,6 +23,9 @@ urlpatterns = [
     path('songs/', include('song.urls')),
     path('api/songs/', include('song.api.urls')),
 
+    path('genre/', include('genre.urls')),
+    path('api/genre/', include('genre.api.urls')),
+
     path('authentication/', include('authentication.urls')),
     path('api/users/', include('authentication.api.urls')),
 
