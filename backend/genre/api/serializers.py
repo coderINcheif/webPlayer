@@ -8,5 +8,5 @@ from rest_framework import serializers
 class GenreSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
-        models = genre_models.Genre
+        model = genre_models.Genre
         fields = '__all__'

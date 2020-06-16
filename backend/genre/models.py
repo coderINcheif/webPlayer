@@ -4,4 +4,5 @@ from django.db import models
 
 
 class Genre(models.Model):
-    name = models.CharField(max_length=100, null=False, blank=False)
+    name = models.CharField(unique=True, max_length=100,
+                            null=False, blank=False)

@@ -12,3 +12,6 @@ class Song(models.Model):
 class SongGenre(models.Model):
     song = models.ForeignKey(Song, on_delete=models.CASCADE)
     genre = models.ForeignKey(genre_models.Genre, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = (('song', 'genre'),)
