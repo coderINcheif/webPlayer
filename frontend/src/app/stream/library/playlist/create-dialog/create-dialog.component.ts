@@ -52,6 +52,10 @@ export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   createPlaylist(form: NgForm) {
-    this.createPlaylistService.createPlaylist(form.value.name);
+    const data = JSON.stringify(form.value);
+    this.createPlaylistService.createPlaylist(data).subscribe(
+      (res) => {},
+      (err) => {}
+    );
   }
 }

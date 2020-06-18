@@ -16,6 +16,7 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
 
     class Meta:
         model = playlist_models.Playlist
+        validators = []
         fields = '__all__'
         extra_kwargs = {
             'owner': {'view_name': 'user-detail', 'required': False},

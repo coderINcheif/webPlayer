@@ -1,5 +1,6 @@
+import { FormErrorHandler } from './../../../../../shared/error-handlers/form.handler';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { PlaylistInterface } from '../../../../shared/interfaces/playlist.interface';
-import { TestDataService } from '../../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 
@@ -7,20 +8,22 @@ import { BehaviorSubject, Subject } from 'rxjs';
   providedIn: 'root',
 })
 export class CreatePlaylistService {
+  private createPlaylistURL = 'http://localhost:8000/api/playlists/';
   private showDialog = new BehaviorSubject<boolean>(false);
   showDialog$ = this.showDialog.asObservable();
   private newPlaylist = new Subject<PlaylistInterface>();
   newPlaylist$ = this.newPlaylist.asObservable();
 
-  constructor(private testDataService: TestDataService) {}
+  constructor(
+    private http: HttpClient,
+    private formErrorHandler: FormErrorHandler
+  ) {}
 
   updateDialogStatus(status: boolean) {
     this.showDialog.next(status);
   }
 
-  createPlaylist(playlistName: string) {
-    const newObject = this.testDataService.createLibraryPlaylist(playlistName);
-    this.updateDialogStatus(false);
-    this.newPlaylist.next(newObject);
+  createPlaylist(data: string) {
+    return this.http.post(this.createPlaylistURL, data);
   }
 }

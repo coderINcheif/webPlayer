@@ -5,7 +5,6 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpHeaders,
 } from '@angular/common/http';
 
 @Injectable({ providedIn: 'root' })
@@ -16,7 +15,10 @@ export class AuthTokenInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     const token = localStorage.getItem('authToken');
     const req = request.clone({
-      setHeaders: { Authorization: 'Token ' + token },
+      setHeaders: {
+        Authorization: `Token ${token}`,
+        'Content-Type': 'application/json',
+      },
     });
     return next.handle(req);
   }
