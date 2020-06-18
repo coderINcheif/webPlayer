@@ -1,6 +1,6 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { clickTrigger } from './../shared/animations/button-click.animation';
-import { FormErrorHandler } from './../../shared/error-handlers/form-error-handler.service';
+import { FormErrorHandler } from '../../shared/error-handlers/form.handler';
 import {
   requiredValidator,
   patternValidator,

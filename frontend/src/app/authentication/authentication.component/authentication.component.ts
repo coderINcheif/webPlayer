@@ -1,4 +1,4 @@
-import { routeAnimation } from './authentication/authentication.animation';
+import { routeAnimation } from './animations/authentication.animation';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 

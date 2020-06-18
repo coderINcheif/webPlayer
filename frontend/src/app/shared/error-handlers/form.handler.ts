@@ -18,9 +18,9 @@ export class FormErrorHandler {
       const controlError = formErrors[control];
       if (Array.isArray(controlError)) {
         const controlErrors = controlError as Array<string>;
-        controlErrors.forEach((error, index: number) => {
+        controlErrors.forEach((err, index: number) => {
           const errorTag = `server_${index}`;
-          serverErrors[errorTag] = error;
+          serverErrors[errorTag] = err;
         });
         form.controls[control].setErrors(serverErrors);
       } else {

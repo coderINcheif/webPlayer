@@ -8,6 +8,8 @@ from authentication.api import serializers as auth_serializers
 
 class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
 
+    id = serializers.IntegerField(read_only=True)
+
     def create(self, validated_data):
         validated_data['owner'] = self.context.get('request').user
         return super().create(validated_data)

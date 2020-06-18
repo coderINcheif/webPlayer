@@ -1,3 +1,5 @@
+import { AuthTokenInterceptor } from './stream.component/http-interceptors/auth-token.interceptor';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StreamRoutingModule } from './stream-routing.module';
@@ -18,6 +20,11 @@ import { TestDataService } from './shared/services/test-data.service';
     MediaControllerModule,
     StreamRoutingModule,
   ],
-  providers: [OverlayService, ScrollService, TestDataService],
+  providers: [
+    OverlayService,
+    ScrollService,
+    TestDataService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthTokenInterceptor },
+  ],
 })
 export class StreamModule {}

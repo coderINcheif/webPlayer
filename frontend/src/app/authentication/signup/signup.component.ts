@@ -1,5 +1,5 @@
 import { Subscription } from 'rxjs';
-import { FormErrorHandler } from './../../shared/error-handlers/form-error-handler.service';
+import { FormErrorHandler } from '../../shared/error-handlers/form.handler';
 import { AuthService } from './../shared/services/auth.service';
 import { clickTrigger } from './../shared/animations/button-click.animation';
 import {
