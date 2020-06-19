@@ -1,4 +1,4 @@
-import { PlaylistInterface } from '../../../shared/interfaces/playlist.interface';
+import { Subscription } from 'rxjs';
 import { CreatePlaylistService } from '../shared/services/create-playlist.service';
 import { dialogTrigger } from './create-dialog.animation';
 import { OverlayService } from '../../../shared/services/overlay-service/overlay.service';
@@ -9,9 +9,9 @@ import {
   ViewChild,
   AfterViewInit,
   ElementRef,
-  Input,
 } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { tap } from 'rxjs/operators';
 
 @Component({
   // tslint:disable-next-line: component-selector
@@ -22,7 +22,7 @@ import { NgForm } from '@angular/forms';
 })
 export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('nameInput') nameInput: ElementRef;
-
+  subs = new Subscription();
   dialogStatus = false;
   constructor(
     private overlayService: OverlayService,
@@ -30,17 +30,22 @@ export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   ) {}
 
   ngOnInit() {
-    this.createPlaylistService.showDialog$.subscribe((status) => {
-      this.dialogStatus = status;
-      this.overlayService.updateOverlayStatus(status);
-    });
-    this.overlayService.overlayStatus$.subscribe((status) => {
-      this.dialogStatus = status;
-    });
+    this.subs.add(
+      this.createPlaylistService.showDialog$.subscribe((status) => {
+        this.dialogStatus = status;
+        this.overlayService.updateOverlayStatus(status);
+      })
+    );
+    this.subs.add(
+      this.overlayService.overlayStatus$.subscribe((status) => {
+        this.dialogStatus = status;
+      })
+    );
   }
 
   ngOnDestroy() {
     this.createPlaylistService.updateDialogStatus(false);
+    this.subs.unsubscribe();
   }
 
   ngAfterViewInit() {
@@ -54,7 +59,9 @@ export class CreateDialogComponent implements OnInit, OnDestroy, AfterViewInit {
   createPlaylist(form: NgForm) {
     const data = JSON.stringify(form.value);
     this.createPlaylistService.createPlaylist(data).subscribe(
-      (res) => {},
+      (res) => {
+        this.createPlaylistService.addNewPlaylist(res);
+      },
       (err) => {}
     );
   }

@@ -2,7 +2,10 @@ import { SearchResultInterface } from '../../view-controller/search/shared/inter
 import { PlaylistDetailInterface } from '../playlist-detail/interfaces/playlist-detail.interface';
 import { ArtistInterface } from '../interfaces/artist.interface';
 import { MusicInterface } from '../interfaces/music.interface';
-import { PlaylistInterface } from '../interfaces/playlist.interface';
+import {
+  PlaylistInterface,
+  LibraryPlaylistInterface,
+} from '../interfaces/playlist.interface';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -12,7 +15,7 @@ export class TestDataService {
   playlist: PlaylistInterface;
   track: MusicInterface;
   artist: ArtistInterface;
-  libraryPlaylist: PlaylistInterface;
+  libraryPlaylist: LibraryPlaylistInterface;
   playlistDetail: PlaylistDetailInterface;
   searchSample: SearchResultInterface;
   searchSample2: SearchResultInterface;
@@ -26,8 +29,8 @@ export class TestDataService {
       id: 'random-id',
     };
     this.playlist = {
-      title: 'Test Playlist',
-      created_by: 'Himanshu Pandey',
+      name: 'Test Playlist',
+      owner: 'Himanshu Pandey',
       id: 'some-random-id',
       artists: [this.artist, this.artist, this.artist, this.artist],
       cover: 'assets/images/7_rings.png',
@@ -40,15 +43,14 @@ export class TestDataService {
       cover: 'assets/images/7_rings.png',
     };
     this.libraryPlaylist = {
-      title: 'My Playlist',
-      created_by: 'Himanshu Pandey',
+      name: 'My Playlist',
       id: 'some-random-id',
-      artists: null,
+      url: 'Himanshu Pandey',
       cover: 'assets/images/myPlaylist.jpeg',
     };
     this.playlistDetail = {
-      title: 'Test Playlist',
-      created_by: 'Himanshu Pandey',
+      name: 'Test Playlist',
+      owner: 'Himanshu Pandey',
       id: 'some-random-id',
       artists: [this.artist, this.artist, this.artist, this.artist],
       cover: 'assets/images/7_rings.png',
@@ -94,7 +96,7 @@ export class TestDataService {
   }
 
   updatePlaylist(playlistData: any): void {
-    this.libraryPlaylist.title = playlistData.name;
+    this.libraryPlaylist.name = playlistData.name;
   }
 
   getPlaylistDetailData(): PlaylistDetailInterface {
@@ -134,17 +136,5 @@ export class TestDataService {
       items.push(this.artist);
     }
     return items;
-  }
-
-  createLibraryPlaylist(playlistName: string): PlaylistInterface {
-    const newPlaylist: PlaylistInterface = {
-      title: playlistName,
-      cover: this.libraryPlaylist.cover,
-      id: this.libraryPlaylist.id,
-      created_by: this.libraryPlaylist.created_by,
-      artists: null,
-    };
-    this.createdPlaylist.push(newPlaylist);
-    return newPlaylist;
   }
 }

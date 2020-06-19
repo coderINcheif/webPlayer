@@ -1,9 +1,16 @@
 import { ArtistInterface } from './artist.interface';
 
 export interface PlaylistInterface {
-  title: string;
+  name: string;
   artists: Array<ArtistInterface>;
   cover: string;
-  created_by: string;
+  owner: string;
   id: string;
+}
+
+export interface LibraryPlaylistInterface {
+  id: string;
+  url: string;
+  name: string;
+  cover: string;
 }

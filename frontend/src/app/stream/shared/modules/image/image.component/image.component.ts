@@ -9,7 +9,7 @@ export class ImageComponent implements OnInit {
   // tslint:disable-next-line: no-input-rename
   @Input('url') url: string;
   // tslint:disable-next-line: no-input-rename
-  @Input('circle') circle = false;
+  @Input('artist') artist = false;
 
   constructor() {}
 
