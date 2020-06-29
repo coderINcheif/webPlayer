@@ -11,11 +11,11 @@ from django.conf import settings
 
 class Playlist(models.Model):
     name = models.CharField(max_length=100, blank=False, null=False)
+    songs = models.ManyToManyField(song_models.Song, through='PlaylistSong')
     owner = models.ForeignKey(
         settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE
     )
-    songs = models.ManyToManyField(song_models.Song, through='PlaylistSong')
 
     class Meta:
         unique_together = (('name', 'owner'),)

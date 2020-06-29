@@ -21,6 +21,10 @@ class CustomUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
+    @property
+    def token(self):
+        return Token.objects.get(user=self)
+
 
 @receiver(post_save, sender=get_user_model())
 def login(instance=None, created=False, **kwargs):

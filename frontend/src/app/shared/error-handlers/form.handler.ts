@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, NgForm } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable({

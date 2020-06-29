@@ -12,6 +12,11 @@
     rgba($color: rgb(8, 8, 8), $alpha: 0.6)
   );
   box-shadow: 0 5px 12px 6px rgba($color: black, $alpha: 0.3);
+  app-loading-indicator {
+    position: absolute;
+    width: 100%;
+    margin-top: -5px;
+  }
 }
 .background {
   position: absolute;

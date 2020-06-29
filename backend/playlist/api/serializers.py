@@ -11,13 +11,12 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
     id = serializers.IntegerField(read_only=True)
 
     def create(self, validated_data):
-        validated_data['owner'] = self.context.get('request').user
-        return super().create(validated_data)
+        owner = self.context.get('request').user
+        return playlist_models.Playlist.objects.create(**validated_data, owner=owner)
 
     class Meta:
         model = playlist_models.Playlist
-        validators = []
         fields = '__all__'
         extra_kwargs = {
-            'owner': {'view_name': 'user-detail', 'required': False},
+            'owner': {'view_name': 'user-detail', 'read_only': True},
         }

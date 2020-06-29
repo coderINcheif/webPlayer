@@ -1,3 +1,4 @@
+import { LoadingIndicatorModule } from './shared/components/loading-indicator/loading-indicator.module';
 import { NotAuthenticatedGuard } from './shared/route-guards/not-authenticated.guard';
 import { IsAuthenticatedGuard } from './shared/route-guards/is-authenticated.guard';
 import { FormErrorHandler } from './shared/error-handlers/form.handler';

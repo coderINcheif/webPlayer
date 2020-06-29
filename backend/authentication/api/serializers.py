@@ -19,14 +19,10 @@ class ValidationError422(APIException):
 class UserSerializer(serializers.ModelSerializer):
 
     confirm_password = serializers.CharField(write_only=True)
-    token = serializers.SerializerMethodField('get_token')
+    token = serializers.CharField(read_only=True)
 
     class PasswordConfirmationError(Exception):
         message = "Passwords do not match"
-
-    def get_token(self, user):
-        register_view = self.context.get('register_view')
-        return '' if not register_view else Token.objects.get(user=user).key
 
     def to_representation(self, instance):
         rep = super().to_representation(instance)
@@ -56,11 +52,18 @@ class UserSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = auth_models.CustomUser
-        extra_kwargs = {'password': {'write_only': True}}
         fields = (
-            'id', 'first_name', 'last_name',
-            'email', 'password', 'token', 'confirm_password'
+            'id',
+            'first_name',
+            'last_name',
+            'email',
+            'password',
+            'token',
+            'confirm_password'
         )
+        extra_kwargs = {
+            'password': {'write_only': True},
+        }
 
 
 class UserUpdateSerializer(serializers.ModelSerializer):
