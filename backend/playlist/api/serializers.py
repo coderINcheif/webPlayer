@@ -12,7 +12,8 @@ class PlaylistSerializer(serializers.HyperlinkedModelSerializer):
 
     def validate_name(self, data):
         try:
-            playlist_models.Playlist.objects.get(name=data)
+            user = self.context.get('request').user
+            playlist_models.Playlist.objects.get(name=data, owner=user)
             raise serializers.ValidationError("Playlist already exist")
         except playlist_models.Playlist.DoesNotExist:
             return data
