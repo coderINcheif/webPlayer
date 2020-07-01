@@ -1,3 +1,5 @@
+@import '~src/scss/theme-data.scss';
+
 .container {
   height: 50%;
   width: 28%;
@@ -57,6 +59,19 @@
       outline: none;
     }
   }
+  .errorlist {
+    padding: 0;
+    margin: 0;
+    // margin-top: -10px;
+    color: $error-color;
+    list-style: none;
+    font-size: 13px;
+    box-sizing: border-box;
+    font-weight: 700;
+    li {
+      margin-bottom: 2px;
+    }
+  }
   .action {
     display: flex;
     flex-flow: row;
@@ -70,7 +85,7 @@
       background-color: transparent;
       color: grey;
       &.primary {
-        color: #95e1d3;
+        color: $primary-color;
       }
       &.disabled {
         opacity: 0.5;
