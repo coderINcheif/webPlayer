@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { CardType } from 'src/app/stream/shared/enums/card.enum';
 import { TestDataService } from '../../../../shared/services/test-data.service';
 import { Injectable } from '@angular/core';
@@ -6,10 +7,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LibraryPlaylistService {
-  constructor(private testDataService: TestDataService) {}
+  libraryPlaylistURL = 'http://localhost:8000/api/playlists/';
+  constructor(
+    private http: HttpClient,
+    private testDataService: TestDataService
+  ) {}
 
   getItems() {
-    return this.testDataService.getData('library-playlist');
+    return this.http.get(this.libraryPlaylistURL);
   }
 
   getCardType() {

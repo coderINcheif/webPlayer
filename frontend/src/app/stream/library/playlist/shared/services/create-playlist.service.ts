@@ -31,9 +31,6 @@ export class CreatePlaylistService {
   }
 
   createPlaylist(data: string) {
-    return of(null).pipe(
-      // tap(() => this.showDialog.next(false)),
-      flatMap(() => this.http.post(this.createPlaylistURL, data))
-    );
+    return this.http.post(this.createPlaylistURL, data);
   }
 }

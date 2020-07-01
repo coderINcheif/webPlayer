@@ -22,7 +22,12 @@ export class PlaylistComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.items = this.playlistService.getItems();
+    this.playlistService.getItems().subscribe(
+      (res) => {
+        this.items = res as Array<LibraryPlaylistInterface>;
+      },
+      (err) => {}
+    );
     this.cardType = this.playlistService.getCardType();
     this.createPlaylistService.newPlaylist$.subscribe((playlist) => {
       this.items.splice(0, 0, playlist);
