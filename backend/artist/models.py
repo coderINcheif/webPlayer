@@ -8,3 +8,4 @@ class Artist(models.Model):
     user = models.OneToOneField(
         settings.AUTH_USER_MODEL, on_delete=models.CASCADE
     )
+    date_created = models.DateTimeField(auto_now_add=True)

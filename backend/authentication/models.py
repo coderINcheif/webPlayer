@@ -14,6 +14,7 @@ from django.contrib.auth import get_user_model
 
 class CustomUser(AbstractUser):
     email = models.EmailField(max_length=254, null=False, unique=True)
+    date_created = models.DateTimeField(auto_now_add=True)
     username = models.CharField(
         max_length=254, null=True, unique=False, blank=True
     )
