@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.22.
 
+![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/auth.gif)
+
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/home.png)
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/generes.png)
@@ -19,3 +21,5 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/actions.png)
 
 ![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/playlist.gif)
+
+![](https://raw.githubusercontent.com/coderINcheif/webPlayer/master/sample-images/lib_nav.gif)
